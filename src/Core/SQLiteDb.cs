@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace MillionBeauty
 {
-    public class SQLiteDB
+    public sealed class SQLiteDB
     {
         #region Construction  / Destruction
         /// <summary>
@@ -18,13 +18,17 @@ namespace MillionBeauty
         /// This must be present otherwise the compiler provides
         /// a default public constructor
         /// </remarks>
-        protected SQLiteDB()
+        private SQLiteDB()
         {
             fact = DbProviderFactories.GetFactory("System.Data.SQLite");
         }
         #endregion Construction  / Destruction
 
-        #region fields
+        #region fields        
+        // Static members are lazily initialized.
+        // .NET guarantees thread safety for static initialization
+        private static readonly SQLiteDB instance = new SQLiteDB();
+
         string dbConnectionStr = "";
         DbProviderFactory fact;
         #endregion fields
@@ -35,32 +39,9 @@ namespace MillionBeauty
         {
             get
             {
-                /// An instance of Singleton wont be created until the very first 
-                /// call to the sealed class. This is a CLR optimization that
-                /// provides a properly lazy-loading singleton. 
-                return SingletonCreator.CreatorInstance;
+                return instance;
             }
-        }
-
-        /// Sealed class to avoid any heritage from this helper class
-        private sealed class SingletonCreator
-        {
-            // Retrieve a single instance of a Singleton
-            private static readonly SQLiteDB _instance = new SQLiteDB();
-
-            private SingletonCreator()
-            {
-            }
-
-            /// Return an instance of the class <see cref="SQLiteDb"/>
-            public static SQLiteDB CreatorInstance
-            {
-                get
-                {
-                    return _instance;
-                }
-            }
-        }
+        }        
 
         public string ConnectionString 
         {

@@ -117,7 +117,401 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="customerTitleLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="customerTitleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 16</value>
+  </data>
+  <data name="customerTitleLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 13</value>
+  </data>
+  <data name="customerTitleLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="customerTitleLabel.Text" xml:space="preserve">
+    <value>Title of Courtesy</value>
+  </data>
+  <data name="&gt;&gt;customerTitleLabel.Name" xml:space="preserve">
+    <value>customerTitleLabel</value>
+  </data>
+  <data name="&gt;&gt;customerTitleLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerTitleLabel.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerTitleLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="customerTitleTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 13</value>
+  </data>
+  <data name="customerTitleTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="customerTitleTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;customerTitleTextBox.Name" xml:space="preserve">
+    <value>customerTitleTextBox</value>
+  </data>
+  <data name="&gt;&gt;customerTitleTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerTitleTextBox.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerTitleTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="customerNameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="customerNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 16</value>
+  </data>
+  <data name="customerNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="customerNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="customerNameLabel.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="&gt;&gt;customerNameLabel.Name" xml:space="preserve">
+    <value>customerNameLabel</value>
+  </data>
+  <data name="&gt;&gt;customerNameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerNameLabel.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerNameLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="customerNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 13</value>
+  </data>
+  <data name="customerNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="customerNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;customerNameTextBox.Name" xml:space="preserve">
+    <value>customerNameTextBox</value>
+  </data>
+  <data name="&gt;&gt;customerNameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerNameTextBox.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerNameTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="customerAddressLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="customerAddressLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 40</value>
+  </data>
+  <data name="customerAddressLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
+  </data>
+  <data name="customerAddressLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="customerAddressLabel.Text" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="&gt;&gt;customerAddressLabel.Name" xml:space="preserve">
+    <value>customerAddressLabel</value>
+  </data>
+  <data name="&gt;&gt;customerAddressLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerAddressLabel.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerAddressLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="customerAddressTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 37</value>
+  </data>
+  <data name="customerAddressTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>340, 20</value>
+  </data>
+  <data name="customerAddressTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;customerAddressTextBox.Name" xml:space="preserve">
+    <value>customerAddressTextBox</value>
+  </data>
+  <data name="&gt;&gt;customerAddressTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerAddressTextBox.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerAddressTextBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="customerPostcodeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="customerPostcodeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 64</value>
+  </data>
+  <data name="customerPostcodeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 13</value>
+  </data>
+  <data name="customerPostcodeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="customerPostcodeLabel.Text" xml:space="preserve">
+    <value>Postcode</value>
+  </data>
+  <data name="&gt;&gt;customerPostcodeLabel.Name" xml:space="preserve">
+    <value>customerPostcodeLabel</value>
+  </data>
+  <data name="&gt;&gt;customerPostcodeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerPostcodeLabel.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerPostcodeLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="customerPostcodeTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 61</value>
+  </data>
+  <data name="customerPostcodeTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="customerPostcodeTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;customerPostcodeTextBox.Name" xml:space="preserve">
+    <value>customerPostcodeTextBox</value>
+  </data>
+  <data name="&gt;&gt;customerPostcodeTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerPostcodeTextBox.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerPostcodeTextBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="customerStateLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="customerStateLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 64</value>
+  </data>
+  <data name="customerStateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>32, 13</value>
+  </data>
+  <data name="customerStateLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="customerStateLabel.Text" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="&gt;&gt;customerStateLabel.Name" xml:space="preserve">
+    <value>customerStateLabel</value>
+  </data>
+  <data name="&gt;&gt;customerStateLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerStateLabel.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerStateLabel.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="customerStateTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 61</value>
+  </data>
+  <data name="customerStateTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="customerStateTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;customerStateTextBox.Name" xml:space="preserve">
+    <value>customerStateTextBox</value>
+  </data>
+  <data name="&gt;&gt;customerStateTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerStateTextBox.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerStateTextBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="customerPhoneLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="customerPhoneLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 88</value>
+  </data>
+  <data name="customerPhoneLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="customerPhoneLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="customerPhoneLabel.Text" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneLabel.Name" xml:space="preserve">
+    <value>customerPhoneLabel</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneLabel.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="customerPhoneTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 85</value>
+  </data>
+  <data name="customerPhoneTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="customerPhoneTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneTextBox.Name" xml:space="preserve">
+    <value>customerPhoneTextBox</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneTextBox.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerPhoneTextBox.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="customerCompanyLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="customerCompanyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>237, 88</value>
+  </data>
+  <data name="customerCompanyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 13</value>
+  </data>
+  <data name="customerCompanyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="customerCompanyLabel.Text" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="&gt;&gt;customerCompanyLabel.Name" xml:space="preserve">
+    <value>customerCompanyLabel</value>
+  </data>
+  <data name="&gt;&gt;customerCompanyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerCompanyLabel.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerCompanyLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="customerCompanyTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 85</value>
+  </data>
+  <data name="customerCompanyTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="customerCompanyTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;customerCompanyTextBox.Name" xml:space="preserve">
+    <value>customerCompanyTextBox</value>
+  </data>
+  <data name="&gt;&gt;customerCompanyTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerCompanyTextBox.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerCompanyTextBox.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="customerPickButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>374, 122</value>
+  </data>
+  <data name="customerPickButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="customerPickButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="customerPickButton.Text" xml:space="preserve">
+    <value>Pick</value>
+  </data>
+  <data name="&gt;&gt;customerPickButton.Name" xml:space="preserve">
+    <value>customerPickButton</value>
+  </data>
+  <data name="&gt;&gt;customerPickButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerPickButton.Parent" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerPickButton.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="customerGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>36, 54</value>
+  </data>
+  <data name="customerGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>455, 151</value>
+  </data>
+  <data name="customerGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="customerGroupBox.Text" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="&gt;&gt;customerGroupBox.Name" xml:space="preserve">
+    <value>customerGroupBox</value>
+  </data>
+  <data name="&gt;&gt;customerGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customerGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;customerGroupBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>558, 362</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1249,5 +1643,18 @@
         AAAAAAA//8AAAAAAAAAAAAAAAAAB////////////////////////////////////////////////////
         //////////////////////////////////8=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>New Order</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>NewOrderForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
