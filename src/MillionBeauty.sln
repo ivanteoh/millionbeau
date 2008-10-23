@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MillionBeauty", "MillionBeauty\MillionBeauty.csproj", "{B1F6233C-1521-4EF7-85F7-A539A7C60D1B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{46906F45-8462-4C19-8D84-18D1B74D5A57} = {46906F45-8462-4C19-8D84-18D1B74D5A57}
+		{3F3454DD-7E46-4121-B475-11AFE5851A69} = {3F3454DD-7E46-4121-B475-11AFE5851A69}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RexText", "RexText\RexText.csproj", "{3F3454DD-7E46-4121-B475-11AFE5851A69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{46906F45-8462-4C19-8D84-18D1B74D5A57}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{824C03B5-015B-43CA-9B7D-D912CC9185C6}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1F6233C-1521-4EF7-85F7-A539A7C60D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F6233C-1521-4EF7-85F7-A539A7C60D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F6233C-1521-4EF7-85F7-A539A7C60D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F6233C-1521-4EF7-85F7-A539A7C60D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F3454DD-7E46-4121-B475-11AFE5851A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3454DD-7E46-4121-B475-11AFE5851A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3454DD-7E46-4121-B475-11AFE5851A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3454DD-7E46-4121-B475-11AFE5851A69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46906F45-8462-4C19-8D84-18D1B74D5A57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46906F45-8462-4C19-8D84-18D1B74D5A57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46906F45-8462-4C19-8D84-18D1B74D5A57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46906F45-8462-4C19-8D84-18D1B74D5A57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{824C03B5-015B-43CA-9B7D-D912CC9185C6}.Debug|Any CPU.ActiveCfg = Debug
+		{824C03B5-015B-43CA-9B7D-D912CC9185C6}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
