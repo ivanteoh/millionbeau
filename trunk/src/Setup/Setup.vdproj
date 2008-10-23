@@ -27,19 +27,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_75F923CEDD434DE6B04F8C0ED0322D84"
-        "OwnerKey" = "8:_61027807B1CE4BFCA8D60AE370E12F9A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B7F10A60B48A4D6F961C59DD7D3F6B2E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C57C74340C54FD2369893420CB017CB3"
+        "MsmKey" = "8:_BFAF0DDCF1F18B53C2D0A6C4AF603FFF"
+        "OwnerKey" = "8:_61027807B1CE4BFCA8D60AE370E12F9A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F52D5BEF35DAD28C63C56B7BACDE9BC1"
         "OwnerKey" = "8:_61027807B1CE4BFCA8D60AE370E12F9A"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -52,7 +52,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C57C74340C54FD2369893420CB017CB3"
+        "OwnerKey" = "8:_BFAF0DDCF1F18B53C2D0A6C4AF603FFF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F52D5BEF35DAD28C63C56B7BACDE9BC1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -65,12 +71,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2FA4C2878DD271E9614854EC504E9C67"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_75F923CEDD434DE6B04F8C0ED0322D84"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -93,7 +93,7 @@
         "InstallerBootstrapper" = "3:2"
             "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
             {
-            "Enabled" = "11:TRUE"
+            "Enabled" = "11:FALSE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
@@ -209,14 +209,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_75F923CEDD434DE6B04F8C0ED0322D84"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BFAF0DDCF1F18B53C2D0A6C4AF603FFF"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MillionBeauty.CustomControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_75F923CEDD434DE6B04F8C0ED0322D84"
+                    "_BFAF0DDCF1F18B53C2D0A6C4AF603FFF"
                     {
                     "Name" = "8:MillionBeauty.CustomControl.dll"
                     "Attributes" = "3:512"
@@ -240,14 +240,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C57C74340C54FD2369893420CB017CB3"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F52D5BEF35DAD28C63C56B7BACDE9BC1"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MillionBeauty.Core, Version=1.0.3218.24906, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:MillionBeauty.Core, Version=1.0.3218.25527, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C57C74340C54FD2369893420CB017CB3"
+                    "_F52D5BEF35DAD28C63C56B7BACDE9BC1"
                     {
                     "Name" = "8:MillionBeauty.Core.dll"
                     "Attributes" = "3:512"
@@ -339,7 +339,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Million Beauty"
         "ProductCode" = "8:{76717AF9-6986-4EAC-AB0D-11E6CE0D9763}"
-        "PackageCode" = "8:{60A01811-B80E-46EB-886B-22B3D497083D}"
+        "PackageCode" = "8:{93A45BC6-BA6C-452E-A99C-D7F8C2DD56CF}"
         "UpgradeCode" = "8:{73BBA760-1F6E-4014-875E-074C70A6FC27}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
@@ -349,7 +349,7 @@
         "Manufacturer" = "8:Million Beauty"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:MillionBeautySetup"
+        "Title" = "8:Setup"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Ivan"
         "Keywords" = "8:"
@@ -887,7 +887,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_61027807B1CE4BFCA8D60AE370E12F9A"
             {
-            "SourcePath" = "8:..\\MillionBeauty\\obj\\Release\\MillionBeauty.exe"
+            "SourcePath" = "8:..\\MillionBeauty\\obj\\Debug\\MillionBeauty.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_21AB8B1730DA490BB64B90FA80CD179F"
@@ -915,7 +915,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B7F10A60B48A4D6F961C59DD7D3F6B2E"
             {
-            "SourcePath" = "8:..\\Core\\obj\\Release\\MillionBeauty.Core.dll"
+            "SourcePath" = "8:..\\Core\\obj\\Debug\\MillionBeauty.Core.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_21AB8B1730DA490BB64B90FA80CD179F"

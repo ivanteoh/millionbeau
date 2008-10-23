@@ -55,12 +55,18 @@ namespace MillionBeauty
             }
         }
 
+        protected string AddButtonName
+        {
+            get { return addButton.Text; }
+            set { addButton.Text = value; }
+        }
+
         private void DataViewtFormKeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.Add:
-                    ShowInsertDialog();
+                    ShowAddDialog();
                     break;
                 default:
                     break;
@@ -72,7 +78,7 @@ namespace MillionBeauty
             switch (e.KeyCode)
             {
                 case Keys.Enter:
-                    ShowUpdateDialog();
+                    ShowEnterDialog();
                     break;
                 case Keys.Delete:
                     ShowDeleteDialog();
@@ -85,11 +91,11 @@ namespace MillionBeauty
             }
         }
 
-        protected virtual void ShowInsertDialog()
+        protected virtual void ShowAddDialog()
         {
         }
 
-        protected virtual void ShowUpdateDialog()
+        protected virtual void ShowEnterDialog()
         {
         }
 

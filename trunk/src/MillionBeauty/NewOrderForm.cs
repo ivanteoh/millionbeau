@@ -13,6 +13,13 @@ namespace MillionBeauty
         public NewOrderForm()
         {
             InitializeComponent();
+            customerPickButton.Click += CustomerPickButtonClick;
+        }
+
+        private void CustomerPickButtonClick(object sender, EventArgs e)
+        {
+            PickCustomerForm pickCustomerForm = new PickCustomerForm();
+            pickCustomerForm.ShowDialog(this);
         }
     }
 }

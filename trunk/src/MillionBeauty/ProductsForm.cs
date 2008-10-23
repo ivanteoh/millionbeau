@@ -21,10 +21,10 @@ namespace MillionBeauty
 
         internal protected override void AddButtonClicked()
         {
-            ShowInsertDialog();
+            ShowAddDialog();
         }
 
-        protected override void ShowInsertDialog()
+        protected override void ShowAddDialog()
         {
             InsertProductForm insertProductForm = new InsertProductForm();
             DialogResult result = insertProductForm.ShowDialog(this);
@@ -32,10 +32,10 @@ namespace MillionBeauty
             {
                 DataSetSource = SQLiteDB.Instance.ProductsTable;
             }
-            base.ShowInsertDialog();
+            base.ShowAddDialog();
         }
 
-        protected override void ShowUpdateDialog()
+        protected override void ShowEnterDialog()
         {
             if (SelectedRow != null)
             {
@@ -53,7 +53,7 @@ namespace MillionBeauty
                     DataSetSource = SQLiteDB.Instance.ProductsTable;
                 }
             }
-            base.ShowUpdateDialog();
+            base.ShowEnterDialog();
         }
 
         protected override void ShowDeleteDialog()
