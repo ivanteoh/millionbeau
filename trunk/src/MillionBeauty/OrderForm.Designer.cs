@@ -61,11 +61,11 @@
             this.totalLabel = new System.Windows.Forms.Label();
             this.totalTextBox = new System.Windows.Forms.TextBox();
             this.discountLabel = new System.Windows.Forms.Label();
+            this.discountRegexTextBox = new CustomControl.RegexTextBox();
             this.grandTotalLabel = new System.Windows.Forms.Label();
             this.grandTotalTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
-            this.discountRegexTextBox = new CustomControl.RegexTextBox();
             this.customerGroupBox.SuspendLayout();
             this.newOrderGroupBox.SuspendLayout();
             this.itemGroupBox.SuspendLayout();
@@ -283,6 +283,12 @@
             resources.ApplyResources(this.discountLabel, "discountLabel");
             this.discountLabel.Name = "discountLabel";
             // 
+            // discountRegexTextBox
+            // 
+            this.discountRegexTextBox.CustomPattern = "^()$";
+            resources.ApplyResources(this.discountRegexTextBox, "discountRegexTextBox");
+            this.discountRegexTextBox.Name = "discountRegexTextBox";
+            // 
             // grandTotalLabel
             // 
             resources.ApplyResources(this.grandTotalLabel, "grandTotalLabel");
@@ -305,12 +311,6 @@
             resources.ApplyResources(this.printButton, "printButton");
             this.printButton.Name = "printButton";
             this.printButton.UseVisualStyleBackColor = true;
-            // 
-            // discountRegexTextBox
-            // 
-            this.discountRegexTextBox.CustomPattern = "^()$";
-            resources.ApplyResources(this.discountRegexTextBox, "discountRegexTextBox");
-            this.discountRegexTextBox.Name = "discountRegexTextBox";
             // 
             // OrderForm
             // 
