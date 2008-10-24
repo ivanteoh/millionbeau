@@ -11,7 +11,7 @@ namespace MillionBeauty
 {
     public partial class OrderDetailForm : Form
     {
-        public event EventHandler OrderDetailAdded;
+        public event EventHandler Added;
 
         public OrderDetailForm()
         {
@@ -37,44 +37,56 @@ namespace MillionBeauty
         internal string ProductId
         {
             get { return productId; }
-            //set { productId = value; }
+            set { productId = value; }
         }
 
         internal string Product
         {
             get { return nameTextBox.Text; }
-            //set { nameTextBox.Text = value; }
+            set { nameTextBox.Text = value; }
         }
 
         internal string Description
         {
             get { return descriptionTextBox.Text; }
-            //set { descriptionTextBox.Text = value; }
+            set { descriptionTextBox.Text = value; }
         }
 
         internal string ProductType
         {
             get { return typeTextBox.Text; }
-            //set { typeTextBox.Text = value; }
+            set { typeTextBox.Text = value; }
         }
-
-        //internal string Specification
-        //{
-        //    get { return specificationTextBox.Text; }
-        //    set { specificationTextBox.Text = value; }
-        //}
 
         internal string InStock
         {
             get { return inStockTextBox.Text; }
-            //set { inStockTextBox.Text = value; }
+            set { inStockTextBox.Text = value; }
         }
 
         internal string Price
         {
             get { return priceTextBox.Text; }
-            //set { priceTextBox.Text = value; }
+            set { priceTextBox.Text = value; }
         }
+
+        internal string Quantity
+        {
+            get { return quantityRegexTextBox.Text; }
+            set { quantityRegexTextBox.Text = value; }
+        }
+
+        internal string DiscountPercent
+        {
+            get { return discountRegexTextBox.Text; }
+            set { discountRegexTextBox.Text = value; }
+        }
+
+        internal string TotalCost
+        {
+            get { return totalCostTextBox.Text; }
+            set { totalCostTextBox.Text = value; }
+        }        
 
         private void PoductFindButtonClick(object sender, EventArgs e)
         {
@@ -165,11 +177,13 @@ namespace MillionBeauty
 
         private void AddButtonClick(object sender, EventArgs e)
         {
-            EventHandler eventHandler = OrderDetailAdded;
+            EventHandler eventHandler = Added;
             if (eventHandler != null)
             {
                 eventHandler(this, EventArgs.Empty);
-            } 
+            }
+
+            Close();
         }
 
         private void OrderDetailFormKeyDown(object sender, KeyEventArgs e)

@@ -708,7 +708,7 @@
     <value>dataGridViewControl</value>
   </data>
   <data name="&gt;&gt;dataGridViewControl.Type" xml:space="preserve">
-    <value>MillionBeauty.DataGridViewControl, MillionBeauty, Version=1.0.3219.28964, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
+    <value>MillionBeauty.DataGridViewControl, MillionBeauty, Version=1.0.3219.34036, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
   </data>
   <data name="&gt;&gt;dataGridViewControl.Parent" xml:space="preserve">
     <value>itemGroupBox</value>

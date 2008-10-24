@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace MillionBeauty
 {
@@ -13,12 +14,20 @@ namespace MillionBeauty
         public OrderForm()
         {
             InitializeComponent();
+
+            orderDetails = new BindingList<OrderDetail>();
+            bindingSource = new BindingSource();
+            bindingSource.DataSource = typeof(OrderDetail);
+            dataGridViewControl.DataSetSource = bindingSource;
+            //dataGridViewControl.DataSetSource = orderDetails;
             customerFindButton.Click += CustomerPickButtonClick;
             dataGridViewControl.AddButtonClicked += DataGridViewControlAddButtonClicked;
             KeyDown += OrderFormKeyDown;
         }
 
+        private BindingList<OrderDetail> orderDetails;
         private string customerId;
+        private BindingSource bindingSource;
             
         private void CustomerPickButtonClick(object sender, EventArgs e)
         {
@@ -44,8 +53,28 @@ namespace MillionBeauty
         private void DataGridViewControlAddButtonClicked(object sender, EventArgs e)
         {
             OrderDetailForm orderDetailForm = new OrderDetailForm();
+            orderDetailForm.Added += OrderDetailFormAdded;
             orderDetailForm.ShowDialog(this);
+            orderDetailForm.Added -= OrderDetailFormAdded;
+            
         }
+
+        private void OrderDetailFormAdded(object sender, EventArgs e)
+        {
+            OrderDetailForm orderDetailForm = sender as OrderDetailForm;
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.ProductId = Convert.ToInt64(orderDetailForm.ProductId, CultureInfo.InvariantCulture);
+            orderDetail.Product = orderDetailForm.Product;
+            orderDetail.Description = orderDetailForm.Description;
+            orderDetail.ProductType = orderDetailForm.ProductType;
+            orderDetail.InStock = Convert.ToInt64(orderDetailForm.InStock, CultureInfo.InvariantCulture);
+            orderDetail.Price = Convert.ToDecimal(orderDetailForm.Price, CultureInfo.InvariantCulture);
+            orderDetail.Quantity = Convert.ToInt64(orderDetailForm.Quantity, CultureInfo.InvariantCulture);
+            orderDetail.DiscountPercent = Convert.ToDecimal(orderDetailForm.DiscountPercent, CultureInfo.InvariantCulture);
+            orderDetail.TotalCost = Convert.ToDecimal(orderDetailForm.TotalCost, CultureInfo.InvariantCulture);
+
+            orderDetails.Add(orderDetail);
+        }       
 
         private void OrderFormKeyDown(object sender, KeyEventArgs e)
         {
