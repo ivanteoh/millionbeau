@@ -61,11 +61,11 @@
             this.totalLabel = new System.Windows.Forms.Label();
             this.totalTextBox = new System.Windows.Forms.TextBox();
             this.discountLabel = new System.Windows.Forms.Label();
-            this.discountTextBox = new System.Windows.Forms.TextBox();
             this.grandTotalLabel = new System.Windows.Forms.Label();
             this.grandTotalTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
+            this.discountRegexTextBox = new CustomControl.RegexTextBox();
             this.customerGroupBox.SuspendLayout();
             this.newOrderGroupBox.SuspendLayout();
             this.itemGroupBox.SuspendLayout();
@@ -192,7 +192,7 @@
             this.newOrderGroupBox.Controls.Add(this.totalLabel);
             this.newOrderGroupBox.Controls.Add(this.totalTextBox);
             this.newOrderGroupBox.Controls.Add(this.discountLabel);
-            this.newOrderGroupBox.Controls.Add(this.discountTextBox);
+            this.newOrderGroupBox.Controls.Add(this.discountRegexTextBox);
             this.newOrderGroupBox.Controls.Add(this.grandTotalLabel);
             this.newOrderGroupBox.Controls.Add(this.grandTotalTextBox);
             resources.ApplyResources(this.newOrderGroupBox, "newOrderGroupBox");
@@ -283,11 +283,6 @@
             resources.ApplyResources(this.discountLabel, "discountLabel");
             this.discountLabel.Name = "discountLabel";
             // 
-            // discountTextBox
-            // 
-            resources.ApplyResources(this.discountTextBox, "discountTextBox");
-            this.discountTextBox.Name = "discountTextBox";
-            // 
             // grandTotalLabel
             // 
             resources.ApplyResources(this.grandTotalLabel, "grandTotalLabel");
@@ -310,6 +305,12 @@
             resources.ApplyResources(this.printButton, "printButton");
             this.printButton.Name = "printButton";
             this.printButton.UseVisualStyleBackColor = true;
+            // 
+            // discountRegexTextBox
+            // 
+            this.discountRegexTextBox.CustomPattern = "^()$";
+            resources.ApplyResources(this.discountRegexTextBox, "discountRegexTextBox");
+            this.discountRegexTextBox.Name = "discountRegexTextBox";
             // 
             // OrderForm
             // 
@@ -362,11 +363,11 @@
         private System.Windows.Forms.Label salesPersonLabel;
         private DataGridViewControl dataGridViewControl;
         private System.Windows.Forms.TextBox grandTotalTextBox;
-        private System.Windows.Forms.TextBox discountTextBox;
         private System.Windows.Forms.TextBox totalTextBox;
         private System.Windows.Forms.Label grandTotalLabel;
         private System.Windows.Forms.Label discountLabel;
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.TextBox salesPersonTextBox;
+        private CustomControl.RegexTextBox discountRegexTextBox;
     }
 }

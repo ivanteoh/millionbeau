@@ -708,7 +708,7 @@
     <value>dataGridViewControl</value>
   </data>
   <data name="&gt;&gt;dataGridViewControl.Type" xml:space="preserve">
-    <value>MillionBeauty.DataGridViewControl, MillionBeauty, Version=1.0.3219.26784, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
+    <value>MillionBeauty.DataGridViewControl, MillionBeauty, Version=1.0.3219.28964, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
   </data>
   <data name="&gt;&gt;dataGridViewControl.Parent" xml:space="preserve">
     <value>itemGroupBox</value>
@@ -863,25 +863,25 @@
   <data name="&gt;&gt;discountLabel.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="discountTextBox.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="discountRegexTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>361, 426</value>
   </data>
-  <data name="discountTextBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="discountRegexTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
-  <data name="discountTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="discountRegexTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
-  <data name="&gt;&gt;discountTextBox.Name" xml:space="preserve">
-    <value>discountTextBox</value>
+  <data name="&gt;&gt;discountRegexTextBox.Name" xml:space="preserve">
+    <value>discountRegexTextBox</value>
   </data>
-  <data name="&gt;&gt;discountTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;discountRegexTextBox.Type" xml:space="preserve">
+    <value>CustomControl.RegexTextBox, MillionBeauty.CustomControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
   </data>
-  <data name="&gt;&gt;discountTextBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;discountRegexTextBox.Parent" xml:space="preserve">
     <value>newOrderGroupBox</value>
   </data>
-  <data name="&gt;&gt;discountTextBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;discountRegexTextBox.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
   <data name="grandTotalLabel.AutoSize" type="System.Boolean, mscorlib">
