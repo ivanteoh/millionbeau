@@ -17,11 +17,28 @@ namespace MillionBeauty
             dataGridViewControl.AddButtonClicked += DataGridViewControlAddButtonClicked;
             KeyDown += OrderFormKeyDown;
         }
+
+        private string customerId;
             
         private void CustomerPickButtonClick(object sender, EventArgs e)
         {
-            FindCustomerForm pickCustomerForm = new FindCustomerForm();
-            pickCustomerForm.ShowDialog(this);
+            FindCustomerForm findCustomerForm = new FindCustomerForm();
+            findCustomerForm.CustomerSelected += FindCustomerFormCustomerSelected;
+            findCustomerForm.ShowDialog(this);
+            findCustomerForm.CustomerSelected -= FindCustomerFormCustomerSelected;
+        }
+
+        private void FindCustomerFormCustomerSelected(object sender, EventArgs e)
+        {
+            FindCustomerForm findCustomerForm = sender as FindCustomerForm;
+            customerId = findCustomerForm.Id;
+            customerTitleTextBox.Text = findCustomerForm.TitleOfCourtesy;
+            customerNameTextBox.Text = findCustomerForm.CustomerName;
+            customerAddressTextBox.Text = findCustomerForm.Address;
+            customerPostcodeTextBox.Text = findCustomerForm.Postcode;
+            customerStateTextBox.Text = findCustomerForm.State;
+            customerPhoneTextBox.Text = findCustomerForm.Phone;
+            customerCompanyTextBox.Text = findCustomerForm.Company;
         }
 
         private void DataGridViewControlAddButtonClicked(object sender, EventArgs e)

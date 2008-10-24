@@ -124,7 +124,7 @@ namespace MillionBeauty
                     "OrderDate DATE NOT NULL, " +
                     "OrderTime TIME NOT NULL, " +
                     "SalePerson VARCHAR(100) NULL, " +
-                    "Sum NUMERIC NUMERIC DEFAULT 0 NOT NULL, " +
+                    "Sum NUMERIC DEFAULT 0 NOT NULL, " +
                     "DiscountRM NUMERIC DEFAULT 0 NOT NULL, " +
                     "Total NUMERIC DEFAULT 0 NOT NULL)";
                 cmd.ExecuteNonQuery();

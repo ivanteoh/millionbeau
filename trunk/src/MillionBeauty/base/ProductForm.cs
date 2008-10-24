@@ -16,9 +16,11 @@ namespace MillionBeauty
 
             nameRegexTextBox.Validating += NameRegexTextBoxValidating;
 
+            inStockRegexTextBox.Text = "0";
             inStockRegexTextBox.CustomPattern = @"^\d+$";
             inStockRegexTextBox.Validating += InStockRegexTextBoxValidating;
 
+            priceRegexTextBox.Text = "0";
             priceRegexTextBox.CustomPattern = @"^\d+([-+.]\d+)?$";
             priceRegexTextBox.Validating += PriceRegexTextBoxValidating;
 
