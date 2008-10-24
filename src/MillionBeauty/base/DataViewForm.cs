@@ -44,8 +44,8 @@ namespace MillionBeauty
 
         protected string AddButtonName
         {
-            get { return dataGridViewControl.OkButtonName; }
-            set { dataGridViewControl.OkButtonName = value; }
+            get { return dataGridViewControl.AddButtonName; }
+            set { dataGridViewControl.AddButtonName = value; }
         }
 
         private void DataViewFormKeyDown(object sender, KeyEventArgs e)

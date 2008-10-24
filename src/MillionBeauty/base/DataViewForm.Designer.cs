@@ -37,7 +37,7 @@
             this.dataGridViewControl.DataSetSource = null;
             resources.ApplyResources(this.dataGridViewControl, "dataGridViewControl");
             this.dataGridViewControl.Name = "dataGridViewControl";
-            this.dataGridViewControl.OkButtonName = "Add";
+            this.dataGridViewControl.AddButtonName = "Add";
             // 
             // DataViewForm
             // 
