@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MillionBeauty
 {
-    class PickCustomerForm : DataViewForm
+    class FindCustomerForm : DataViewForm
     {
-        public PickCustomerForm()
+        public FindCustomerForm()
             : base()
         {
             this.Text = "Select Customer";

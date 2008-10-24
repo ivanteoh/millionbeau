@@ -23,6 +23,7 @@ namespace MillionBeauty
             priceRegexTextBox.Validating += PriceRegexTextBoxValidating;
 
             okButton.Click += new EventHandler(OkButtonClick);
+            KeyDown += new KeyEventHandler(ProductFormKeyDown);
             Load += new EventHandler(ProductFormLoad);
             Closing += new CancelEventHandler(ProductFormClosing);
         }
@@ -152,6 +153,18 @@ namespace MillionBeauty
 
         protected virtual void EnterProductInfo()
         {
+        }
+
+        private void ProductFormKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    Close();
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void ProductFormLoad(object sender, EventArgs e)

@@ -87,7 +87,7 @@
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Location = new System.Drawing.Point(12, 71);
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(57, 13);
+            this.descriptionLabel.Size = new System.Drawing.Size(60, 13);
             this.descriptionLabel.TabIndex = 2;
             this.descriptionLabel.Text = "Description";
             // 
@@ -123,9 +123,9 @@
             this.priceLabel.AutoSize = true;
             this.priceLabel.Location = new System.Drawing.Point(12, 187);
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(31, 13);
+            this.priceLabel.Size = new System.Drawing.Size(57, 13);
             this.priceLabel.TabIndex = 6;
-            this.priceLabel.Text = "Price";
+            this.priceLabel.Text = "Price (RM)";
             // 
             // descriptionRegexTextBox
             // 
@@ -214,6 +214,7 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.cancelButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "ProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
