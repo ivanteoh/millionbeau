@@ -29,39 +29,29 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataViewForm));
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.addButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.dataGridViewControl = new MillionBeauty.DataGridViewControl();
             this.SuspendLayout();
             // 
-            // dataGridView
+            // dataGridViewControl
             // 
-            resources.ApplyResources(this.dataGridView, "dataGridView");
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Name = "dataGridView";
-            // 
-            // addButton
-            // 
-            resources.ApplyResources(this.addButton, "addButton");
-            this.addButton.Name = "addButton";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.dataGridViewControl.DataSetSource = null;
+            resources.ApplyResources(this.dataGridViewControl, "dataGridViewControl");
+            this.dataGridViewControl.Name = "dataGridViewControl";
+            this.dataGridViewControl.OkButtonName = "Add";
             // 
             // DataViewForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.addButton);
-            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.dataGridViewControl);
             this.KeyPreview = true;
             this.Name = "DataViewForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button addButton;
+        private DataGridViewControl dataGridViewControl;
     }
 }

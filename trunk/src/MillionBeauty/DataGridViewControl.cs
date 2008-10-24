@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
 namespace MillionBeauty
 {
-    public partial class DataViewForm : Form
+    public partial class DataGridViewControl : UserControl
     {
-        public DataViewForm()
+        public event EventHandler OkButtonClicked;
+        public event EventHandler EnterKeyDowned;
+        public event EventHandler DeleteKeyDowned;
+        public event EventHandler EscapeKeyDowned;
+
+        public DataGridViewControl()
         {
             InitializeComponent();
 
@@ -22,13 +27,11 @@ namespace MillionBeauty
             dataGridView.RowHeadersVisible = false;
             dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 
-            KeyDown += DataViewtFormKeyDown;
             dataGridView.KeyDown += DataGridViewKeyDown;
-            addButton.Click += AddButtonClick;
-            Load += DataViewFormLoad;
+            okButton.Click += OkButtonClick;
         }
 
-        protected object DataSetSource
+        public object DataSetSource
         {
             get
             {
@@ -40,7 +43,7 @@ namespace MillionBeauty
             }
         }
 
-        protected DataGridViewRow SelectedRow
+        public DataGridViewRow SelectedRow
         {
             get
             {
@@ -55,22 +58,10 @@ namespace MillionBeauty
             }
         }
 
-        protected string AddButtonName
+        public string OkButtonName
         {
-            get { return addButton.Text; }
-            set { addButton.Text = value; }
-        }
-
-        private void DataViewtFormKeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Add:
-                    ShowAddDialog();
-                    break;
-                default:
-                    break;
-            }
+            get { return okButton.Text; }
+            set { okButton.Text = value; }
         }
 
         private void DataGridViewKeyDown(object sender, KeyEventArgs e)
@@ -78,47 +69,53 @@ namespace MillionBeauty
             switch (e.KeyCode)
             {
                 case Keys.Enter:
-                    ShowEnterDialog();
+                    EnterKeyDown(sender);
                     break;
                 case Keys.Delete:
-                    ShowDeleteDialog();
+                    DeleteKeyDown(sender);
                     break;
                 case Keys.Escape:
-                    Close();
+                    EscapeKeyDown(sender);
                     break;
                 default:
                     break;
             }
         }
 
-        protected virtual void ShowAddDialog()
+        private void EnterKeyDown(object sender)
         {
+            EventHandler eventHandler = EnterKeyDowned;
+            if (eventHandler != null)
+            {
+                eventHandler(sender, EventArgs.Empty);
+            }
         }
 
-        protected virtual void ShowEnterDialog()
+        private void DeleteKeyDown(object sender)
         {
+            EventHandler eventHandler = DeleteKeyDowned;
+            if (eventHandler != null)
+            {
+                eventHandler(sender, EventArgs.Empty);
+            }
         }
 
-        protected virtual void ShowDeleteDialog()
+        private void EscapeKeyDown(object sender)
         {
+            EventHandler eventHandler = EscapeKeyDowned;
+            if (eventHandler != null)
+            {
+                eventHandler(sender, EventArgs.Empty);
+            }
         }
 
-        private void AddButtonClick(object sender, EventArgs e)
+        private void OkButtonClick(object sender, EventArgs e)
         {
-            AddButtonClicked();
-        }
-
-        internal protected virtual void AddButtonClicked()
-        {
-        }
-
-        private void DataViewFormLoad(object sender, EventArgs e)
-        {
-            FormLoad();
-        }
-
-        internal protected virtual void FormLoad()
-        {
-        }
+            EventHandler eventHandler = OkButtonClicked;
+            if (eventHandler != null)
+            {
+                eventHandler(sender, e);
+            }
+        }        
     }
 }
