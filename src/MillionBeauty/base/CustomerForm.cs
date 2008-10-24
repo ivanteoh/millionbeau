@@ -17,9 +17,10 @@ namespace MillionBeauty
             titleComboBox.SelectedIndex = 0;
             nameRegexTextBox.Validating += NameRegexTextBoxValidating;
             okButton.Click += new EventHandler(OkButtonClick);
+            KeyDown += new KeyEventHandler(CustomerFormKeyDown);
             Load += new EventHandler(CustomerFormLoad);
             Closing += new CancelEventHandler(CustomerFormClosing);
-        }
+        }        
 
         private bool gotError;
 
@@ -118,6 +119,18 @@ namespace MillionBeauty
 
         protected virtual void EnterCustomerInfo()
         {
+        }
+
+        private void CustomerFormKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    Close();
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void CustomerFormLoad(object sender, EventArgs e)

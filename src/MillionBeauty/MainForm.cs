@@ -96,7 +96,7 @@ namespace MillionBeauty
 
         private void ShowNewOrderForm()
         {
-            NewOrderForm newOrderForm = new NewOrderForm();
+            OrderForm newOrderForm = new OrderForm();
             newOrderForm.ShowDialog(this);
         }
     }

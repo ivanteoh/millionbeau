@@ -17,7 +17,7 @@ namespace MillionBeauty
             dataGridViewControl.EnterKeyDowned += DataGridViewControlEnterKeyDowned;
             dataGridViewControl.DeleteKeyDowned += DataGridViewControlDeleteKeyDowned;
             dataGridViewControl.EscapeKeyDowned += DataGridViewControlEscapeKeyDowned;
-            dataGridViewControl.OkButtonClicked += DataGridViewControlOkButtonClicked;
+            dataGridViewControl.AddButtonClicked += DataGridViewControlAddButtonClicked;
             KeyDown += DataViewFormKeyDown;
             Load += DataViewFormLoad;
         }
@@ -55,6 +55,9 @@ namespace MillionBeauty
                 case Keys.Add:
                     ShowAddDialog();
                     break;
+                case Keys.Escape:
+                    Close();
+                    break;
                 default:
                     break;
             }
@@ -68,7 +71,6 @@ namespace MillionBeauty
         {
             ShowEnterDialog();
         }
-
 
         protected virtual void ShowEnterDialog()
         {
@@ -88,7 +90,7 @@ namespace MillionBeauty
             Close();
         }
 
-        void DataGridViewControlOkButtonClicked(object sender, EventArgs e)
+        private void DataGridViewControlAddButtonClicked(object sender, EventArgs e)
         {
             AddButtonClicked();
         }

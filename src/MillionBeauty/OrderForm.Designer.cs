@@ -1,6 +1,6 @@
 ﻿namespace MillionBeauty
 {
-    partial class NewOrderForm
+    partial class OrderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewOrderForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.customerGroupBox = new System.Windows.Forms.GroupBox();
             this.customerTitleLabel = new System.Windows.Forms.Label();
             this.customerTitleTextBox = new System.Windows.Forms.TextBox();
@@ -44,21 +44,28 @@
             this.customerPhoneTextBox = new System.Windows.Forms.TextBox();
             this.customerCompanyLabel = new System.Windows.Forms.Label();
             this.customerCompanyTextBox = new System.Windows.Forms.TextBox();
-            this.customerPickButton = new System.Windows.Forms.Button();
+            this.customerFindButton = new System.Windows.Forms.Button();
             this.newOrderGroupBox = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.recordLabel = new System.Windows.Forms.Label();
+            this.recordTextBox = new System.Windows.Forms.TextBox();
+            this.yearLabel = new System.Windows.Forms.Label();
+            this.yearTextBox = new System.Windows.Forms.TextBox();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.dateTextBox = new System.Windows.Forms.TextBox();
+            this.timeLabel = new System.Windows.Forms.Label();
+            this.timeTextBox = new System.Windows.Forms.TextBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewControl = new MillionBeauty.DataGridViewControl();
+            this.salesPersonLabel = new System.Windows.Forms.Label();
+            this.salesPersonTextBox = new System.Windows.Forms.TextBox();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.totalTextBox = new System.Windows.Forms.TextBox();
+            this.discountLabel = new System.Windows.Forms.Label();
+            this.discountTextBox = new System.Windows.Forms.TextBox();
+            this.grandTotalLabel = new System.Windows.Forms.Label();
+            this.grandTotalTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
-            this.dataGridViewControl1 = new MillionBeauty.DataGridViewControl();
             this.customerGroupBox.SuspendLayout();
             this.newOrderGroupBox.SuspendLayout();
             this.itemGroupBox.SuspendLayout();
@@ -80,7 +87,7 @@
             this.customerGroupBox.Controls.Add(this.customerPhoneTextBox);
             this.customerGroupBox.Controls.Add(this.customerCompanyLabel);
             this.customerGroupBox.Controls.Add(this.customerCompanyTextBox);
-            this.customerGroupBox.Controls.Add(this.customerPickButton);
+            this.customerGroupBox.Controls.Add(this.customerFindButton);
             resources.ApplyResources(this.customerGroupBox, "customerGroupBox");
             this.customerGroupBox.Name = "customerGroupBox";
             this.customerGroupBox.TabStop = false;
@@ -162,80 +169,135 @@
             this.customerCompanyTextBox.Name = "customerCompanyTextBox";
             this.customerCompanyTextBox.ReadOnly = true;
             // 
-            // customerPickButton
+            // customerFindButton
             // 
-            resources.ApplyResources(this.customerPickButton, "customerPickButton");
-            this.customerPickButton.Name = "customerPickButton";
-            this.customerPickButton.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.customerFindButton, "customerFindButton");
+            this.customerFindButton.Name = "customerFindButton";
+            this.customerFindButton.UseVisualStyleBackColor = true;
             // 
             // newOrderGroupBox
             // 
-            this.newOrderGroupBox.Controls.Add(this.label5);
-            this.newOrderGroupBox.Controls.Add(this.itemGroupBox);
-            this.newOrderGroupBox.Controls.Add(this.label4);
-            this.newOrderGroupBox.Controls.Add(this.textBox4);
-            this.newOrderGroupBox.Controls.Add(this.textBox3);
-            this.newOrderGroupBox.Controls.Add(this.label3);
-            this.newOrderGroupBox.Controls.Add(this.label2);
-            this.newOrderGroupBox.Controls.Add(this.textBox2);
-            this.newOrderGroupBox.Controls.Add(this.textBox1);
-            this.newOrderGroupBox.Controls.Add(this.label1);
+            this.newOrderGroupBox.Controls.Add(this.recordLabel);
+            this.newOrderGroupBox.Controls.Add(this.recordTextBox);
+            this.newOrderGroupBox.Controls.Add(this.yearLabel);
+            this.newOrderGroupBox.Controls.Add(this.yearTextBox);
+            this.newOrderGroupBox.Controls.Add(this.dateLabel);
+            this.newOrderGroupBox.Controls.Add(this.dateTextBox);
+            this.newOrderGroupBox.Controls.Add(this.timeLabel);
+            this.newOrderGroupBox.Controls.Add(this.timeTextBox);
             this.newOrderGroupBox.Controls.Add(this.customerGroupBox);
+            this.newOrderGroupBox.Controls.Add(this.itemGroupBox);
+            this.newOrderGroupBox.Controls.Add(this.salesPersonLabel);
+            this.newOrderGroupBox.Controls.Add(this.salesPersonTextBox);
+            this.newOrderGroupBox.Controls.Add(this.totalLabel);
+            this.newOrderGroupBox.Controls.Add(this.totalTextBox);
+            this.newOrderGroupBox.Controls.Add(this.discountLabel);
+            this.newOrderGroupBox.Controls.Add(this.discountTextBox);
+            this.newOrderGroupBox.Controls.Add(this.grandTotalLabel);
+            this.newOrderGroupBox.Controls.Add(this.grandTotalTextBox);
             resources.ApplyResources(this.newOrderGroupBox, "newOrderGroupBox");
             this.newOrderGroupBox.Name = "newOrderGroupBox";
             this.newOrderGroupBox.TabStop = false;
             // 
-            // label5
+            // recordLabel
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.recordLabel, "recordLabel");
+            this.recordLabel.Name = "recordLabel";
+            // 
+            // recordTextBox
+            // 
+            resources.ApplyResources(this.recordTextBox, "recordTextBox");
+            this.recordTextBox.Name = "recordTextBox";
+            this.recordTextBox.ReadOnly = true;
+            // 
+            // yearLabel
+            // 
+            resources.ApplyResources(this.yearLabel, "yearLabel");
+            this.yearLabel.Name = "yearLabel";
+            // 
+            // yearTextBox
+            // 
+            resources.ApplyResources(this.yearTextBox, "yearTextBox");
+            this.yearTextBox.Name = "yearTextBox";
+            this.yearTextBox.ReadOnly = true;
+            // 
+            // dateLabel
+            // 
+            resources.ApplyResources(this.dateLabel, "dateLabel");
+            this.dateLabel.Name = "dateLabel";
+            // 
+            // dateTextBox
+            // 
+            resources.ApplyResources(this.dateTextBox, "dateTextBox");
+            this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.ReadOnly = true;
+            // 
+            // timeLabel
+            // 
+            resources.ApplyResources(this.timeLabel, "timeLabel");
+            this.timeLabel.Name = "timeLabel";
+            // 
+            // timeTextBox
+            // 
+            resources.ApplyResources(this.timeTextBox, "timeTextBox");
+            this.timeTextBox.Name = "timeTextBox";
+            this.timeTextBox.ReadOnly = true;
             // 
             // itemGroupBox
             // 
-            this.itemGroupBox.Controls.Add(this.dataGridViewControl1);
+            this.itemGroupBox.Controls.Add(this.dataGridViewControl);
             resources.ApplyResources(this.itemGroupBox, "itemGroupBox");
             this.itemGroupBox.Name = "itemGroupBox";
             this.itemGroupBox.TabStop = false;
             // 
-            // label4
+            // dataGridViewControl
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            this.dataGridViewControl.AddButtonName = "Add";
+            this.dataGridViewControl.DataSetSource = null;
+            resources.ApplyResources(this.dataGridViewControl, "dataGridViewControl");
+            this.dataGridViewControl.Name = "dataGridViewControl";
             // 
-            // textBox4
+            // salesPersonLabel
             // 
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.Name = "textBox4";
+            resources.ApplyResources(this.salesPersonLabel, "salesPersonLabel");
+            this.salesPersonLabel.Name = "salesPersonLabel";
             // 
-            // textBox3
+            // salesPersonTextBox
             // 
-            resources.ApplyResources(this.textBox3, "textBox3");
-            this.textBox3.Name = "textBox3";
+            resources.ApplyResources(this.salesPersonTextBox, "salesPersonTextBox");
+            this.salesPersonTextBox.Name = "salesPersonTextBox";
             // 
-            // label3
+            // totalLabel
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.totalLabel, "totalLabel");
+            this.totalLabel.Name = "totalLabel";
             // 
-            // label2
+            // totalTextBox
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.totalTextBox, "totalTextBox");
+            this.totalTextBox.Name = "totalTextBox";
+            this.totalTextBox.ReadOnly = true;
             // 
-            // textBox2
+            // discountLabel
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
+            resources.ApplyResources(this.discountLabel, "discountLabel");
+            this.discountLabel.Name = "discountLabel";
             // 
-            // textBox1
+            // discountTextBox
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.discountTextBox, "discountTextBox");
+            this.discountTextBox.Name = "discountTextBox";
             // 
-            // label1
+            // grandTotalLabel
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.grandTotalLabel, "grandTotalLabel");
+            this.grandTotalLabel.Name = "grandTotalLabel";
+            // 
+            // grandTotalTextBox
+            // 
+            resources.ApplyResources(this.grandTotalTextBox, "grandTotalTextBox");
+            this.grandTotalTextBox.Name = "grandTotalTextBox";
+            this.grandTotalTextBox.ReadOnly = true;
             // 
             // saveButton
             // 
@@ -249,19 +311,15 @@
             this.printButton.Name = "printButton";
             this.printButton.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewControl1
-            // 
-            resources.ApplyResources(this.dataGridViewControl1, "dataGridViewControl1");
-            this.dataGridViewControl1.Name = "dataGridViewControl1";
-            // 
-            // NewOrderForm
+            // OrderForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.printButton);
-            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.newOrderGroupBox);
-            this.Name = "NewOrderForm";
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.printButton);
+            this.KeyPreview = true;
+            this.Name = "OrderForm";
             this.customerGroupBox.ResumeLayout(false);
             this.customerGroupBox.PerformLayout();
             this.newOrderGroupBox.ResumeLayout(false);
@@ -274,7 +332,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox customerGroupBox;
-        private System.Windows.Forms.Button customerPickButton;
+        private System.Windows.Forms.Button customerFindButton;
         private System.Windows.Forms.Label customerPostcodeLabel;
         private System.Windows.Forms.Label customerAddressLabel;
         private System.Windows.Forms.Label customerNameLabel;
@@ -292,16 +350,23 @@
         private System.Windows.Forms.GroupBox newOrderGroupBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button printButton;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label yearLabel;
+        private System.Windows.Forms.TextBox yearTextBox;
+        private System.Windows.Forms.TextBox recordTextBox;
+        private System.Windows.Forms.Label recordLabel;
         private System.Windows.Forms.GroupBox itemGroupBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
-        private DataGridViewControl dataGridViewControl1;
+        private System.Windows.Forms.Label timeLabel;
+        private System.Windows.Forms.TextBox timeTextBox;
+        private System.Windows.Forms.TextBox dateTextBox;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label salesPersonLabel;
+        private DataGridViewControl dataGridViewControl;
+        private System.Windows.Forms.TextBox grandTotalTextBox;
+        private System.Windows.Forms.TextBox discountTextBox;
+        private System.Windows.Forms.TextBox totalTextBox;
+        private System.Windows.Forms.Label grandTotalLabel;
+        private System.Windows.Forms.Label discountLabel;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.TextBox salesPersonTextBox;
     }
 }

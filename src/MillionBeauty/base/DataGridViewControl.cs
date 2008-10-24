@@ -10,7 +10,7 @@ namespace MillionBeauty
 {
     public partial class DataGridViewControl : UserControl
     {
-        public event EventHandler OkButtonClicked;
+        public event EventHandler AddButtonClicked;
         public event EventHandler EnterKeyDowned;
         public event EventHandler DeleteKeyDowned;
         public event EventHandler EscapeKeyDowned;
@@ -111,7 +111,7 @@ namespace MillionBeauty
 
         private void AddButtonClick(object sender, EventArgs e)
         {
-            EventHandler eventHandler = OkButtonClicked;
+            EventHandler eventHandler = AddButtonClicked;
             if (eventHandler != null)
             {
                 eventHandler(sender, e);
