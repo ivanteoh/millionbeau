@@ -11,7 +11,7 @@ namespace MillionBeauty
         public ProductsForm()
             : base()
         {
-            this.Text = "Proudcts List";
+            this.Text = "Proudcts List";            
         }
 
         internal protected override void FormLoad()

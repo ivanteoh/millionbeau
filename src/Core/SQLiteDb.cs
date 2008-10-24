@@ -104,9 +104,6 @@ namespace MillionBeauty
                 Console.WriteLine("FAIL - Create Table for String: {0}", ex.Message);
             }
         }
-
-        
-
         
         private static void CreateOrdersTable(DbConnection cnn)
         {

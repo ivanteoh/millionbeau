@@ -14,6 +14,7 @@ namespace MillionBeauty
         {
             InitializeComponent();
             customerPickButton.Click += CustomerPickButtonClick;
+            
         }
 
         private void CustomerPickButtonClick(object sender, EventArgs e)
