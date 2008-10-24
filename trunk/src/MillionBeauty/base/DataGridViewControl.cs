@@ -28,7 +28,7 @@ namespace MillionBeauty
             dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 
             dataGridView.KeyDown += DataGridViewKeyDown;
-            okButton.Click += OkButtonClick;
+            addButton.Click += AddButtonClick;
         }
 
         public object DataSetSource
@@ -58,10 +58,10 @@ namespace MillionBeauty
             }
         }
 
-        public string OkButtonName
+        public string AddButtonName
         {
-            get { return okButton.Text; }
-            set { okButton.Text = value; }
+            get { return addButton.Text; }
+            set { addButton.Text = value; }
         }
 
         private void DataGridViewKeyDown(object sender, KeyEventArgs e)
@@ -109,7 +109,7 @@ namespace MillionBeauty
             }
         }
 
-        private void OkButtonClick(object sender, EventArgs e)
+        private void AddButtonClick(object sender, EventArgs e)
         {
             EventHandler eventHandler = OkButtonClicked;
             if (eventHandler != null)
