@@ -695,25 +695,29 @@
   <data name="&gt;&gt;timeTextBox.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="dataGridViewControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 14</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="orderDetailsControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="dataGridViewControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>446, 148</value>
+  <data name="orderDetailsControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
   </data>
-  <data name="dataGridViewControl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="orderDetailsControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>449, 149</value>
   </data>
-  <data name="&gt;&gt;dataGridViewControl.Name" xml:space="preserve">
-    <value>dataGridViewControl</value>
+  <data name="orderDetailsControl.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
-  <data name="&gt;&gt;dataGridViewControl.Type" xml:space="preserve">
-    <value>MillionBeauty.DataGridViewControl, MillionBeauty, Version=1.0.3219.34036, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
+  <data name="&gt;&gt;orderDetailsControl.Name" xml:space="preserve">
+    <value>orderDetailsControl</value>
   </data>
-  <data name="&gt;&gt;dataGridViewControl.Parent" xml:space="preserve">
+  <data name="&gt;&gt;orderDetailsControl.Type" xml:space="preserve">
+    <value>MillionBeauty.OrderDetailsControl, MillionBeauty, Version=1.0.3220.15221, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
+  </data>
+  <data name="&gt;&gt;orderDetailsControl.Parent" xml:space="preserve">
     <value>itemGroupBox</value>
   </data>
-  <data name="&gt;&gt;dataGridViewControl.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;orderDetailsControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="itemGroupBox.Location" type="System.Drawing.Point, System.Drawing">
@@ -2145,7 +2149,6 @@
         //////////////////////////////////8=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>

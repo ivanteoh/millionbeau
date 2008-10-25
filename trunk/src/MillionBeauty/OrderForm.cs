@@ -16,12 +16,9 @@ namespace MillionBeauty
             InitializeComponent();
 
             orderDetails = new BindingList<OrderDetail>();
-            bindingSource = new BindingSource();
-            bindingSource.DataSource = typeof(OrderDetail);
-            dataGridViewControl.DataSetSource = bindingSource;
-            //dataGridViewControl.DataSetSource = orderDetails;
+            orderDetailsControl.DataSetSource = orderDetails;
             customerFindButton.Click += CustomerPickButtonClick;
-            dataGridViewControl.AddButtonClicked += DataGridViewControlAddButtonClicked;
+            orderDetailsControl.AddButtonClicked += OrderDetailsControlAddButtonClicked;
             KeyDown += OrderFormKeyDown;
         }
 
@@ -50,7 +47,7 @@ namespace MillionBeauty
             customerCompanyTextBox.Text = findCustomerForm.Company;
         }
 
-        private void DataGridViewControlAddButtonClicked(object sender, EventArgs e)
+        private void OrderDetailsControlAddButtonClicked(object sender, EventArgs e)
         {
             OrderDetailForm orderDetailForm = new OrderDetailForm();
             orderDetailForm.Added += OrderDetailFormAdded;
