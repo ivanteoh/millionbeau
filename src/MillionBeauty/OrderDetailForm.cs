@@ -11,78 +11,79 @@ namespace MillionBeauty
 {
     public partial class OrderDetailForm : Form
     {
-        public event EventHandler Added;
-
         public OrderDetailForm()
         {
             InitializeComponent();
+
             productFindButton.Click += PoductFindButtonClick;
 
-            quantityRegexTextBox.Text = "0";
             quantityRegexTextBox.CustomPattern = @"^\d+$";
             quantityRegexTextBox.Validating += QuantityRegexTextBoxValidating;
 
-            discountRegexTextBox.Text = "0";
             discountRegexTextBox.CustomPattern = @"^\d+([-+.]\d+)?$";
             discountRegexTextBox.Validating += DiscountRegexTextBoxValidating;
-
-            totalCostTextBox.Text = "0";
+            
             addButton.Click += AddButtonClick;
             KeyDown += OrderDetailFormKeyDown;
         }
 
-        private string productId;
-        private string originalInStock;
+        private Int64 originalInStock;
 
-        internal string ProductId
+        internal protected Int64 DefaultInStock
         {
-            get { return productId; }
-            set { productId = value; }
+            get { return originalInStock; }
+            set { originalInStock = value; }
         }
 
-        internal string Product
+        internal protected string ProductId
+        {
+            get { return idTextBox.Text; }
+            set { idTextBox.Text = value; }
+        }
+
+        internal protected string Product
         {
             get { return nameTextBox.Text; }
             set { nameTextBox.Text = value; }
         }
 
-        internal string Description
+        internal protected string Description
         {
             get { return descriptionTextBox.Text; }
             set { descriptionTextBox.Text = value; }
         }
 
-        internal string ProductType
+        internal protected string ProductType
         {
             get { return typeTextBox.Text; }
             set { typeTextBox.Text = value; }
         }
 
-        internal string InStock
+        internal protected string InStock
         {
             get { return inStockTextBox.Text; }
             set { inStockTextBox.Text = value; }
         }
 
-        internal string Price
+        internal protected string Price
         {
             get { return priceTextBox.Text; }
             set { priceTextBox.Text = value; }
         }
 
-        internal string Quantity
+        internal protected string Quantity
         {
             get { return quantityRegexTextBox.Text; }
             set { quantityRegexTextBox.Text = value; }
         }
 
-        internal string DiscountPercent
+        internal protected string DiscountPercent
         {
             get { return discountRegexTextBox.Text; }
             set { discountRegexTextBox.Text = value; }
         }
 
-        internal string TotalCost
+        internal protected string TotalCost
         {
             get { return totalCostTextBox.Text; }
             set { totalCostTextBox.Text = value; }
@@ -99,12 +100,15 @@ namespace MillionBeauty
         private void FindProductFormProductSelected(object sender, EventArgs e)
         {
             FindProductForm findProductForm = sender as FindProductForm;
-            productId = findProductForm.Id;
+            idTextBox.Text = findProductForm.Id;
             nameTextBox.Text = findProductForm.Product;
             descriptionTextBox.Text = findProductForm.Description;
             typeTextBox.Text = findProductForm.ProductType;
-            inStockTextBox.Text = findProductForm.InStock;
-            originalInStock = findProductForm.InStock;
+
+            originalInStock = Convert.ToInt64(findProductForm.InStock, CultureInfo.InvariantCulture);
+            Int64 left = originalInStock - Convert.ToInt64(quantityRegexTextBox.Text, CultureInfo.InvariantCulture);
+            inStockTextBox.Text = left.ToString(CultureInfo.InvariantCulture);
+
             priceTextBox.Text = findProductForm.Price;
         }
 
@@ -125,8 +129,7 @@ namespace MillionBeauty
             else 
             {
                 Int64 quantity = Convert.ToInt64(quantityRegexTextBox.Text, CultureInfo.InvariantCulture);
-                Int64 inStock = Convert.ToInt64(originalInStock, CultureInfo.InvariantCulture);
-                if (quantity > inStock)
+                if (quantity > originalInStock)
                 {
                     // Error
                     e.Cancel = true;
@@ -141,7 +144,7 @@ namespace MillionBeauty
                 }
                 else
                 {
-                    Int64 left = inStock - quantity;
+                    Int64 left = originalInStock - quantity;
                     inStockTextBox.Text = left.ToString(CultureInfo.InvariantCulture);
                     Decimal price = Convert.ToDecimal(priceTextBox.Text, CultureInfo.InvariantCulture);
                     Decimal discount = Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
@@ -177,13 +180,11 @@ namespace MillionBeauty
 
         private void AddButtonClick(object sender, EventArgs e)
         {
-            EventHandler eventHandler = Added;
-            if (eventHandler != null)
-            {
-                eventHandler(this, EventArgs.Empty);
-            }
+            AddButtonClicked();            
+        }
 
-            Close();
+        protected virtual void AddButtonClicked()
+        {
         }
 
         private void OrderDetailFormKeyDown(object sender, KeyEventArgs e)

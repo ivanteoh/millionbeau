@@ -105,6 +105,9 @@
     <Compile Include="DatabaseForm.Designer.cs">
       <DependentUpon>DatabaseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InsertOrderDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="InsertProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +196,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="UpdateCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateOrderDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateProductForm.cs">
