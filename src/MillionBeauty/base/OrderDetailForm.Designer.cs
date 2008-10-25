@@ -43,12 +43,12 @@
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.totalCostTextBox = new System.Windows.Forms.TextBox();
             this.productGroupBox = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.idTextBox = new System.Windows.Forms.TextBox();
             this.productFindButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.quantityRegexTextBox = new CustomControl.RegexTextBox();
             this.discountRegexTextBox = new CustomControl.RegexTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.idTextBox = new System.Windows.Forms.TextBox();
             this.productGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +58,7 @@
             this.nameLabel.Location = new System.Drawing.Point(6, 44);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(35, 13);
-            this.nameLabel.TabIndex = 1;
+            this.nameLabel.TabIndex = 3;
             this.nameLabel.Text = "Name";
             // 
             // descriptionLabel
@@ -67,7 +67,7 @@
             this.descriptionLabel.Location = new System.Drawing.Point(6, 70);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(60, 13);
-            this.descriptionLabel.TabIndex = 3;
+            this.descriptionLabel.TabIndex = 5;
             this.descriptionLabel.Text = "Description";
             // 
             // typeLabel
@@ -76,7 +76,7 @@
             this.typeLabel.Location = new System.Drawing.Point(6, 96);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(31, 13);
-            this.typeLabel.TabIndex = 5;
+            this.typeLabel.TabIndex = 7;
             this.typeLabel.Text = "Type";
             // 
             // inStockLabel
@@ -85,7 +85,7 @@
             this.inStockLabel.Location = new System.Drawing.Point(6, 122);
             this.inStockLabel.Name = "inStockLabel";
             this.inStockLabel.Size = new System.Drawing.Size(47, 13);
-            this.inStockLabel.TabIndex = 7;
+            this.inStockLabel.TabIndex = 9;
             this.inStockLabel.Text = "In Stock";
             // 
             // priceLabel
@@ -94,7 +94,7 @@
             this.priceLabel.Location = new System.Drawing.Point(6, 148);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(31, 13);
-            this.priceLabel.TabIndex = 9;
+            this.priceLabel.TabIndex = 11;
             this.priceLabel.Text = "Price";
             // 
             // quantityLabel
@@ -104,7 +104,7 @@
             this.quantityLabel.Location = new System.Drawing.Point(9, 219);
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(46, 13);
-            this.quantityLabel.TabIndex = 12;
+            this.quantityLabel.TabIndex = 14;
             this.quantityLabel.Text = "Quantity";
             // 
             // discountLabel
@@ -114,7 +114,7 @@
             this.discountLabel.Location = new System.Drawing.Point(9, 245);
             this.discountLabel.Name = "discountLabel";
             this.discountLabel.Size = new System.Drawing.Size(66, 13);
-            this.discountLabel.TabIndex = 14;
+            this.discountLabel.TabIndex = 16;
             this.discountLabel.Text = "Discount (%)";
             // 
             // totalCostLabel
@@ -124,7 +124,7 @@
             this.totalCostLabel.Location = new System.Drawing.Point(9, 271);
             this.totalCostLabel.Name = "totalCostLabel";
             this.totalCostLabel.Size = new System.Drawing.Size(55, 13);
-            this.totalCostLabel.TabIndex = 16;
+            this.totalCostLabel.TabIndex = 18;
             this.totalCostLabel.Text = "Total Cost";
             // 
             // nameTextBox
@@ -133,7 +133,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.ReadOnly = true;
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 2;
+            this.nameTextBox.TabIndex = 4;
             // 
             // descriptionTextBox
             // 
@@ -141,7 +141,7 @@
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ReadOnly = true;
             this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
-            this.descriptionTextBox.TabIndex = 4;
+            this.descriptionTextBox.TabIndex = 6;
             // 
             // typeTextBox
             // 
@@ -149,7 +149,7 @@
             this.typeTextBox.Name = "typeTextBox";
             this.typeTextBox.ReadOnly = true;
             this.typeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.typeTextBox.TabIndex = 6;
+            this.typeTextBox.TabIndex = 8;
             // 
             // inStockTextBox
             // 
@@ -157,7 +157,7 @@
             this.inStockTextBox.Name = "inStockTextBox";
             this.inStockTextBox.ReadOnly = true;
             this.inStockTextBox.Size = new System.Drawing.Size(100, 20);
-            this.inStockTextBox.TabIndex = 8;
+            this.inStockTextBox.TabIndex = 10;
             // 
             // priceTextBox
             // 
@@ -165,7 +165,7 @@
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.ReadOnly = true;
             this.priceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.priceTextBox.TabIndex = 10;
+            this.priceTextBox.TabIndex = 12;
             // 
             // totalCostTextBox
             // 
@@ -174,7 +174,7 @@
             this.totalCostTextBox.Name = "totalCostTextBox";
             this.totalCostTextBox.ReadOnly = true;
             this.totalCostTextBox.Size = new System.Drawing.Size(100, 20);
-            this.totalCostTextBox.TabIndex = 17;
+            this.totalCostTextBox.TabIndex = 19;
             // 
             // productGroupBox
             // 
@@ -200,13 +200,30 @@
             this.productGroupBox.TabStop = false;
             this.productGroupBox.Text = "Product";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "ID";
+            // 
+            // idTextBox
+            // 
+            this.idTextBox.Location = new System.Drawing.Point(84, 15);
+            this.idTextBox.Name = "idTextBox";
+            this.idTextBox.ReadOnly = true;
+            this.idTextBox.Size = new System.Drawing.Size(100, 20);
+            this.idTextBox.TabIndex = 2;
+            // 
             // productFindButton
             // 
             this.productFindButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.productFindButton.Location = new System.Drawing.Point(112, 171);
             this.productFindButton.Name = "productFindButton";
             this.productFindButton.Size = new System.Drawing.Size(75, 23);
-            this.productFindButton.TabIndex = 11;
+            this.productFindButton.TabIndex = 13;
             this.productFindButton.Text = "Find";
             this.productFindButton.UseVisualStyleBackColor = true;
             // 
@@ -216,7 +233,7 @@
             this.addButton.Location = new System.Drawing.Point(143, 294);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 18;
+            this.addButton.TabIndex = 20;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             // 
@@ -226,7 +243,7 @@
             this.quantityRegexTextBox.Location = new System.Drawing.Point(99, 216);
             this.quantityRegexTextBox.Name = "quantityRegexTextBox";
             this.quantityRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.quantityRegexTextBox.TabIndex = 13;
+            this.quantityRegexTextBox.TabIndex = 15;
             // 
             // discountRegexTextBox
             // 
@@ -234,24 +251,7 @@
             this.discountRegexTextBox.Location = new System.Drawing.Point(99, 242);
             this.discountRegexTextBox.Name = "discountRegexTextBox";
             this.discountRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.discountRegexTextBox.TabIndex = 15;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "ID";
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.Location = new System.Drawing.Point(84, 15);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(100, 20);
-            this.idTextBox.TabIndex = 13;
+            this.discountRegexTextBox.TabIndex = 17;
             // 
             // OrderDetailForm
             // 

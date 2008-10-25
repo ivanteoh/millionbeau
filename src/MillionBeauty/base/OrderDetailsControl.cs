@@ -117,5 +117,13 @@ namespace MillionBeauty
                 eventHandler(sender, e);
             }
         }
+
+        public void DeleteRow(DataGridViewRow row)
+        {
+            if (row == null)
+                return;
+
+            dataGridView.Rows.Remove(row);
+        }
     }
 }
