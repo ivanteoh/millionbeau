@@ -15,13 +15,25 @@ namespace MillionBeauty
         {
             InitializeComponent();
 
+            printButton.Enabled = false;
+
+            totalTextBox.Text = "0";
+            discountRegexTextBox.Text = "0";
+            grandTotalTextBox.Text = "0";
+
+            discountRegexTextBox.CustomPattern = @"^\d+([-+.]\d+)?$";
+            discountRegexTextBox.Validating += DiscountRegexTextBoxValidating;
+
             orderDetails = new BindingList<OrderDetail>();
             orderDetailsControl.DataSetSource = orderDetails;
             customerFindButton.Click += CustomerPickButtonClick;
             orderDetailsControl.AddButtonClicked += OrderDetailsControlAddButtonClicked;
             orderDetailsControl.EnterKeyDowned += OrderDetailsControlEnterKeyDowned;
+            orderDetailsControl.DeleteKeyDowned += new EventHandler(OrderDetailsControlDeleteKeyDowned);
+            saveButton.Click += SaveButtonClick;
+            printButton.Click += PrintButtonClick;
             KeyDown += OrderFormKeyDown;
-        }        
+        }
 
         private BindingList<OrderDetail> orderDetails;
         private string customerId;        
@@ -47,6 +59,7 @@ namespace MillionBeauty
             customerCompanyTextBox.Text = findCustomerForm.Company;
         }
 
+        #region Order Details Control Event Handlers
         private void OrderDetailsControlAddButtonClicked(object sender, EventArgs e)
         {
             InsertOrderDetailForm insertOrderDetailForm = new InsertOrderDetailForm();
@@ -70,6 +83,8 @@ namespace MillionBeauty
             orderDetail.TotalCost = Convert.ToDecimal(insertOrderDetailForm.TotalCost, CultureInfo.InvariantCulture);
 
             orderDetails.Add(orderDetail);
+
+            UpdateTotalPrice();
         }
 
         private void OrderDetailsControlEnterKeyDowned(object sender, EventArgs e)
@@ -117,7 +132,72 @@ namespace MillionBeauty
                 selectedRow.Cells[6].Value = Convert.ToInt64(updateOrderDetailForm.Quantity, CultureInfo.InvariantCulture);
                 selectedRow.Cells[7].Value = Convert.ToDecimal(updateOrderDetailForm.DiscountPercent, CultureInfo.InvariantCulture);
                 selectedRow.Cells[8].Value = Convert.ToDecimal(updateOrderDetailForm.TotalCost, CultureInfo.InvariantCulture);
+
+                UpdateTotalPrice();
             }      
+        }
+
+        private void OrderDetailsControlDeleteKeyDowned(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = orderDetailsControl.SelectedRow;
+            if (selectedRow != null)
+            {
+                string index = selectedRow.Cells[0].Value.ToString();
+                string deleteQuery = string.Format(CultureInfo.InvariantCulture, "Are you sure you want to delete product {0}", index);
+                DialogResult result = MessageBox.Show(
+                    deleteQuery, Properties.Resources.Title,
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2,
+                    MessageBoxOptions.RightAlign &
+                    MessageBoxOptions.RtlReading);
+                if (result == DialogResult.OK)
+                {
+                    orderDetailsControl.DeleteRow(selectedRow);
+                    UpdateTotalPrice();
+                }
+            }            
+        }
+        #endregion Order Details Control Event Handlers
+
+        private void DiscountRegexTextBoxValidating(object sender, CancelEventArgs e)
+        {
+            if (!discountRegexTextBox.Valid || String.IsNullOrEmpty(discountRegexTextBox.Text))
+            {
+                e.Cancel = true;
+                MessageBox.Show(
+                    "Discount has to be RM format and can not be empty.",
+                    Properties.Resources.Title,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign & MessageBoxOptions.RtlReading);
+                discountRegexTextBox.Text = discountRegexTextBox.OldValue;
+            }
+            else
+            {
+                Decimal totalPrice = Convert.ToDecimal(totalTextBox.Text, CultureInfo.InvariantCulture);
+                Decimal discount = Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
+                Decimal result = totalPrice - discount;
+                grandTotalTextBox.Text = Decimal.Round(result, 2).ToString(CultureInfo.InvariantCulture);
+            }
+        } 
+
+        private void UpdateTotalPrice()
+        {
+            Decimal totalPrice = new decimal();
+            totalPrice = 0;
+
+            foreach (OrderDetail orderItem in orderDetails)
+            {
+                totalPrice = totalPrice + orderItem.TotalCost;
+            }
+            Decimal roundTotalPrice = decimal.Round(totalPrice, 2);
+            totalTextBox.Text = roundTotalPrice.ToString();
+
+            Decimal grandTotal = roundTotalPrice - Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
+
+            grandTotalTextBox.Text = Decimal.Round(grandTotal, 2).ToString();
         }
 
         private void OrderFormKeyDown(object sender, KeyEventArgs e)
@@ -130,6 +210,18 @@ namespace MillionBeauty
                 default:
                     break;
             }
-        }  
+        }
+
+        private void SaveButtonClick(object sender, EventArgs e)
+        {
+            DateTime dataTimeNow = DateTime.Now;
+            yearTextBox.Text = dataTimeNow.Year.ToString();
+            dateTextBox.Text = dataTimeNow.Date.ToShortDateString();
+            timeTextBox.Text = dataTimeNow.Date.ToShortTimeString();
+        } 
+
+        private void PrintButtonClick(object sender, EventArgs e)
+        {            
+        }           
     }
 }
