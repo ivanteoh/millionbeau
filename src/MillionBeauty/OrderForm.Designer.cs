@@ -55,7 +55,6 @@
             this.timeLabel = new System.Windows.Forms.Label();
             this.timeTextBox = new System.Windows.Forms.TextBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
-            this.dataGridViewControl = new MillionBeauty.DataGridViewControl();
             this.salesPersonLabel = new System.Windows.Forms.Label();
             this.salesPersonTextBox = new System.Windows.Forms.TextBox();
             this.totalLabel = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.grandTotalTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
+            this.orderDetailsControl = new MillionBeauty.OrderDetailsControl();
             this.customerGroupBox.SuspendLayout();
             this.newOrderGroupBox.SuspendLayout();
             this.itemGroupBox.SuspendLayout();
@@ -245,17 +245,10 @@
             // 
             // itemGroupBox
             // 
-            this.itemGroupBox.Controls.Add(this.dataGridViewControl);
+            this.itemGroupBox.Controls.Add(this.orderDetailsControl);
             resources.ApplyResources(this.itemGroupBox, "itemGroupBox");
             this.itemGroupBox.Name = "itemGroupBox";
             this.itemGroupBox.TabStop = false;
-            // 
-            // dataGridViewControl
-            // 
-            this.dataGridViewControl.AddButtonName = "Add";
-            this.dataGridViewControl.DataSetSource = null;
-            resources.ApplyResources(this.dataGridViewControl, "dataGridViewControl");
-            this.dataGridViewControl.Name = "dataGridViewControl";
             // 
             // salesPersonLabel
             // 
@@ -312,6 +305,13 @@
             this.printButton.Name = "printButton";
             this.printButton.UseVisualStyleBackColor = true;
             // 
+            // orderDetailsControl
+            // 
+            this.orderDetailsControl.AddButtonName = "Add";
+            this.orderDetailsControl.DataSetSource = null;
+            resources.ApplyResources(this.orderDetailsControl, "orderDetailsControl");
+            this.orderDetailsControl.Name = "orderDetailsControl";
+            // 
             // OrderForm
             // 
             resources.ApplyResources(this, "$this");
@@ -361,7 +361,6 @@
         private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label salesPersonLabel;
-        private DataGridViewControl dataGridViewControl;
         private System.Windows.Forms.TextBox grandTotalTextBox;
         private System.Windows.Forms.TextBox totalTextBox;
         private System.Windows.Forms.Label grandTotalLabel;
@@ -369,5 +368,6 @@
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.TextBox salesPersonTextBox;
         private CustomControl.RegexTextBox discountRegexTextBox;
+        private OrderDetailsControl orderDetailsControl;
     }
 }

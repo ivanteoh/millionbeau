@@ -78,6 +78,12 @@
     <Compile Include="base\DataViewForm.Designer.cs">
       <DependentUpon>DataViewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="base\OrderDetailsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="base\OrderDetailsControl.Designer.cs">
+      <DependentUpon>OrderDetailsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="FindProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,7 +114,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrderDetail.cs" />
     <Compile Include="OrderDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +157,9 @@
     <EmbeddedResource Include="base\DataViewForm.resx">
       <DependentUpon>DataViewForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="base\OrderDetailsControl.resx">
+      <DependentUpon>OrderDetailsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -218,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MillionBeauty.snk" />
+    <None Include="Properties\DataSources\OrderDetail.datasource" />
     <None Include="Resources\AddCustomer.png" />
   </ItemGroup>
   <ItemGroup>

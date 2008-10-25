@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MillionBeauty
 {
-    class OrderDetail
+    public class OrderDetail
     {
         private Int64 productId;
         private string product;
@@ -16,55 +16,55 @@ namespace MillionBeauty
         private Decimal discountPercent;
         private Decimal totalCost;
 
-        internal Int64 ProductId
+        public Int64 ProductId
         {
             get { return productId; }
             set { productId = value; }
         }
 
-        internal string Product
+        public string Product
         {
             get { return product; }
             set { product = value; }
         }
 
-        internal string Description
+        public string Description
         {
             get { return description; }
             set { description = value; }
         }
 
-        internal string ProductType
+        public string ProductType
         {
             get { return productType; }
             set { productType = value; }
         }
 
-        internal Int64 InStock
+        public Int64 InStock
         {
             get { return inStock; }
             set { inStock = value; }
         }
 
-        internal Decimal Price
+        public Decimal Price
         {
             get { return price; }
             set { price = value; }
         }
 
-        internal Int64 Quantity 
+        public Int64 Quantity 
         {
             get { return quantity; }
             set { quantity = value; }
         }
 
-        internal Decimal DiscountPercent
+        public Decimal DiscountPercent
         {
             get { return discountPercent; }
             set { discountPercent = value; }
         }
 
-        internal Decimal TotalCost 
+        public Decimal TotalCost 
         {
             get { return totalCost; }
             set { totalCost = value; }
