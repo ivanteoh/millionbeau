@@ -123,6 +123,9 @@
     <Compile Include="base\OrderDetailForm.Designer.cs">
       <DependentUpon>OrderDetailForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>

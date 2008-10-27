@@ -9,6 +9,12 @@ namespace MillionBeauty
         public ViewOrderForm()
             : base()
         {
+            Text = "Order";
         }
+
+        internal protected override void FormLoad()
+        {
+            ReadOnly();
+        }        
     }
 }
