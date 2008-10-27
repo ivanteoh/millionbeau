@@ -246,7 +246,9 @@ namespace MillionBeauty
                 Decimal totalPrice = Convert.ToDecimal(totalTextBox.Text, CultureInfo.InvariantCulture);
                 Decimal discount = Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
                 Decimal result = totalPrice - discount;
-                grandTotalTextBox.Text = Decimal.Round(result, 2).ToString(CultureInfo.InvariantCulture);
+
+                discountRegexTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", discountRegexTextBox.Text);
+                grandTotalTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", Decimal.Round(result, 2));
             }
         } 
 
@@ -260,11 +262,15 @@ namespace MillionBeauty
                 totalPrice = totalPrice + orderItem.TotalCost;
             }
             Decimal roundTotalPrice = decimal.Round(totalPrice, 2);
-            totalTextBox.Text = roundTotalPrice.ToString(CultureInfo.InvariantCulture);
+            totalTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", roundTotalPrice);
 
-            Decimal grandTotal = roundTotalPrice - Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
+            string discountText = discountRegexTextBox.Text;
 
-            grandTotalTextBox.Text = Decimal.Round(grandTotal, 2).ToString(CultureInfo.InvariantCulture);
+            Decimal grandTotal = roundTotalPrice - Convert.ToDecimal(discountText, CultureInfo.InvariantCulture);
+
+            discountRegexTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", discountText);
+
+            grandTotalTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", Decimal.Round(grandTotal, 2));
         }
 
         private void OrderFormKeyDown(object sender, KeyEventArgs e)

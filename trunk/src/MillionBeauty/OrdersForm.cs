@@ -53,9 +53,9 @@ namespace MillionBeauty
                 viewOrderForm.Company = SelectedRow.Cells[11].Value.ToString();
                 viewOrderForm.SalePerson = SelectedRow.Cells[12].Value.ToString();
 
-                viewOrderForm.Total = Decimal.Round(Convert.ToDecimal(SelectedRow.Cells[13].Value, CultureInfo.InvariantCulture), 2).ToString();
-                viewOrderForm.Discount = Decimal.Round(Convert.ToDecimal(SelectedRow.Cells[14].Value, CultureInfo.InvariantCulture), 2).ToString();
-                viewOrderForm.GrandTotal = Decimal.Round(Convert.ToDecimal(SelectedRow.Cells[15].Value, CultureInfo.InvariantCulture), 2).ToString();
+                viewOrderForm.Total = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[13].Value);
+                viewOrderForm.Discount = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[14].Value);
+                viewOrderForm.GrandTotal = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[15].Value);
                 BindingList<OrderDetail> orderDetails = SQLiteDB.Instance.OrderDetail(orderId);
                 if (orderDetails != null)
                 {
