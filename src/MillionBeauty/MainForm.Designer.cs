@@ -37,6 +37,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.connectionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.newOrderButton = new System.Windows.Forms.Button();
+            this.ordersButton = new System.Windows.Forms.Button();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -98,10 +99,17 @@
             this.newOrderButton.Name = "newOrderButton";
             this.newOrderButton.UseVisualStyleBackColor = true;
             // 
+            // ordersButton
+            // 
+            resources.ApplyResources(this.ordersButton, "ordersButton");
+            this.ordersButton.Name = "ordersButton";
+            this.ordersButton.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ordersButton);
             this.Controls.Add(this.newOrderButton);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);
@@ -126,6 +134,7 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel connectionStatusLabel;
         private System.Windows.Forms.Button newOrderButton;
+        private System.Windows.Forms.Button ordersButton;
     }
 }
 

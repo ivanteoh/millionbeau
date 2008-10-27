@@ -15,12 +15,11 @@ namespace MillionBeauty
             productsToolStripButton.Click += ProductsToolStripButtonClick;
             databaseToolStripMenuItem.Click += DatabaseToolStripMenuItemClick;
             newOrderButton.Click += NewOrderButtonClick;
+            ordersButton.Click += OrdersButtonClick;
 
             KeyDown += MainFormKeyDown;
             Load += MainFormLoad;
         }
-
-              
 
         private void MainFormLoad(object sender, System.EventArgs e)
         {
@@ -74,7 +73,12 @@ namespace MillionBeauty
         private void NewOrderButtonClick(object sender, System.EventArgs e)
         {
             ShowNewOrderForm();
-        }  
+        }
+
+        private void OrdersButtonClick(object sender, System.EventArgs e)
+        {
+            ShowOrdersForm();
+        }
 
         private void ShowCustomersForm()
         {
@@ -98,6 +102,12 @@ namespace MillionBeauty
         {
             OrderForm newOrderForm = new OrderForm();
             newOrderForm.ShowDialog(this);
+        }
+
+        private void ShowOrdersForm()
+        {
+            OrdersForm ordersForm = new OrdersForm();
+            ordersForm.ShowDialog(this);
         }
     }
 }

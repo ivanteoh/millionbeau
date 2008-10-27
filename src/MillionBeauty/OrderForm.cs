@@ -214,10 +214,14 @@ namespace MillionBeauty
 
         private void SaveButtonClick(object sender, EventArgs e)
         {
-            DateTime dataTimeNow = DateTime.Now;
-            yearTextBox.Text = dataTimeNow.Year.ToString();
-            dateTextBox.Text = dataTimeNow.Date.ToShortDateString();
-            timeTextBox.Text = dataTimeNow.Date.ToShortTimeString();
+            SQLiteDB.Instance.InsertOrder(customerId, salesPersonTextBox.Text, totalTextBox.Text, discountRegexTextBox.Text, grandTotalTextBox.Text);
+            object[] orderInfo = SQLiteDB.Instance.LastOrder;
+            recordTextBox.Text = orderInfo[0].ToString();
+            yearTextBox.Text = orderInfo[1].ToString();
+            dateTextBox.Text = orderInfo[2].ToString();
+            timeTextBox.Text = orderInfo[3].ToString();
+            saveButton.Enabled = false;
+            printButton.Enabled = true;
         } 
 
         private void PrintButtonClick(object sender, EventArgs e)

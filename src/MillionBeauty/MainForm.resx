@@ -174,7 +174,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 251</value>
@@ -204,7 +204,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="newOrderButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 28</value>
@@ -228,6 +228,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;newOrderButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ordersButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 28</value>
+  </data>
+  <data name="ordersButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="ordersButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="ordersButton.Text" xml:space="preserve">
+    <value>Orders List</value>
+  </data>
+  <data name="&gt;&gt;ordersButton.Name" xml:space="preserve">
+    <value>ordersButton</value>
+  </data>
+  <data name="&gt;&gt;ordersButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ordersButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ordersButton.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
