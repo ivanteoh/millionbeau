@@ -19,6 +19,9 @@
 
 "CREATE TABLE Orders (" +
 "OrderID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+"Year VARCHAR(4) NOT NULL, " +
+"OrderDate VARCHAR(100) NOT NULL, " +
+"OrderTime VARCHAR(100) NOT NULL, " +
 "CustomerID INTEGER NOT NULL, " +
 "TitleOfCourtesy VARCHAR(10) NOT NULL, " +
 "Name VARCHAR(100) NOT NULL, " +
@@ -27,9 +30,6 @@
 "State VARCHAR(100) NULL, " +
 "Phone VARCHAR(100) NULL, " +
 "CompanyName VARCHAR(100) NULL, " +
-"Year VARCHAR(4) NOT NULL, " +
-"OrderDate DATE NOT NULL, " +
-"OrderTime TIME NOT NULL, " +
 "SalePerson VARCHAR(100) NULL, " +
 "Sum NUMERIC DEFAULT 0 NOT NULL, " +
 "DiscountRM NUMERIC DEFAULT 0 NOT NULL, " +
@@ -50,3 +50,6 @@
 Take note that Specification of the product is not include in the order details, that is what you want.
 
 Mr. Mrs. Mdm. Ms. Miss Dr.
+
+"OrderDate DATE NOT NULL, " +
+"OrderTime TIME NOT NULL, " +

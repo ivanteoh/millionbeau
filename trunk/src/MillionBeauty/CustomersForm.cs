@@ -16,7 +16,7 @@ namespace MillionBeauty
 
         internal protected override void FormLoad()
         {
-            DataSetSource = SQLiteDB.Instance.CustomersTable;            
+            DataSetSource = SQLiteDB.Instance.CustomersTable; 
         }
 
         internal protected override void AddButtonClicked()

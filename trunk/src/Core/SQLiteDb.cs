@@ -105,31 +105,7 @@ namespace MillionBeauty
             }
         }
         
-        private static void CreateOrdersTable(DbConnection cnn)
-        {
-            using (DbCommand cmd = cnn.CreateCommand())
-            {
-                cmd.CommandText =
-                    "CREATE TABLE Orders (" +
-                    "OrderID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "CustomerID INTEGER NOT NULL, " +
-                    "TitleOfCourtesy VARCHAR(10) NOT NULL, " +
-                    "Name VARCHAR(100) NOT NULL, " +
-                    "Address VARCHAR(100) NULL, " +
-                    "Postcode VARCHAR(10) NULL, " +
-                    "State VARCHAR(100) NULL, " +
-                    "Phone VARCHAR(100) NULL, " +
-                    "CompanyName VARCHAR(100) NULL, " +
-                    "Year VARCHAR(4) NOT NULL, " +
-                    "OrderDate DATE NOT NULL, " +
-                    "OrderTime TIME NOT NULL, " +
-                    "SalePerson VARCHAR(100) NULL, " +
-                    "Sum NUMERIC DEFAULT 0 NOT NULL, " +
-                    "DiscountRM NUMERIC DEFAULT 0 NOT NULL, " +
-                    "Total NUMERIC DEFAULT 0 NOT NULL)";
-                cmd.ExecuteNonQuery();
-            }
-        }
+        
 
         private static void CreateOrderDetailsTable(DbConnection cnn)
         {
@@ -189,7 +165,7 @@ namespace MillionBeauty
                         cnn.Open();
                         using (DbCommand cmd = cnn.CreateCommand())
                         {
-                            cmd.CommandText = "SELECT * from Customers";
+                            cmd.CommandText = "SELECT * FROM Customers";
 
                             using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
                             {
@@ -230,40 +206,40 @@ namespace MillionBeauty
                             "INSERT INTO Customers " +
                             "(TitleOfCourtesy, Name, Address, Postcode, State, Phone, CompanyName) " +
                             "Values (@title, @name, @address, @postcode, @state, @phone, @company)";
-                        DbParameter titleDB = cmd.CreateParameter();
-                        titleDB.ParameterName = "@title";
-                        titleDB.Value = title;
-                        cmd.Parameters.Add(titleDB);
+                        DbParameter titleDb = cmd.CreateParameter();
+                        titleDb.ParameterName = "@title";
+                        titleDb.Value = title;
+                        cmd.Parameters.Add(titleDb);
 
-                        DbParameter nameDB = cmd.CreateParameter();
-                        nameDB.ParameterName = "@name";
-                        nameDB.Value = name;
-                        cmd.Parameters.Add(nameDB);
+                        DbParameter nameDb = cmd.CreateParameter();
+                        nameDb.ParameterName = "@name";
+                        nameDb.Value = name;
+                        cmd.Parameters.Add(nameDb);
 
-                        DbParameter addressDB = cmd.CreateParameter();
-                        addressDB.ParameterName = "@address";
-                        addressDB.Value = address;
-                        cmd.Parameters.Add(addressDB);
+                        DbParameter addressDb = cmd.CreateParameter();
+                        addressDb.ParameterName = "@address";
+                        addressDb.Value = address;
+                        cmd.Parameters.Add(addressDb);
 
-                        DbParameter postcodeDB = cmd.CreateParameter();
-                        postcodeDB.ParameterName = "@postcode";
-                        postcodeDB.Value = postcode;
-                        cmd.Parameters.Add(postcodeDB);
+                        DbParameter postcodeDb = cmd.CreateParameter();
+                        postcodeDb.ParameterName = "@postcode";
+                        postcodeDb.Value = postcode;
+                        cmd.Parameters.Add(postcodeDb);
 
-                        DbParameter stateDB = cmd.CreateParameter();
-                        stateDB.ParameterName = "@state";
-                        stateDB.Value = state;
-                        cmd.Parameters.Add(stateDB);
+                        DbParameter stateDb = cmd.CreateParameter();
+                        stateDb.ParameterName = "@state";
+                        stateDb.Value = state;
+                        cmd.Parameters.Add(stateDb);
 
-                        DbParameter phoneDB = cmd.CreateParameter();
-                        phoneDB.ParameterName = "@phone";
-                        phoneDB.Value = phone;
-                        cmd.Parameters.Add(phoneDB);
+                        DbParameter phoneDb = cmd.CreateParameter();
+                        phoneDb.ParameterName = "@phone";
+                        phoneDb.Value = phone;
+                        cmd.Parameters.Add(phoneDb);
 
-                        DbParameter companyDB = cmd.CreateParameter();
-                        companyDB.ParameterName = "@company";
-                        companyDB.Value = company;
-                        cmd.Parameters.Add(companyDB);
+                        DbParameter companyDb = cmd.CreateParameter();
+                        companyDb.ParameterName = "@company";
+                        companyDb.Value = company;
+                        cmd.Parameters.Add(companyDb);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -336,6 +312,40 @@ namespace MillionBeauty
                 Console.WriteLine("FAIL - Delete Customer: {0}", ex.Message);
             }
         }
+
+        public object Customer(string index)
+        {
+            DataSet dataSet = new DataSet();
+            dataSet.Locale = CultureInfo.InvariantCulture;
+
+            try
+            {
+                using (DbConnection cnn = fact.CreateConnection())
+                {
+                    cnn.ConnectionString = dbConnectionStr;
+                    cnn.Open();
+                    using (DbCommand cmd = cnn.CreateCommand())
+                    {
+                        string customerQuery = 
+                            string.Format(CultureInfo.InvariantCulture, "SELECT * FROM Customers WHERE CustomerID = '{0}'", index);
+                        cmd.CommandText = customerQuery;  
+
+                        using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
+                        {
+                            dataAdapter.SelectCommand = cmd;
+                            dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
+                            dataAdapter.Fill(dataSet);
+                        }
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Get Customer: {0}", ex.Message);
+            }
+
+            return dataSet.Tables[0];
+        }
         #endregion Customers Table
 
         #region Products Table
@@ -371,7 +381,7 @@ namespace MillionBeauty
                         cnn.Open();
                         using (DbCommand cmd = cnn.CreateCommand())
                         {
-                            cmd.CommandText = "SELECT * from Products";
+                            cmd.CommandText = "SELECT * FROM Products";
 
                             using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
                             {
@@ -411,35 +421,35 @@ namespace MillionBeauty
                             "INSERT INTO Products " +
                             "(Name, Description, Type, Specification, InStock, Price) " +
                             "Values (@name, @description, @type, @specification, @inStock, @price)";
-                        DbParameter nameDB = cmd.CreateParameter();
-                        nameDB.ParameterName = "@name";
-                        nameDB.Value = name;
-                        cmd.Parameters.Add(nameDB);
+                        DbParameter nameDb = cmd.CreateParameter();
+                        nameDb.ParameterName = "@name";
+                        nameDb.Value = name;
+                        cmd.Parameters.Add(nameDb);
 
-                        DbParameter descriptionDB = cmd.CreateParameter();
-                        descriptionDB.ParameterName = "@description";
-                        descriptionDB.Value = description;
-                        cmd.Parameters.Add(descriptionDB);
+                        DbParameter descriptionDb = cmd.CreateParameter();
+                        descriptionDb.ParameterName = "@description";
+                        descriptionDb.Value = description;
+                        cmd.Parameters.Add(descriptionDb);
 
-                        DbParameter typeDB = cmd.CreateParameter();
-                        typeDB.ParameterName = "@type";
-                        typeDB.Value = type;
-                        cmd.Parameters.Add(typeDB);
+                        DbParameter typeDb = cmd.CreateParameter();
+                        typeDb.ParameterName = "@type";
+                        typeDb.Value = type;
+                        cmd.Parameters.Add(typeDb);
 
-                        DbParameter specificationDB = cmd.CreateParameter();
-                        specificationDB.ParameterName = "@specification";
-                        specificationDB.Value = specification;
-                        cmd.Parameters.Add(specificationDB);
+                        DbParameter specificationDb = cmd.CreateParameter();
+                        specificationDb.ParameterName = "@specification";
+                        specificationDb.Value = specification;
+                        cmd.Parameters.Add(specificationDb);
 
-                        DbParameter inStockDB = cmd.CreateParameter();
-                        inStockDB.ParameterName = "@inStock";
-                        inStockDB.Value = inStock;
-                        cmd.Parameters.Add(inStockDB);
+                        DbParameter inStockDb = cmd.CreateParameter();
+                        inStockDb.ParameterName = "@inStock";
+                        inStockDb.Value = inStock;
+                        cmd.Parameters.Add(inStockDb);
 
-                        DbParameter priceDB = cmd.CreateParameter();
-                        priceDB.ParameterName = "@price";
-                        priceDB.Value = price;
-                        cmd.Parameters.Add(priceDB);
+                        DbParameter priceDb = cmd.CreateParameter();
+                        priceDb.ParameterName = "@price";
+                        priceDb.Value = price;
+                        cmd.Parameters.Add(priceDb);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -511,6 +521,246 @@ namespace MillionBeauty
             }
         }
         #endregion Products Table
+
+        #region Orders Table
+        private static void CreateOrdersTable(DbConnection cnn)
+        {
+            using (DbCommand cmd = cnn.CreateCommand())
+            {
+                cmd.CommandText =
+                    "CREATE TABLE Orders (" +
+                    "OrderID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "Year VARCHAR(4) NOT NULL, " +
+                    "OrderDate VARCHAR(100) NOT NULL, " +
+                    "OrderTime VARCHAR(100) NOT NULL, " +
+                    "CustomerID INTEGER NOT NULL, " +
+                    "TitleOfCourtesy VARCHAR(10) NOT NULL, " +
+                    "Name VARCHAR(100) NOT NULL, " +
+                    "Address VARCHAR(100) NULL, " +
+                    "Postcode VARCHAR(10) NULL, " +
+                    "State VARCHAR(100) NULL, " +
+                    "Phone VARCHAR(100) NULL, " +
+                    "CompanyName VARCHAR(100) NULL, " + 
+                    "SalePerson VARCHAR(100) NULL, " +
+                    "Sum NUMERIC DEFAULT 0 NOT NULL, " +
+                    "DiscountRM NUMERIC DEFAULT 0 NOT NULL, " +
+                    "Total NUMERIC DEFAULT 0 NOT NULL)";
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public object OrdersTable
+        {
+            get
+            {
+                DataSet dataSet = new DataSet();
+                dataSet.Locale = CultureInfo.InvariantCulture;
+
+                try
+                {
+                    using (DbConnection cnn = fact.CreateConnection())
+                    {
+                        cnn.ConnectionString = dbConnectionStr;
+                        cnn.Open();
+                        using (DbCommand cmd = cnn.CreateCommand())
+                        {
+                            cmd.CommandText = "SELECT * FROM Orders";
+
+                            using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
+                            {
+                                dataAdapter.SelectCommand = cmd;
+                                dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
+                                dataAdapter.Fill(dataSet);
+                            }
+                        }
+                    }
+                }
+                catch (DbException ex)
+                {
+                    Console.WriteLine("FAIL - Orders Table: {0}", ex.Message);
+                }
+
+                return dataSet.Tables[0];
+            }
+        }
+
+        public void InsertOrder(
+            string customerId,
+            string salePerson,
+            string sum,
+            string discountRM,
+            string total)
+        {
+            DateTime dataTimeNow = DateTime.Now;
+
+            try
+            {
+                DataTable customerTable = Customer(customerId) as DataTable;
+                if (customerTable == null && customerTable.Rows.Count != 1)
+                    return;
+
+                DataRow currentCustomer = customerTable.Rows[0];
+                object[] customerInfo = currentCustomer.ItemArray;
+
+                if (customerInfo.Length != 8)
+                    return;
+
+                string title = customerInfo[1].ToString();
+                string name = customerInfo[2].ToString();
+                string address = customerInfo[3].ToString();
+                string postcode = customerInfo[4].ToString();
+                string state = customerInfo[5].ToString();
+                string phone = customerInfo[6].ToString();
+                string company = customerInfo[7].ToString();
+                                
+                using (DbConnection cnn = fact.CreateConnection())
+                {
+                    cnn.ConnectionString = dbConnectionStr;
+                    cnn.Open();
+                    using (DbCommand cmd = cnn.CreateCommand())
+                    {
+                        cmd.CommandText =
+                            "INSERT INTO Orders " +
+                            "(Year, OrderDate, OrderTime, " + 
+                            "CustomerID, TitleOfCourtesy, Name, Address, Postcode, State, Phone, CompanyName, " +
+                            "SalePerson, Sum, DiscountRM, Total) " +
+                            "Values (@year, @orderDate, @orderTime, " + 
+                            "@customerId, @title, @name, @address, @postcode, @state, @phone, @company, " +
+                            "@salePerson, @sum, @discountRM, @total)";
+
+                        DbParameter yearDb = cmd.CreateParameter();
+                        yearDb.ParameterName = "@year";
+                        yearDb.Value = dataTimeNow.Year;
+                        cmd.Parameters.Add(yearDb);
+
+                        DbParameter orderDateDb = cmd.CreateParameter();
+                        orderDateDb.ParameterName = "@orderDate";
+                        orderDateDb.Value = dataTimeNow.ToShortDateString();
+                        cmd.Parameters.Add(orderDateDb);
+
+                        DbParameter orderTimeDb = cmd.CreateParameter();
+                        orderTimeDb.ParameterName = "@orderTime";
+                        orderTimeDb.Value = dataTimeNow.ToShortTimeString();
+                        cmd.Parameters.Add(orderTimeDb);
+
+                        DbParameter customerIdDb = cmd.CreateParameter();
+                        customerIdDb.ParameterName = "@customerId";
+                        customerIdDb.Value = customerId;
+                        cmd.Parameters.Add(customerIdDb);
+
+                        DbParameter titleDb = cmd.CreateParameter();
+                        titleDb.ParameterName = "@title";
+                        titleDb.Value = title;
+                        cmd.Parameters.Add(titleDb);
+
+                        DbParameter nameDb = cmd.CreateParameter();
+                        nameDb.ParameterName = "@name";
+                        nameDb.Value = name;
+                        cmd.Parameters.Add(nameDb);
+
+                        DbParameter addressDb = cmd.CreateParameter();
+                        addressDb.ParameterName = "@address";
+                        addressDb.Value = address;
+                        cmd.Parameters.Add(addressDb);
+
+                        DbParameter postcodeDb = cmd.CreateParameter();
+                        postcodeDb.ParameterName = "@postcode";
+                        postcodeDb.Value = postcode;
+                        cmd.Parameters.Add(postcodeDb);
+
+                        DbParameter stateDb = cmd.CreateParameter();
+                        stateDb.ParameterName = "@state";
+                        stateDb.Value = state;
+                        cmd.Parameters.Add(stateDb);
+
+                        DbParameter phoneDb = cmd.CreateParameter();
+                        phoneDb.ParameterName = "@phone";
+                        phoneDb.Value = phone;
+                        cmd.Parameters.Add(phoneDb);
+
+                        DbParameter companyDb = cmd.CreateParameter();
+                        companyDb.ParameterName = "@company";
+                        companyDb.Value = company;
+                        cmd.Parameters.Add(companyDb);
+
+                        DbParameter salePersonDb = cmd.CreateParameter();
+                        salePersonDb.ParameterName = "@salePerson";
+                        salePersonDb.Value = salePerson;
+                        cmd.Parameters.Add(salePersonDb);
+
+                        DbParameter sumDb = cmd.CreateParameter();
+                        sumDb.ParameterName = "@sum";
+                        sumDb.Value = sum;
+                        cmd.Parameters.Add(sumDb);
+
+                        DbParameter discountRMDb = cmd.CreateParameter();
+                        discountRMDb.ParameterName = "@discountRM";
+                        discountRMDb.Value = discountRM;
+                        cmd.Parameters.Add(discountRMDb);
+
+                        DbParameter totalDb = cmd.CreateParameter();
+                        totalDb.ParameterName = "@total";
+                        totalDb.Value = total;
+                        cmd.Parameters.Add(totalDb);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Insert Order: {0}", ex.Message);
+            }
+        }
+
+        // select * from t1 where oid = (select max(oid) from t1); 
+
+        public object[] LastOrder
+        {
+            get
+            {
+                DataSet dataSet = new DataSet();
+                dataSet.Locale = CultureInfo.InvariantCulture;
+
+                try
+                {
+                    using (DbConnection cnn = fact.CreateConnection())
+                    {
+                        cnn.ConnectionString = dbConnectionStr;
+                        cnn.Open();
+                        using (DbCommand cmd = cnn.CreateCommand())
+                        {
+                            cmd.CommandText = "SELECT * FROM Orders WHERE OrderID = (select max(OrderID) from Orders)";
+
+                            using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
+                            {
+                                dataAdapter.SelectCommand = cmd;
+                                dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
+                                dataAdapter.Fill(dataSet);
+                            }
+                        }
+                    }
+                }
+                catch (DbException ex)
+                {
+                    Console.WriteLine("FAIL - Get Last Order: {0}", ex.Message);
+                }
+
+                DataTable currentTable = dataSet.Tables[0];
+
+                if (currentTable == null && currentTable.Rows.Count != 1)
+                    return null;
+
+                DataRow currentOrder = currentTable.Rows[0];
+                object[] orderItems = currentOrder.ItemArray;
+
+                if (orderItems.Length != 16)
+                    return null;
+
+                return orderItems;
+            }
+        }
+        #endregion Orders Table
 
         #endregion methods
     }
