@@ -712,7 +712,7 @@
     <value>orderDetailsControl</value>
   </data>
   <data name="&gt;&gt;orderDetailsControl.Type" xml:space="preserve">
-    <value>MillionBeauty.OrderDetailsControl, MillionBeauty, Version=1.0.3220.15221, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
+    <value>MillionBeauty.OrderDetailsControl, MillionBeauty, Version=0.1.3222.19114, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
   </data>
   <data name="&gt;&gt;orderDetailsControl.Parent" xml:space="preserve">
     <value>itemGroupBox</value>
@@ -2151,9 +2151,6 @@
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>New Order</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>OrderForm</value>

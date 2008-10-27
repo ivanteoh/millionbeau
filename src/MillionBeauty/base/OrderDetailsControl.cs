@@ -64,6 +64,13 @@ namespace MillionBeauty
             set { addButton.Text = value; }
         }
 
+        public void ReadOnly()
+        {
+            dataGridView.ReadOnly = true;
+            dataGridView.Enabled = true;
+            addButton.Enabled = false;
+        }
+
         private void DataGridViewKeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

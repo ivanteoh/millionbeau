@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SQLite;
 using System.Globalization;
+using System.ComponentModel;
 
 namespace MillionBeauty
 {
@@ -103,29 +104,7 @@ namespace MillionBeauty
             {
                 Console.WriteLine("FAIL - Create Table for String: {0}", ex.Message);
             }
-        }
-        
-        
-
-        private static void CreateOrderDetailsTable(DbConnection cnn)
-        {
-            using (DbCommand cmd = cnn.CreateCommand())
-            {
-                cmd.CommandText =
-                    "CREATE TABLE OrderDetails (" +
-                    "OrderID INTEGER NOT NULL, " +
-                    "ProductID INTEGER NOT NULL, " +
-                    "Name VARCHAR(100) NOT NULL, " +
-                    "Description VARCHAR(100) NULL, " +
-                    "Type VARCHAR(100) NULL, " +
-                    "InStock INTEGER DEFAULT 1 NOT NULL, " +
-                    "Price NUMERIC DEFAULT 0 NOT NULL, " +
-                    "Quantity INTEGER DEFAULT 1 NOT NULL, " +
-                    "DiscountPercent NUMERIC DEFAULT 0 NOT NULL, " +
-                    "TotalCost NUMERIC DEFAULT 0 NOT NULL)";
-                cmd.ExecuteNonQuery();
-            }
-        }
+        }     
 
         #region Customers Table
         /// <summary>
@@ -713,54 +692,220 @@ namespace MillionBeauty
             }
         }
 
-        // select * from t1 where oid = (select max(oid) from t1); 
+        public object[] LastOrder()
+        {            
+            DataSet dataSet = new DataSet();
+            dataSet.Locale = CultureInfo.InvariantCulture;
 
-        public object[] LastOrder
-        {
-            get
+            try
             {
-                DataSet dataSet = new DataSet();
-                dataSet.Locale = CultureInfo.InvariantCulture;
-
-                try
+                using (DbConnection cnn = fact.CreateConnection())
                 {
-                    using (DbConnection cnn = fact.CreateConnection())
+                    cnn.ConnectionString = dbConnectionStr;
+                    cnn.Open();
+                    using (DbCommand cmd = cnn.CreateCommand())
                     {
-                        cnn.ConnectionString = dbConnectionStr;
-                        cnn.Open();
-                        using (DbCommand cmd = cnn.CreateCommand())
-                        {
-                            cmd.CommandText = "SELECT * FROM Orders WHERE OrderID = (select max(OrderID) from Orders)";
+                        cmd.CommandText = "SELECT * FROM Orders WHERE OrderID = (select max(OrderID) from Orders)";
 
-                            using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
-                            {
-                                dataAdapter.SelectCommand = cmd;
-                                dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
-                                dataAdapter.Fill(dataSet);
-                            }
+                        using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
+                        {
+                            dataAdapter.SelectCommand = cmd;
+                            dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
+                            dataAdapter.Fill(dataSet);
                         }
                     }
                 }
-                catch (DbException ex)
-                {
-                    Console.WriteLine("FAIL - Get Last Order: {0}", ex.Message);
-                }
-
-                DataTable currentTable = dataSet.Tables[0];
-
-                if (currentTable == null && currentTable.Rows.Count != 1)
-                    return null;
-
-                DataRow currentOrder = currentTable.Rows[0];
-                object[] orderItems = currentOrder.ItemArray;
-
-                if (orderItems.Length != 16)
-                    return null;
-
-                return orderItems;
             }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Get Last Order: {0}", ex.Message);
+            }
+
+            DataTable currentTable = dataSet.Tables[0];
+
+            if (currentTable == null && currentTable.Rows.Count != 1)
+                return null;
+
+            DataRow currentOrder = currentTable.Rows[0];
+            object[] orderItems = currentOrder.ItemArray;
+
+            if (orderItems.Length != 16)
+                return null;
+
+            return orderItems;            
         }
         #endregion Orders Table
+
+        #region Order Details
+        private static void CreateOrderDetailsTable(DbConnection cnn)
+        {
+            using (DbCommand cmd = cnn.CreateCommand())
+            {
+                cmd.CommandText =
+                    "CREATE TABLE OrderDetails (" +
+                    "OrderID INTEGER NOT NULL, " +
+                    "ProductID INTEGER NOT NULL, " +
+                    "Name VARCHAR(100) NOT NULL, " +
+                    "Description VARCHAR(100) NULL, " +
+                    "Type VARCHAR(100) NULL, " +
+                    "InStock INTEGER DEFAULT 1 NOT NULL, " +
+                    "Price NUMERIC DEFAULT 0 NOT NULL, " +
+                    "Quantity INTEGER DEFAULT 1 NOT NULL, " +
+                    "DiscountPercent NUMERIC DEFAULT 0 NOT NULL, " +
+                    "TotalCost NUMERIC DEFAULT 0 NOT NULL)";
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public BindingList<OrderDetail> OrderDetail(string orderId)
+        {
+            BindingList<OrderDetail> orderDetails = new BindingList<OrderDetail>();
+            DataSet dataSet = new DataSet();
+            dataSet.Locale = CultureInfo.InvariantCulture;
+            OrderDetail orderDetail;
+
+            try
+            {
+                using (DbConnection cnn = fact.CreateConnection())
+                {
+                    cnn.ConnectionString = dbConnectionStr;
+                    cnn.Open();
+                    using (DbCommand cmd = cnn.CreateCommand())
+                    {
+                        string selectQuery = string.Format(CultureInfo.InvariantCulture, "SELECT * FROM OrderDetails WHERE OrderID = '{0}'", orderId);
+                        cmd.CommandText = selectQuery;
+
+                        using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
+                        {
+                            dataAdapter.SelectCommand = cmd;
+                            dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
+                            dataAdapter.Fill(dataSet);
+                        }
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Get Order Detail: {0}", ex.Message);
+            }
+
+            DataTable currentTable = dataSet.Tables[0];
+
+            if (currentTable == null)
+                return null;
+
+            foreach (DataRow row in currentTable.Rows)
+            {
+                if (row[0].ToString() == orderId)
+                {
+                    orderDetail = new OrderDetail();
+                    orderDetail.ProductId = Convert.ToInt64(row[1], CultureInfo.InvariantCulture);
+                    orderDetail.Product = row[2].ToString();
+                    orderDetail.Description = row[3].ToString();
+                    orderDetail.ProductType = row[4].ToString();
+                    orderDetail.InStock = Convert.ToInt64(row[5], CultureInfo.InvariantCulture);
+                    orderDetail.Price = Convert.ToDecimal(row[6], CultureInfo.InvariantCulture);
+                    orderDetail.Quantity = Convert.ToInt64(row[7], CultureInfo.InvariantCulture);
+                    orderDetail.DiscountPercent = Convert.ToDecimal(row[8], CultureInfo.InvariantCulture);
+                    orderDetail.TotalCost = Convert.ToDecimal(row[9], CultureInfo.InvariantCulture);
+
+                    orderDetails.Add(orderDetail);
+                }                
+            }
+
+            return orderDetails;
+        }
+
+        public void InsertOrderDetail(
+            string orderId,
+            BindingList<OrderDetail> orderDetails)
+        {
+            DbParameter orderIdDb;
+            DbParameter productIdDb;
+            DbParameter nameDb;
+            DbParameter descriptionDb;
+            DbParameter typeDb;
+            DbParameter inStockDb;
+            DbParameter priceDb;
+            DbParameter quantityDb;
+            DbParameter discountPercentDb;
+            DbParameter totalCostDb;
+
+            try
+            {
+                using (DbConnection cnn = fact.CreateConnection())
+                {
+                    cnn.ConnectionString = dbConnectionStr;
+                    cnn.Open();
+                    using (DbCommand cmd = cnn.CreateCommand())
+                    {
+                        foreach (OrderDetail orderDetail in orderDetails)
+                        {
+                            cmd.CommandText =
+                            "INSERT INTO OrderDetails " +
+                            "(OrderID, ProductID, Name, Description, Type, InStock, Price, Quantity, DiscountPercent, TotalCost) " +
+                            "Values (@orderId, @productId, @name, @description, @type, @inStock, @price, @quantity, @discountPercent, @totalCost)";
+                            orderIdDb = cmd.CreateParameter();
+                            orderIdDb.ParameterName = "@orderId";
+                            orderIdDb.Value = orderId;
+                            cmd.Parameters.Add(orderIdDb);
+
+                            productIdDb = cmd.CreateParameter();
+                            productIdDb.ParameterName = "@productId";
+                            productIdDb.Value = orderDetail.ProductId;
+                            cmd.Parameters.Add(productIdDb);
+
+                            nameDb = cmd.CreateParameter();
+                            nameDb.ParameterName = "@name";
+                            nameDb.Value = orderDetail.Product;
+                            cmd.Parameters.Add(nameDb);
+
+                            descriptionDb = cmd.CreateParameter();
+                            descriptionDb.ParameterName = "@description";
+                            descriptionDb.Value = orderDetail.Description;
+                            cmd.Parameters.Add(descriptionDb);
+
+                            typeDb = cmd.CreateParameter();
+                            typeDb.ParameterName = "@type";
+                            typeDb.Value = orderDetail.ProductType;
+                            cmd.Parameters.Add(typeDb);
+
+                            inStockDb = cmd.CreateParameter();
+                            inStockDb.ParameterName = "@inStock";
+                            inStockDb.Value = orderDetail.InStock;
+                            cmd.Parameters.Add(inStockDb);
+
+                            priceDb = cmd.CreateParameter();
+                            priceDb.ParameterName = "@price";
+                            priceDb.Value = orderDetail.Price;
+                            cmd.Parameters.Add(priceDb);
+
+                            quantityDb = cmd.CreateParameter();
+                            quantityDb.ParameterName = "@quantity";
+                            quantityDb.Value = orderDetail.Quantity;
+                            cmd.Parameters.Add(quantityDb);
+
+                            discountPercentDb = cmd.CreateParameter();
+                            discountPercentDb.ParameterName = "@discountPercent";
+                            discountPercentDb.Value = orderDetail.DiscountPercent;
+                            cmd.Parameters.Add(discountPercentDb);
+
+                            totalCostDb = cmd.CreateParameter();
+                            totalCostDb.ParameterName = "@totalCost";
+                            totalCostDb.Value = orderDetail.TotalCost;
+                            cmd.Parameters.Add(totalCostDb);
+
+                            cmd.ExecuteNonQuery(); 
+                        }
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Insert Order Detail: {0}", ex.Message);
+            }
+        }
+        #endregion Order Details
 
         #endregion methods
     }

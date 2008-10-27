@@ -55,6 +55,7 @@
             this.timeLabel = new System.Windows.Forms.Label();
             this.timeTextBox = new System.Windows.Forms.TextBox();
             this.itemGroupBox = new System.Windows.Forms.GroupBox();
+            this.orderDetailsControl = new MillionBeauty.OrderDetailsControl();
             this.salesPersonLabel = new System.Windows.Forms.Label();
             this.salesPersonTextBox = new System.Windows.Forms.TextBox();
             this.totalLabel = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@
             this.grandTotalTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
-            this.orderDetailsControl = new MillionBeauty.OrderDetailsControl();
             this.customerGroupBox.SuspendLayout();
             this.newOrderGroupBox.SuspendLayout();
             this.itemGroupBox.SuspendLayout();
@@ -250,6 +250,13 @@
             this.itemGroupBox.Name = "itemGroupBox";
             this.itemGroupBox.TabStop = false;
             // 
+            // orderDetailsControl
+            // 
+            this.orderDetailsControl.AddButtonName = "Add";
+            this.orderDetailsControl.DataSetSource = null;
+            resources.ApplyResources(this.orderDetailsControl, "orderDetailsControl");
+            this.orderDetailsControl.Name = "orderDetailsControl";
+            // 
             // salesPersonLabel
             // 
             resources.ApplyResources(this.salesPersonLabel, "salesPersonLabel");
@@ -304,13 +311,6 @@
             resources.ApplyResources(this.printButton, "printButton");
             this.printButton.Name = "printButton";
             this.printButton.UseVisualStyleBackColor = true;
-            // 
-            // orderDetailsControl
-            // 
-            this.orderDetailsControl.AddButtonName = "Add";
-            this.orderDetailsControl.DataSetSource = null;
-            resources.ApplyResources(this.orderDetailsControl, "orderDetailsControl");
-            this.orderDetailsControl.Name = "orderDetailsControl";
             // 
             // OrderForm
             // 
