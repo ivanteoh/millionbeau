@@ -9,9 +9,9 @@ using System.Globalization;
 
 namespace MillionBeauty
 {
-    public partial class OrderForm : Form
+    public partial class NewOrderForm : Form
     {
-        public OrderForm()
+        public NewOrderForm()
         {
             InitializeComponent();
 

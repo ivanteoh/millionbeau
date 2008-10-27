@@ -1,6 +1,6 @@
 ﻿namespace MillionBeauty
 {
-    partial class OrderForm
+    partial class NewOrderForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewOrderForm));
             this.customerGroupBox = new System.Windows.Forms.GroupBox();
             this.customerTitleLabel = new System.Windows.Forms.Label();
             this.customerTitleTextBox = new System.Windows.Forms.TextBox();
