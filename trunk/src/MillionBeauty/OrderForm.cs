@@ -9,9 +9,9 @@ using System.Globalization;
 
 namespace MillionBeauty
 {
-    public partial class NewOrderForm : Form
+    public partial class OrderForm : Form
     {
-        public NewOrderForm()
+        public OrderForm()
         {
             InitializeComponent();
 
@@ -193,11 +193,11 @@ namespace MillionBeauty
                 totalPrice = totalPrice + orderItem.TotalCost;
             }
             Decimal roundTotalPrice = decimal.Round(totalPrice, 2);
-            totalTextBox.Text = roundTotalPrice.ToString();
+            totalTextBox.Text = roundTotalPrice.ToString(CultureInfo.InvariantCulture);
 
             Decimal grandTotal = roundTotalPrice - Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
 
-            grandTotalTextBox.Text = Decimal.Round(grandTotal, 2).ToString();
+            grandTotalTextBox.Text = Decimal.Round(grandTotal, 2).ToString(CultureInfo.InvariantCulture);
         }
 
         private void OrderFormKeyDown(object sender, KeyEventArgs e)
