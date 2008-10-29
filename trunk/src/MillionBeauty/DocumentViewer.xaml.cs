@@ -23,5 +23,10 @@ namespace MillionBeauty
         {
             InitializeComponent();
         }
+
+        public void LoadDocument(FixedDocumentSequence fds)
+        {
+            documentViewer.Document = fds;
+        }
     }
 }

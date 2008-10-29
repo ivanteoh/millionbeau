@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintViewerForm));
             this.elementHost = new System.Windows.Forms.Integration.ElementHost();
-            this.documentViewer1 = new MillionBeauty.DocumentViewer();
+            this.documentViewer = new MillionBeauty.DocumentViewer();
             this.SuspendLayout();
             // 
             // elementHost
             // 
             resources.ApplyResources(this.elementHost, "elementHost");
             this.elementHost.Name = "elementHost";
-            this.elementHost.Child = this.documentViewer1;
+            this.elementHost.Child = this.documentViewer;
             // 
             // PrintViewerForm
             // 
@@ -52,7 +52,7 @@
         #endregion
 
         private System.Windows.Forms.Integration.ElementHost elementHost;
-        private DocumentViewer documentViewer1;
+        private DocumentViewer documentViewer;
 
     }
 }
