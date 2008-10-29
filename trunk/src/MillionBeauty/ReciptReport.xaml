@@ -1,8 +1,43 @@
-﻿<UserControl x:Class="MillionBeauty.ReciptReport"
+<UserControl x:Class="MillionBeauty.ReciptReport"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Height="1056" Width="816">
     <Grid>
-            
+    <StackPanel>
+    <TextBlock Name="companyTitle" TextAlignment="Center">
+    <Bold>Million Beauty Lights Trading Sdn. Bhd.</Bold>
+    <Span BaselineAlignment="Subscript">(800526-T)</Span>
+    <LineBreak />17, 1st Floor, Tingkat Bukit Minyak 7,
+    <LineBreak />Taman Bukit Minyak, 14000 Bukit Mertajam,
+    <LineBreak />Penang
+    <LineBreak />Tel no: 04-5022118 / 5089118 Fax no: 04-5089118
+    </TextBlock>
+    <Separator Name="separatorHeader"/>
+    <TextBlock Name="title" TextAlignment="Center"><Span TextDecorations="Underline">Offical Receipt</Span></TextBlock>
+    <TextBlock>Customer: <TextBlock Text="{Binding CustomerTitle}"/> <TextBlock Text="{Binding CustomerName}"/></TextBlock>
+    <TextBlock>Address: <TextBlock Text="{Binding CustomerAddress}"/></TextBlock>
+    <TextBlock>Postcode: <TextBlock Text="{Binding CustomerPostcode}"/></TextBlock>
+    <TextBlock>State: <TextBlock Text="{Binding CustomerState}"/></TextBlock>
+    <TextBlock>Phone: <TextBlock Text="{Binding CustomerPhone}"/></TextBlock>
+    <TextBlock>Company: <TextBlock Text="{Binding CustomerCompany}"/></TextBlock>
+    <Separator Name="separatorEndTable"/>
+    <TextBlock TextAlignment="Right">
+    Charge: $0.00
+    <LineBreak />
+    Discount(RM): $0.00    
+    </TextBlock>
+    <Separator Name="separatorEndDiscount"/>
+    <TextBlock TextAlignment="Right">
+    Total Charge: $0.00
+    </TextBlock>
+    <Separator Name="separatorEndTotal"/>
+    <TextBlock>Remarks:</TextBlock>
+    <TextBlock>Goods sold are not returnable / Barang yang dijual tidak boleh dikembalikan.</TextBlock>
+    <TextBlock TextAlignment="Right">
+    <Span BaselineAlignment="Baseline">---------------------------------------------</Span>
+    <LineBreak />
+    Issued By / Dikeluarkan Oleh
+    </TextBlock>    
+    </StackPanel>   
     </Grid>
 </UserControl>
