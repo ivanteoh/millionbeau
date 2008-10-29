@@ -16,8 +16,8 @@ namespace MillionBeauty
 
             orderDetails = new BindingList<OrderDetail>();
             OrderDetailsSource = orderDetails;
-            Saved += NewOrderFormSaved;
-        }
+            Save += NewOrderFormSave;            
+        }        
 
         private BindingList<OrderDetail> orderDetails;
 
@@ -144,7 +144,7 @@ namespace MillionBeauty
             }     
         }
 
-        private void NewOrderFormSaved(object sender, EventArgs e)
+        private void NewOrderFormSave(object sender, EventArgs e)
         {
             SQLiteDB.Instance.InsertOrder(CustomerId, SalePerson, Total, Discount, GrandTotal);
             object[] orderInfo = SQLiteDB.Instance.LastOrder();

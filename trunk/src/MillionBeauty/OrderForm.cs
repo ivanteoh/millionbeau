@@ -11,7 +11,7 @@ namespace MillionBeauty
 {
     public partial class OrderForm : Form
     {
-        public event EventHandler Saved;
+        public event EventHandler Save;        
 
         public OrderForm()
         {
@@ -287,7 +287,7 @@ namespace MillionBeauty
 
         private void SaveButtonClick(object sender, EventArgs e)
         {
-            EventHandler eventHandler = Saved;
+            EventHandler eventHandler = Save;
             if (eventHandler != null)
             {
                 eventHandler(sender, EventArgs.Empty);
@@ -295,7 +295,9 @@ namespace MillionBeauty
         } 
 
         private void PrintButtonClick(object sender, EventArgs e)
-        {            
+        {
+            PrintViewerForm printViewerForm = new PrintViewerForm();
+            printViewerForm.ShowDialog(this);
         }           
     }
 }
