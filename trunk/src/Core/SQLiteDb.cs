@@ -904,6 +904,34 @@ namespace MillionBeauty
             {
                 Console.WriteLine("FAIL - Insert Order Detail: {0}", ex.Message);
             }
+
+            // Update the product in stock quantity
+            try
+            {
+                using (DbConnection cnn = fact.CreateConnection())
+                {
+                    cnn.ConnectionString = dbConnectionStr;
+                    cnn.Open();
+                    using (DbCommand cmd = cnn.CreateCommand())
+                    {
+                        foreach (OrderDetail orderDetail in orderDetails)
+                        {
+                            string updateQuery = string.Format(
+                                CultureInfo.InvariantCulture,
+                                "UPDATE Products SET " +
+                                "InStock = '{0}' " +
+                                "WHERE ProductID = '{1}'", 
+                                orderDetail.InStock, orderDetail.ProductId);
+                            cmd.CommandText = updateQuery;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Update Product In Stock: {0}", ex.Message);
+            }
         }
         #endregion Order Details
 
