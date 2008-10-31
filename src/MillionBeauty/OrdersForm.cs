@@ -17,7 +17,7 @@ namespace MillionBeauty
 
         internal protected override void FormLoad()
         {
-            DataSetSource = SQLiteDB.Instance.OrdersTable;
+            DataSetSource = DatabaseBuilder.Instance.OrdersTable;
         }
 
         internal protected override void AddButtonClicked()
@@ -56,7 +56,7 @@ namespace MillionBeauty
                 viewOrderForm.Total = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[13].Value);
                 viewOrderForm.Discount = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[14].Value);
                 viewOrderForm.GrandTotal = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[15].Value);
-                BindingList<OrderDetail> orderDetails = SQLiteDB.Instance.OrderDetail(orderId);
+                BindingList<OrderDetail> orderDetails = DatabaseBuilder.Instance.OrderDetail(orderId);
                 if (orderDetails != null)
                 {
                     viewOrderForm.OrderDetailsSource = orderDetails;

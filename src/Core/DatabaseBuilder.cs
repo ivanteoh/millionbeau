@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace MillionBeauty
 {
-    public sealed class SQLiteDB
+    public sealed class DatabaseBuilder
     {
         #region Construction  / Destruction
         /// <summary>
@@ -19,7 +19,7 @@ namespace MillionBeauty
         /// This must be present otherwise the compiler provides
         /// a default public constructor
         /// </remarks>
-        private SQLiteDB()
+        private DatabaseBuilder()
         {
             fact = DbProviderFactories.GetFactory("System.Data.SQLite");
         }
@@ -28,15 +28,15 @@ namespace MillionBeauty
         #region fields        
         // Static members are lazily initialized.
         // .NET guarantees thread safety for static initialization
-        private static readonly SQLiteDB instance = new SQLiteDB();
+        private static readonly DatabaseBuilder instance = new DatabaseBuilder();
 
         string dbConnectionStr = "";
         DbProviderFactory fact;
         #endregion fields
 
         #region methods
-        /// Return an instance of <see cref="SQLiteDb"/>
-        public static SQLiteDB Instance
+        /// Return an instance of <see cref="DatabaseBuilder"/>
+        public static DatabaseBuilder Instance
         {
             get
             {

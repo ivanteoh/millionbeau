@@ -14,7 +14,7 @@ namespace MillionBeauty
 
         protected override void EnterCustomerInfo()
         {
-            SQLiteDB.Instance.UpdateCustomer(
+            DatabaseBuilder.Instance.UpdateCustomer(
                 Id,
                 TitleOfCourtesy,
                 CustomerName,

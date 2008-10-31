@@ -24,9 +24,9 @@ namespace MillionBeauty
             InitializeComponent();
         }
 
-        public void LoadDocument(FixedDocumentSequence fds)
+        public void LoadDocument(IDocumentPaginatorSource fixedDocumentSequence)
         {
-            documentViewer.Document = fds;
+            documentViewer.Document = fixedDocumentSequence;
         }
     }
 }
