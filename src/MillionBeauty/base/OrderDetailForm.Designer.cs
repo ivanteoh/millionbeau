@@ -49,6 +49,8 @@
             this.addButton = new System.Windows.Forms.Button();
             this.quantityRegexTextBox = new CustomControl.RegexTextBox();
             this.discountRegexTextBox = new CustomControl.RegexTextBox();
+            this.costLabel = new System.Windows.Forms.Label();
+            this.costTextBox = new System.Windows.Forms.TextBox();
             this.productGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +103,7 @@
             // 
             this.quantityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.quantityLabel.AutoSize = true;
-            this.quantityLabel.Location = new System.Drawing.Point(9, 219);
+            this.quantityLabel.Location = new System.Drawing.Point(18, 208);
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(46, 13);
             this.quantityLabel.TabIndex = 14;
@@ -111,20 +113,20 @@
             // 
             this.discountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.discountLabel.AutoSize = true;
-            this.discountLabel.Location = new System.Drawing.Point(9, 245);
+            this.discountLabel.Location = new System.Drawing.Point(18, 260);
             this.discountLabel.Name = "discountLabel";
             this.discountLabel.Size = new System.Drawing.Size(66, 13);
-            this.discountLabel.TabIndex = 16;
+            this.discountLabel.TabIndex = 18;
             this.discountLabel.Text = "Discount (%)";
             // 
             // totalCostLabel
             // 
             this.totalCostLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.totalCostLabel.AutoSize = true;
-            this.totalCostLabel.Location = new System.Drawing.Point(9, 271);
+            this.totalCostLabel.Location = new System.Drawing.Point(18, 286);
             this.totalCostLabel.Name = "totalCostLabel";
             this.totalCostLabel.Size = new System.Drawing.Size(55, 13);
-            this.totalCostLabel.TabIndex = 18;
+            this.totalCostLabel.TabIndex = 20;
             this.totalCostLabel.Text = "Total Cost";
             // 
             // nameTextBox
@@ -170,16 +172,15 @@
             // totalCostTextBox
             // 
             this.totalCostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.totalCostTextBox.Location = new System.Drawing.Point(99, 268);
+            this.totalCostTextBox.Location = new System.Drawing.Point(105, 283);
             this.totalCostTextBox.Name = "totalCostTextBox";
             this.totalCostTextBox.ReadOnly = true;
             this.totalCostTextBox.Size = new System.Drawing.Size(100, 20);
-            this.totalCostTextBox.TabIndex = 19;
+            this.totalCostTextBox.TabIndex = 21;
             // 
             // productGroupBox
             // 
-            this.productGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.productGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.productGroupBox.Controls.Add(this.label1);
             this.productGroupBox.Controls.Add(this.idTextBox);
             this.productGroupBox.Controls.Add(this.nameLabel);
@@ -193,7 +194,7 @@
             this.productGroupBox.Controls.Add(this.priceLabel);
             this.productGroupBox.Controls.Add(this.priceTextBox);
             this.productGroupBox.Controls.Add(this.productFindButton);
-            this.productGroupBox.Location = new System.Drawing.Point(12, 10);
+            this.productGroupBox.Location = new System.Drawing.Point(12, -1);
             this.productGroupBox.Name = "productGroupBox";
             this.productGroupBox.Size = new System.Drawing.Size(206, 200);
             this.productGroupBox.TabIndex = 0;
@@ -230,17 +231,17 @@
             // addButton
             // 
             this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addButton.Location = new System.Drawing.Point(143, 294);
+            this.addButton.Location = new System.Drawing.Point(145, 325);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 20;
+            this.addButton.TabIndex = 22;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             // 
             // quantityRegexTextBox
             // 
             this.quantityRegexTextBox.CustomPattern = "^()$";
-            this.quantityRegexTextBox.Location = new System.Drawing.Point(99, 216);
+            this.quantityRegexTextBox.Location = new System.Drawing.Point(105, 205);
             this.quantityRegexTextBox.Name = "quantityRegexTextBox";
             this.quantityRegexTextBox.Size = new System.Drawing.Size(100, 20);
             this.quantityRegexTextBox.TabIndex = 15;
@@ -248,19 +249,38 @@
             // discountRegexTextBox
             // 
             this.discountRegexTextBox.CustomPattern = "^()$";
-            this.discountRegexTextBox.Location = new System.Drawing.Point(99, 242);
+            this.discountRegexTextBox.Location = new System.Drawing.Point(105, 257);
             this.discountRegexTextBox.Name = "discountRegexTextBox";
             this.discountRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.discountRegexTextBox.TabIndex = 17;
+            this.discountRegexTextBox.TabIndex = 19;
+            // 
+            // costLabel
+            // 
+            this.costLabel.AutoSize = true;
+            this.costLabel.Location = new System.Drawing.Point(18, 234);
+            this.costLabel.Name = "costLabel";
+            this.costLabel.Size = new System.Drawing.Size(28, 13);
+            this.costLabel.TabIndex = 16;
+            this.costLabel.Text = "Cost";
+            // 
+            // costTextBox
+            // 
+            this.costTextBox.Location = new System.Drawing.Point(105, 231);
+            this.costTextBox.Name = "costTextBox";
+            this.costTextBox.ReadOnly = true;
+            this.costTextBox.Size = new System.Drawing.Size(100, 20);
+            this.costTextBox.TabIndex = 17;
             // 
             // OrderDetailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 329);
+            this.ClientSize = new System.Drawing.Size(232, 360);
             this.Controls.Add(this.productGroupBox);
             this.Controls.Add(this.quantityLabel);
             this.Controls.Add(this.quantityRegexTextBox);
+            this.Controls.Add(this.costLabel);
+            this.Controls.Add(this.costTextBox);
             this.Controls.Add(this.discountLabel);
             this.Controls.Add(this.discountRegexTextBox);
             this.Controls.Add(this.totalCostLabel);
@@ -302,5 +322,7 @@
         private CustomControl.RegexTextBox discountRegexTextBox;
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label costLabel;
+        private System.Windows.Forms.TextBox costTextBox;
     }
 }

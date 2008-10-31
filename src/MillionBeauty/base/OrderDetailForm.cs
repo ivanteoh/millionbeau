@@ -77,6 +77,12 @@ namespace MillionBeauty
             set { quantityRegexTextBox.Text = value; }
         }
 
+        internal protected string Cost
+        {
+            get { return costTextBox.Text; }
+            set { costTextBox.Text = value; }
+        }  
+
         internal protected string DiscountPercent
         {
             get { return discountRegexTextBox.Text; }
@@ -147,8 +153,10 @@ namespace MillionBeauty
                     Int64 left = originalInStock - quantity;
                     inStockTextBox.Text = left.ToString(CultureInfo.InvariantCulture);
                     Decimal price = Convert.ToDecimal(priceTextBox.Text, CultureInfo.InvariantCulture);
+                    Decimal cost = quantity * price;
+                    costTextBox.Text = Decimal.Round(cost, 2).ToString(CultureInfo.InvariantCulture);
                     Decimal discount = Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
-                    Decimal result = quantity * price * (100 - discount) / 100;
+                    Decimal result = cost * (100 - discount) / 100;
                     totalCostTextBox.Text = Decimal.Round(result, 2).ToString(CultureInfo.InvariantCulture);
                 }
             }
@@ -170,10 +178,9 @@ namespace MillionBeauty
             }
             else
             {
-                Int64 quantity = Convert.ToInt64(quantityRegexTextBox.Text, CultureInfo.InvariantCulture);
-                Decimal price = Convert.ToDecimal(priceTextBox.Text, CultureInfo.InvariantCulture);
+                Decimal cost = Convert.ToDecimal(costTextBox.Text, CultureInfo.InvariantCulture);
                 Decimal discount = Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
-                Decimal result = quantity * price * (100 - discount) / 100;
+                Decimal result = cost * (100 - discount) / 100;
                 totalCostTextBox.Text = Decimal.Round(result, 2).ToString(CultureInfo.InvariantCulture);
             }
         }

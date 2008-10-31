@@ -795,6 +795,7 @@ namespace MillionBeauty
                     "InStock INTEGER DEFAULT 1 NOT NULL, " +
                     "Price NUMERIC DEFAULT 0 NOT NULL, " +
                     "Quantity INTEGER DEFAULT 1 NOT NULL, " +
+                    "Cost NUMERIC DEFAULT 0 NOT NULL, " +
                     "DiscountPercent NUMERIC DEFAULT 0 NOT NULL, " +
                     "TotalCost NUMERIC DEFAULT 0 NOT NULL)";
                 cmd.ExecuteNonQuery();
@@ -850,8 +851,9 @@ namespace MillionBeauty
                     orderDetail.InStock = Convert.ToInt64(row[5], CultureInfo.InvariantCulture);
                     orderDetail.Price = Convert.ToDecimal(row[6], CultureInfo.InvariantCulture);
                     orderDetail.Quantity = Convert.ToInt64(row[7], CultureInfo.InvariantCulture);
-                    orderDetail.DiscountPercent = Convert.ToDecimal(row[8], CultureInfo.InvariantCulture);
-                    orderDetail.TotalCost = Convert.ToDecimal(row[9], CultureInfo.InvariantCulture);
+                    orderDetail.Cost = Convert.ToDecimal(row[8], CultureInfo.InvariantCulture);
+                    orderDetail.DiscountPercent = Convert.ToDecimal(row[9], CultureInfo.InvariantCulture);
+                    orderDetail.TotalCost = Convert.ToDecimal(row[10], CultureInfo.InvariantCulture);
 
                     orderDetails.Add(orderDetail);
                 }                
@@ -872,6 +874,7 @@ namespace MillionBeauty
             DbParameter inStockDb;
             DbParameter priceDb;
             DbParameter quantityDb;
+            DbParameter costDb;
             DbParameter discountPercentDb;
             DbParameter totalCostDb;
 
@@ -887,8 +890,8 @@ namespace MillionBeauty
                         {
                             cmd.CommandText =
                             "INSERT INTO OrderDetails " +
-                            "(OrderID, ProductID, Name, Description, Type, InStock, Price, Quantity, DiscountPercent, TotalCost) " +
-                            "Values (@orderId, @productId, @name, @description, @type, @inStock, @price, @quantity, @discountPercent, @totalCost)";
+                            "(OrderID, ProductID, Name, Description, Type, InStock, Price, Quantity, Cost, DiscountPercent, TotalCost) " +
+                            "Values (@orderId, @productId, @name, @description, @type, @inStock, @price, @quantity, @cost, @discountPercent, @totalCost)";
                             orderIdDb = cmd.CreateParameter();
                             orderIdDb.ParameterName = "@orderId";
                             orderIdDb.Value = orderId;
@@ -928,6 +931,11 @@ namespace MillionBeauty
                             quantityDb.ParameterName = "@quantity";
                             quantityDb.Value = orderDetail.Quantity;
                             cmd.Parameters.Add(quantityDb);
+
+                            costDb = cmd.CreateParameter();
+                            costDb.ParameterName = "@cost";
+                            costDb.Value = orderDetail.Cost;
+                            cmd.Parameters.Add(costDb);
 
                             discountPercentDb = cmd.CreateParameter();
                             discountPercentDb.ParameterName = "@discountPercent";

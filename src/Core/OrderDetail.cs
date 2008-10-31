@@ -13,6 +13,7 @@ namespace MillionBeauty
         private Int64 inStock;
         private Decimal price;
         private Int64 quantity;
+        private Decimal cost;
         private Decimal discountPercent;
         private Decimal totalCost;
 
@@ -56,6 +57,12 @@ namespace MillionBeauty
         {
             get { return quantity; }
             set { quantity = value; }
+        }
+
+        public Decimal Cost
+        {
+            get { return cost; }
+            set { cost = value; }
         }
 
         public Decimal DiscountPercent

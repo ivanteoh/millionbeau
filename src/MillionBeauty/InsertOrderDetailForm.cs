@@ -19,6 +19,7 @@ namespace MillionBeauty
         private void InsertOrderDetailFormLoad(object sender, EventArgs e)
         {
             Quantity = "0";
+            Cost = "0";
             DiscountPercent = "0";
             TotalCost = "0";
         }

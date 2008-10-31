@@ -41,9 +41,9 @@ namespace MillionBeauty
             string customerPhone = orderInfo[10].ToString();
             string customerCompany = orderInfo[11].ToString();
             string salesPerson = orderInfo[12].ToString();
-            string sum = orderInfo[13].ToString();
-            string discount = orderInfo[14].ToString();
-            string total = orderInfo[15].ToString();
+            string sum = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderInfo[13]);
+            string discount = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderInfo[14]);
+            string total = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderInfo[15]);
 
             FixedDocumentSequence fds = new FixedDocumentSequence();
             FixedDocument doc = new FixedDocument();
@@ -356,25 +356,25 @@ namespace MillionBeauty
                 Grid.SetColumn(quantityTextBlock, 2);
 
                 TextBlock priceTextBlock = new TextBlock();
-                priceTextBlock.Text = orderDetail.Price.ToString();
+                priceTextBlock.Text = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderDetail.Price);
                 productGrid.Children.Add(priceTextBlock);
                 Grid.SetRow(priceTextBlock, count);
                 Grid.SetColumn(priceTextBlock, 3);
 
                 TextBlock totalTextBlock = new TextBlock();
-                totalTextBlock.Text = orderDetail.InStock.ToString();
+                totalTextBlock.Text = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderDetail.Cost);
                 productGrid.Children.Add(totalTextBlock);
                 Grid.SetRow(totalTextBlock, count);
                 Grid.SetColumn(totalTextBlock, 4);
 
                 TextBlock discountTextBlock = new TextBlock();
-                discountTextBlock.Text = orderDetail.DiscountPercent.ToString();
+                discountTextBlock.Text = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderDetail.DiscountPercent);
                 productGrid.Children.Add(discountTextBlock);
                 Grid.SetRow(discountTextBlock, count);
                 Grid.SetColumn(discountTextBlock, 5);
 
                 TextBlock amountTextBlock = new TextBlock();
-                amountTextBlock.Text = orderDetail.TotalCost.ToString();
+                amountTextBlock.Text = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderDetail.TotalCost);
                 productGrid.Children.Add(amountTextBlock);
                 Grid.SetRow(amountTextBlock, count);
                 Grid.SetColumn(amountTextBlock, 6);
@@ -393,7 +393,7 @@ namespace MillionBeauty
 
             productGrid.RowDefinitions.Add(new RowDefinition());
             TextBlock chargeLabelTextBlock = new TextBlock();
-            chargeLabelTextBlock.Text = "Charge:";
+            chargeLabelTextBlock.Text = "Charge (RM):";
             chargeLabelTextBlock.TextAlignment = TextAlignment.Right;
             productGrid.Children.Add(chargeLabelTextBlock);
             Grid.SetRow(chargeLabelTextBlock, count);
@@ -442,7 +442,7 @@ namespace MillionBeauty
 
             productGrid.RowDefinitions.Add(new RowDefinition());
             TextBlock totalChargeLabelTextBlock = new TextBlock();
-            totalChargeLabelTextBlock.Text = "Discount (RM):";
+            totalChargeLabelTextBlock.Text = "Total Charge (RM):";
             totalChargeLabelTextBlock.TextAlignment = TextAlignment.Right;
             productGrid.Children.Add(totalChargeLabelTextBlock);
             Grid.SetRow(totalChargeLabelTextBlock, count);
