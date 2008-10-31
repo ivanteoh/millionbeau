@@ -15,24 +15,23 @@ namespace MillionBeauty
     {
         public static void NewDatabase(string connectionString)
         {
-            SQLiteDB.Instance.ConnectionString = connectionString;
-            SQLiteDB.Instance.CreateDatabase();
+            DatabaseBuilder.Instance.ConnectionString = connectionString;
+            DatabaseBuilder.Instance.CreateDatabase();
         }
 
         public static void LoadDatabase(string connectionString)
         {
-            SQLiteDB.Instance.ConnectionString = connectionString;
-            SQLiteDB.Instance.CreateConnection();
+            DatabaseBuilder.Instance.ConnectionString = connectionString;
+            DatabaseBuilder.Instance.CreateConnection();
         }
 
         public static FixedDocumentSequence LoadReceiptDocument(string orderId)
         {
             // Get order info
-            object[] orderInfo = SQLiteDB.Instance.Order(orderId);
+            object[] orderInfo = DatabaseBuilder.Instance.Order(orderId);
             string year = orderInfo[1].ToString();
             string orderDate = orderInfo[2].ToString();
             string orderTime = orderInfo[3].ToString();
-            string customerId = orderInfo[4].ToString();
             string customerTitle = orderInfo[5].ToString();
             string customerName = orderInfo[6].ToString();
             string customerAddress = orderInfo[7].ToString();
@@ -55,19 +54,22 @@ namespace MillionBeauty
             ((IAddChild)pageContent).AddChild(page);            
             doc.Pages.Add(pageContent);
 
+            Thickness defaultThickness = new Thickness();
+            defaultThickness.Top = 16;
+            defaultThickness.Bottom = 16;
+
             #region Header
             // Add grid to first page
-            Grid grid = new Grid();   
-            page.Children.Add(grid);
-            double width = grid.ActualWidth;
-            double height = grid.ActualHeight;
-            double widthpage = page.ActualWidth;
-            double heightpage = page.ActualHeight;
+            Grid grid = new Grid();
+            grid.RowDefinitions.Add(new RowDefinition());
+            grid.RowDefinitions.Add(new RowDefinition());
             grid.Height = 1024;
             grid.Width = 784;
             grid.Margin = new Thickness(16);
+            page.Children.Add(grid);            
 
             StackPanel stackPanel = new StackPanel();
+            Grid.SetRow(stackPanel, 0);
             grid.Children.Add(stackPanel);
 
             TextBlock companyTextBlock = new TextBlock();
@@ -93,7 +95,9 @@ namespace MillionBeauty
             companyTextBlock.Inlines.Add(new LineBreak());
             companyTextBlock.Inlines.Add(new Run("Tel no: 04-5022118 / 5089118 Fax no: 04-5089118"));
 
-            stackPanel.Children.Add(new Separator());
+            Separator hearderSeparator = new Separator();
+            hearderSeparator.Margin = defaultThickness;
+            stackPanel.Children.Add(hearderSeparator);
             #endregion Header            
 
             TextBlock titleTextBlock = new TextBlock();
@@ -107,6 +111,7 @@ namespace MillionBeauty
 
             #region Record Grid
             Grid recordGrid = new Grid();
+            recordGrid.Margin = defaultThickness;
 
             recordGrid.ColumnDefinitions.Add(new ColumnDefinition());
             recordGrid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -162,6 +167,7 @@ namespace MillionBeauty
 
             #region Customer Grid
             Grid customerGrid = new Grid();
+            customerGrid.Margin = defaultThickness;
 
             customerGrid.ColumnDefinitions.Add(new ColumnDefinition());
             customerGrid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -269,9 +275,10 @@ namespace MillionBeauty
             #endregion Customer Grid
 
             #region Product Grid
-            BindingList<OrderDetail> orderDetails = SQLiteDB.Instance.OrderDetail(orderId);
+            BindingList<OrderDetail> orderDetails = DatabaseBuilder.Instance.OrderDetail(orderId);
 
             Grid productGrid = new Grid();
+            productGrid.Margin = defaultThickness;
 
             productGrid.ColumnDefinitions.Add(new ColumnDefinition());
             productGrid.ColumnDefinitions.Add(new ColumnDefinition());
@@ -339,11 +346,11 @@ namespace MillionBeauty
             Grid.SetColumn(amountLabelTextBlock, 6);
 
             productGrid.RowDefinitions.Add(new RowDefinition());
-            Separator middlerSeparator = new Separator();
-            productGrid.Children.Add(middlerSeparator);
-            Grid.SetRow(middlerSeparator, 2);
-            Grid.SetColumn(middlerSeparator, 0);
-            Grid.SetColumnSpan(middlerSeparator, 7);
+            Separator middleSeparator = new Separator();
+            productGrid.Children.Add(middleSeparator);
+            Grid.SetRow(middleSeparator, 2);
+            Grid.SetColumn(middleSeparator, 0);
+            Grid.SetColumnSpan(middleSeparator, 7);
 
             int count = 3;
             foreach (OrderDetail orderDetail in orderDetails)
@@ -364,7 +371,7 @@ namespace MillionBeauty
 
                 TextBlock quantityTextBlock = new TextBlock();
                 quantityTextBlock.TextAlignment = TextAlignment.Right;
-                quantityTextBlock.Text = orderDetail.Quantity.ToString();
+                quantityTextBlock.Text = orderDetail.Quantity.ToString(CultureInfo.InvariantCulture);
                 productGrid.Children.Add(quantityTextBlock);
                 Grid.SetRow(quantityTextBlock, count);
                 Grid.SetColumn(quantityTextBlock, 2);
@@ -488,28 +495,35 @@ namespace MillionBeauty
             stackPanel.Children.Add(productGrid);
             #endregion Product Grid
 
-            #region Footer            
+            #region Footer
+            StackPanel footerStackPanel = new StackPanel();
+            footerStackPanel.Margin = defaultThickness;
+            footerStackPanel.VerticalAlignment = VerticalAlignment.Bottom;
+            Grid.SetRow(footerStackPanel, 1);
+            grid.Children.Add(footerStackPanel);            
+
+            TextBlock signTextBlock = new TextBlock();
+            signTextBlock.TextAlignment = TextAlignment.Right;
+            footerStackPanel.Children.Add(signTextBlock);
+
+            Span signSpan = new Span();
+            signSpan.BaselineAlignment = BaselineAlignment.TextBottom;
+            signSpan.Inlines.Add("------------------------------------");
+            signTextBlock.Inlines.Add(signSpan);
+
+            TextBlock issuedTextBlock = new TextBlock();
+            issuedTextBlock.TextAlignment = TextAlignment.Right;
+            issuedTextBlock.Text = "Issued By / Dikeluarkan Oleh";
+            footerStackPanel.Children.Add(issuedTextBlock);
+
             TextBlock remarkTextBlock = new TextBlock();
             remarkTextBlock.Text = "Remarks:";
-            stackPanel.Children.Add(remarkTextBlock);
+            footerStackPanel.Children.Add(remarkTextBlock);
 
             TextBlock noteTextBlock = new TextBlock();
             noteTextBlock.Text = "Goods sold are not returnable / Barang yang dijual tidak boleh dikembalikan.";
-            stackPanel.Children.Add(noteTextBlock);
-
-            TextBlock signTextBlock = new TextBlock();
-            signTextBlock.Text = "------------------------------------";
-            signTextBlock.TextAlignment = TextAlignment.Right;
-            stackPanel.Children.Add(signTextBlock);
-
-            TextBlock issuedTextBlock = new TextBlock();
-            issuedTextBlock.Text = "Issued By / Dikeluarkan Oleh";
-            issuedTextBlock.TextAlignment = TextAlignment.Right;
-            stackPanel.Children.Add(issuedTextBlock);
+            footerStackPanel.Children.Add(noteTextBlock);
             #endregion Footer
-
-            Run runIndex = new Run(orderId);
-            companyTextBlock.Inlines.Add(runIndex);    
 
             DocumentReference docReference = new DocumentReference();
             docReference.SetDocument(doc);

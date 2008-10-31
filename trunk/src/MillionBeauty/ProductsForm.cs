@@ -16,7 +16,7 @@ namespace MillionBeauty
 
         internal protected override void FormLoad()
         {
-            DataSetSource = SQLiteDB.Instance.ProductsTable;
+            DataSetSource = DatabaseBuilder.Instance.ProductsTable;
         }
 
         internal protected override void AddButtonClicked()
@@ -30,7 +30,7 @@ namespace MillionBeauty
             DialogResult result = insertProductForm.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                DataSetSource = SQLiteDB.Instance.ProductsTable;
+                DataSetSource = DatabaseBuilder.Instance.ProductsTable;
             }
             base.ShowAddDialog();
         }
@@ -50,7 +50,7 @@ namespace MillionBeauty
                 DialogResult result = updateProductForm.ShowDialog(this);
                 if (result == DialogResult.OK)
                 {
-                    DataSetSource = SQLiteDB.Instance.ProductsTable;
+                    DataSetSource = DatabaseBuilder.Instance.ProductsTable;
                 }
             }
             base.ShowEnterDialog();
@@ -71,8 +71,8 @@ namespace MillionBeauty
                     MessageBoxOptions.RtlReading);
                 if (result == DialogResult.OK)
                 {
-                    SQLiteDB.Instance.DeleteProduct(index);
-                    DataSetSource = SQLiteDB.Instance.ProductsTable;
+                    DatabaseBuilder.Instance.DeleteProduct(index);
+                    DataSetSource = DatabaseBuilder.Instance.ProductsTable;
                 }
 
             }

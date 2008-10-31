@@ -20,7 +20,7 @@ namespace MillionBeauty
 
         protected override void EnterCustomerInfo()
         {
-            SQLiteDB.Instance.InsertCustomer(
+            DatabaseBuilder.Instance.InsertCustomer(
                 TitleOfCourtesy,
                 CustomerName,
                 Address,

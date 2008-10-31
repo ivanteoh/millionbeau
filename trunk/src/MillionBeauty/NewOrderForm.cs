@@ -149,13 +149,13 @@ namespace MillionBeauty
 
         private void NewOrderFormSave(object sender, EventArgs e)
         {
-            SQLiteDB.Instance.InsertOrder(CustomerId, SalePerson, Total, Discount, GrandTotal);
-            object[] orderInfo = SQLiteDB.Instance.LastOrder();
+            DatabaseBuilder.Instance.InsertOrder(CustomerId, SalePerson, Total, Discount, GrandTotal);
+            object[] orderInfo = DatabaseBuilder.Instance.LastOrder();
             OrderId = orderInfo[0].ToString();
             Year = orderInfo[1].ToString();
             OrderDate = orderInfo[2].ToString();
             OrderTime = orderInfo[3].ToString();
-            SQLiteDB.Instance.InsertOrderDetail(OrderId, orderDetails);
+            DatabaseBuilder.Instance.InsertOrderDetail(OrderId, orderDetails);
 
             ReadOnly();
         }        

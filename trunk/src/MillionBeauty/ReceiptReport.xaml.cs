@@ -17,9 +17,9 @@ namespace MillionBeauty
     /// <summary>
     /// Interaction logic for ReciptReport.xaml
     /// </summary>
-    public partial class ReciptReport : UserControl
+    public partial class ReceiptReport : UserControl
     {
-        public ReciptReport()
+        public ReceiptReport()
         {
             InitializeComponent();
         }
