@@ -49,15 +49,23 @@ namespace MillionBeauty
             FixedDocument doc = new FixedDocument();
 
             // Add first page to document
+            // page default size is Height="1056" Width="816"
             FixedPage page = new FixedPage();
             PageContent pageContent = new PageContent();
-            ((IAddChild)pageContent).AddChild(page);
+            ((IAddChild)pageContent).AddChild(page);            
             doc.Pages.Add(pageContent);
 
             #region Header
             // Add grid to first page
-            Grid grid = new Grid();
+            Grid grid = new Grid();   
             page.Children.Add(grid);
+            double width = grid.ActualWidth;
+            double height = grid.ActualHeight;
+            double widthpage = page.ActualWidth;
+            double heightpage = page.ActualHeight;
+            grid.Height = 1024;
+            grid.Width = 784;
+            grid.Margin = new Thickness(16);
 
             StackPanel stackPanel = new StackPanel();
             grid.Children.Add(stackPanel);
@@ -296,31 +304,36 @@ namespace MillionBeauty
             Grid.SetColumn(descriptionLabelTextBlock, 1);
 
             TextBlock quantityLabelTextBlock = new TextBlock();
-            quantityLabelTextBlock.Text = "Quantity";
+            quantityLabelTextBlock.TextAlignment = TextAlignment.Right;
+            quantityLabelTextBlock.Text = "Quantity";            
             productGrid.Children.Add(quantityLabelTextBlock);
             Grid.SetRow(quantityLabelTextBlock, 1);
             Grid.SetColumn(quantityLabelTextBlock, 2);
 
             TextBlock priceLabelTextBlock = new TextBlock();
-            priceLabelTextBlock.Text = "Unit Price";
+            priceLabelTextBlock.TextAlignment = TextAlignment.Right;
+            priceLabelTextBlock.Text = "Unit Price";            
             productGrid.Children.Add(priceLabelTextBlock);
             Grid.SetRow(priceLabelTextBlock, 1);
             Grid.SetColumn(priceLabelTextBlock, 3);
 
             TextBlock totalLabelTextBlock = new TextBlock();
-            totalLabelTextBlock.Text = "Total (RM)";
+            totalLabelTextBlock.TextAlignment = TextAlignment.Right;
+            totalLabelTextBlock.Text = "Total (RM)";            
             productGrid.Children.Add(totalLabelTextBlock);
             Grid.SetRow(totalLabelTextBlock, 1);
             Grid.SetColumn(totalLabelTextBlock, 4);
 
             TextBlock discountLabelTextBlock = new TextBlock();
-            discountLabelTextBlock.Text = "Discount (%)";
+            discountLabelTextBlock.TextAlignment = TextAlignment.Right;
+            discountLabelTextBlock.Text = "Discount (%)";           
             productGrid.Children.Add(discountLabelTextBlock);
             Grid.SetRow(discountLabelTextBlock, 1);
             Grid.SetColumn(discountLabelTextBlock, 5);
 
             TextBlock amountLabelTextBlock = new TextBlock();
-            amountLabelTextBlock.Text = "Amount (RM)";
+            amountLabelTextBlock.TextAlignment = TextAlignment.Right;
+            amountLabelTextBlock.Text = "Amount (RM)";            
             productGrid.Children.Add(amountLabelTextBlock);
             Grid.SetRow(amountLabelTextBlock, 1);
             Grid.SetColumn(amountLabelTextBlock, 6);
@@ -350,30 +363,35 @@ namespace MillionBeauty
                 Grid.SetColumn(descriptionTextBlock, 1);
 
                 TextBlock quantityTextBlock = new TextBlock();
+                quantityTextBlock.TextAlignment = TextAlignment.Right;
                 quantityTextBlock.Text = orderDetail.Quantity.ToString();
                 productGrid.Children.Add(quantityTextBlock);
                 Grid.SetRow(quantityTextBlock, count);
                 Grid.SetColumn(quantityTextBlock, 2);
 
                 TextBlock priceTextBlock = new TextBlock();
+                priceTextBlock.TextAlignment = TextAlignment.Right;
                 priceTextBlock.Text = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderDetail.Price);
                 productGrid.Children.Add(priceTextBlock);
                 Grid.SetRow(priceTextBlock, count);
                 Grid.SetColumn(priceTextBlock, 3);
 
                 TextBlock totalTextBlock = new TextBlock();
+                totalTextBlock.TextAlignment = TextAlignment.Right;
                 totalTextBlock.Text = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderDetail.Cost);
                 productGrid.Children.Add(totalTextBlock);
                 Grid.SetRow(totalTextBlock, count);
                 Grid.SetColumn(totalTextBlock, 4);
 
                 TextBlock discountTextBlock = new TextBlock();
+                discountTextBlock.TextAlignment = TextAlignment.Right;
                 discountTextBlock.Text = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderDetail.DiscountPercent);
                 productGrid.Children.Add(discountTextBlock);
                 Grid.SetRow(discountTextBlock, count);
                 Grid.SetColumn(discountTextBlock, 5);
 
                 TextBlock amountTextBlock = new TextBlock();
+                amountTextBlock.TextAlignment = TextAlignment.Right;
                 amountTextBlock.Text = string.Format(CultureInfo.InvariantCulture, "{0:0.00}", orderDetail.TotalCost);
                 productGrid.Children.Add(amountTextBlock);
                 Grid.SetRow(amountTextBlock, count);
