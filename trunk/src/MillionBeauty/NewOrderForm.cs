@@ -61,6 +61,7 @@ namespace MillionBeauty
             orderDetail.InStock = Convert.ToInt64(insertOrderDetailForm.InStock, CultureInfo.InvariantCulture);
             orderDetail.Price = Convert.ToDecimal(insertOrderDetailForm.Price, CultureInfo.InvariantCulture);
             orderDetail.Quantity = Convert.ToInt64(insertOrderDetailForm.Quantity, CultureInfo.InvariantCulture);
+            orderDetail.Cost = Convert.ToDecimal(insertOrderDetailForm.Cost, CultureInfo.InvariantCulture);
             orderDetail.DiscountPercent = Convert.ToDecimal(insertOrderDetailForm.DiscountPercent, CultureInfo.InvariantCulture);
             orderDetail.TotalCost = Convert.ToDecimal(insertOrderDetailForm.TotalCost, CultureInfo.InvariantCulture);
 
@@ -93,8 +94,9 @@ namespace MillionBeauty
                 updateOrderDetailForm.InStock = selectedRow.Cells[4].Value.ToString();
                 updateOrderDetailForm.Price = selectedRow.Cells[5].Value.ToString();
                 updateOrderDetailForm.Quantity = selectedRow.Cells[6].Value.ToString();
-                updateOrderDetailForm.DiscountPercent = selectedRow.Cells[7].Value.ToString();
-                updateOrderDetailForm.TotalCost = selectedRow.Cells[8].Value.ToString();
+                updateOrderDetailForm.Cost = selectedRow.Cells[7].Value.ToString();
+                updateOrderDetailForm.DiscountPercent = selectedRow.Cells[8].Value.ToString();
+                updateOrderDetailForm.TotalCost = selectedRow.Cells[9].Value.ToString();
                 Int64 left = Convert.ToInt64(selectedRow.Cells[4].Value, CultureInfo.InvariantCulture) + Convert.ToInt64(selectedRow.Cells[6].Value, CultureInfo.InvariantCulture);
                 updateOrderDetailForm.DefaultInStock = left;
             }
@@ -114,8 +116,9 @@ namespace MillionBeauty
                 selectedRow.Cells[4].Value = Convert.ToInt64(updateOrderDetailForm.InStock, CultureInfo.InvariantCulture);
                 selectedRow.Cells[5].Value = Convert.ToDecimal(updateOrderDetailForm.Price, CultureInfo.InvariantCulture);
                 selectedRow.Cells[6].Value = Convert.ToInt64(updateOrderDetailForm.Quantity, CultureInfo.InvariantCulture);
-                selectedRow.Cells[7].Value = Convert.ToDecimal(updateOrderDetailForm.DiscountPercent, CultureInfo.InvariantCulture);
-                selectedRow.Cells[8].Value = Convert.ToDecimal(updateOrderDetailForm.TotalCost, CultureInfo.InvariantCulture);
+                selectedRow.Cells[7].Value = Convert.ToDecimal(updateOrderDetailForm.Cost, CultureInfo.InvariantCulture);
+                selectedRow.Cells[8].Value = Convert.ToDecimal(updateOrderDetailForm.DiscountPercent, CultureInfo.InvariantCulture);
+                selectedRow.Cells[9].Value = Convert.ToDecimal(updateOrderDetailForm.TotalCost, CultureInfo.InvariantCulture);
 
                 UpdateTotalPrice(orderDetails);
             }
