@@ -232,8 +232,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="ReciptReport.xaml.cs">
-      <DependentUpon>ReciptReport.xaml</DependentUpon>
+    <Compile Include="ReceiptReport.xaml.cs">
+      <DependentUpon>ReceiptReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateCustomerForm.cs">
       <SubType>Form</SubType>
@@ -303,10 +303,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ReciptReport.xaml">
+    <Page Include="ReceiptReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Content Include="ReceiptTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
