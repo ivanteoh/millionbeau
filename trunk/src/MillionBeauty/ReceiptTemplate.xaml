@@ -1,0 +1,226 @@
+<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <Paragraph TextAlignment="Center">
+		<Bold>Million Beauty Lights Trading Sdn. Bhd.</Bold>
+		<Span BaselineAlignment="Subscript">(800526-T)</Span>
+		<LineBreak />17, 1st Floor, Tingkat Bukit Minyak 7, 
+		<LineBreak />Taman Bukit Minyak, 14000 Bukit Mertajam, 
+		<LineBreak />Penang 
+		<LineBreak />Tel no: 04-5022118 / 5089118 Fax no: 04-5089118</Paragraph>
+		<BlockUIContainer>
+			<Separator />
+		</BlockUIContainer>
+		<Paragraph TextAlignment="Center">
+			<Span TextDecorations="Underline">Offical Receipt</Span>
+		</Paragraph>
+		<Table>
+			<Table.Columns>
+				<TableColumn />
+				<TableColumn />
+				<TableColumn />
+				<TableColumn />
+			</Table.Columns>
+			<TableRowGroup>
+				<TableRow>
+				  <TableCell>
+						<Paragraph>Record Id:</Paragraph>
+					</TableCell>
+					<TableCell ColumnSpan="3">
+						<Paragraph>2 / 2008</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell>
+						<Paragraph>Date:</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>27 Oct 2008</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>Time:</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>10:00 AM</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell ColumnSpan="4">
+						<BlockUIContainer>
+						<Separator Name="separatorCustomer" />
+						</BlockUIContainer>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+				  <TableCell>
+						<Paragraph>Customer:</Paragraph>
+					</TableCell>
+					<TableCell ColumnSpan="3">
+						<Paragraph>Mr. Lim</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+				  <TableCell>
+						<Paragraph>Address:</Paragraph>
+					</TableCell>
+					<TableCell ColumnSpan="3">
+						<Paragraph>8, Jalan Bunga</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell>
+						<Paragraph>Postcode:</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>11800</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>State:</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>Penang</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+				  <TableCell>
+						<Paragraph>Phone:</Paragraph>
+					</TableCell>
+					<TableCell ColumnSpan="3">
+						<Paragraph>04-5798450</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+				  <TableCell>
+						<Paragraph>Company:</Paragraph>
+					</TableCell>
+					<TableCell ColumnSpan="3">
+						<Paragraph>Hai Sdn. Bhd.</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+				  <TableCell>
+						<Paragraph>Sales Person:</Paragraph>
+					</TableCell>
+					<TableCell ColumnSpan="3">
+						<Paragraph>Sam</Paragraph>
+					</TableCell>
+				</TableRow>
+			</TableRowGroup>
+		</Table>
+		<Table>
+			<Table.Columns>
+				<TableColumn />
+				<TableColumn />
+				<TableColumn />
+				<TableColumn />
+				<TableColumn />
+				<TableColumn />
+				<TableColumn />
+			</Table.Columns>
+			<TableRowGroup>
+				<TableRow>
+					<TableCell ColumnSpan="7">
+						<BlockUIContainer>
+							<Separator />
+						</BlockUIContainer>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell>
+						<Paragraph>Product</Paragraph>        
+					</TableCell>
+					<TableCell>
+						<Paragraph>Description</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>Quantity</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>Unit Price</Paragraph>        
+					</TableCell>
+					<TableCell>
+						<Paragraph>Total (RM)</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>Discount (%)</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>Amount (RM)</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell ColumnSpan="7">
+						<BlockUIContainer>
+							<Separator />
+						</BlockUIContainer>          
+					</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell>
+						<Paragraph>Light Bulb</Paragraph>        
+					</TableCell>
+					<TableCell>
+						<Paragraph>3" Width</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>4</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>2.00</Paragraph>        
+					</TableCell>
+					<TableCell>
+						<Paragraph>8.00</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>50</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>4.00</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell>
+						<Paragraph>Light Tube</Paragraph>        
+					</TableCell>
+					<TableCell>
+						<Paragraph>8" Long</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>2</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>10.00</Paragraph>        
+					</TableCell>
+					<TableCell>
+						<Paragraph>20.00</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>25</Paragraph>
+					</TableCell>
+					<TableCell>
+						<Paragraph>15.00</Paragraph>
+					</TableCell>
+				</TableRow>
+				<TableRow>
+					<TableCell ColumnSpan="7">
+						<BlockUIContainer>
+							<Separator />
+						</BlockUIContainer>          
+					</TableCell>
+				</TableRow>
+			</TableRowGroup>
+		</Table>
+		<Paragraph TextAlignment="Right">Charge: $ 9.00</Paragraph>
+		<Paragraph TextAlignment="Right">Discount (RM): $ 0.50</Paragraph>
+		<BlockUIContainer>
+			<Separator Name="separatorEndDiscount" />
+		</BlockUIContainer>
+		<Paragraph TextAlignment="Right">Total Charge: $ 8.50</Paragraph>
+		<BlockUIContainer>
+			<Separator Name="separatorEndTotal" />
+		</BlockUIContainer>
+		<Paragraph>Remarks:</Paragraph>
+		<Paragraph>Goods sold are not returnable / Barang yang dijual tidak boleh dikembalikan.</Paragraph>
+		<Paragraph TextAlignment="Right">
+			<Span BaselineAlignment="TextBottom">-----------------------------------------</Span>
+		</Paragraph>
+		<Paragraph TextAlignment="Right">Issued By / Dikeluarkan Oleh</Paragraph>
+</FlowDocument>

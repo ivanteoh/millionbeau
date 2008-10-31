@@ -297,6 +297,7 @@ namespace MillionBeauty
         private void PrintButtonClick(object sender, EventArgs e)
         {
             PrintViewerForm printViewerForm = new PrintViewerForm();
+            printViewerForm.OrderId = OrderId;
             printViewerForm.ShowDialog(this);
         }           
     }

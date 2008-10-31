@@ -734,6 +734,50 @@ namespace MillionBeauty
 
             return orderItems;            
         }
+
+        public object[] Order(string orderId)
+        {
+            DataSet dataSet = new DataSet();
+            dataSet.Locale = CultureInfo.InvariantCulture;
+
+            try
+            {
+                using (DbConnection cnn = fact.CreateConnection())
+                {
+                    cnn.ConnectionString = dbConnectionStr;
+                    cnn.Open();
+                    using (DbCommand cmd = cnn.CreateCommand())
+                    {
+                        string selectQuery = string.Format(CultureInfo.InvariantCulture, "SELECT * FROM Orders WHERE OrderID = {0}", orderId);
+                        cmd.CommandText = selectQuery;
+
+                        using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
+                        {
+                            dataAdapter.SelectCommand = cmd;
+                            dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
+                            dataAdapter.Fill(dataSet);
+                        }
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Get Order {0}: {1}", orderId, ex.Message);
+            }
+
+            DataTable currentTable = dataSet.Tables[0];
+
+            if (currentTable == null && currentTable.Rows.Count != 1)
+                return null;
+
+            DataRow currentOrder = currentTable.Rows[0];
+            object[] orderItems = currentOrder.ItemArray;
+
+            if (orderItems.Length != 16)
+                return null;
+
+            return orderItems;
+        }
         #endregion Orders Table
 
         #region Order Details
