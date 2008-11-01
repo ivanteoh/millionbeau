@@ -11,7 +11,9 @@ namespace MillionBeauty
 {
     public partial class OrderForm : Form
     {
-        public event EventHandler Save;        
+        public event EventHandler Save;
+        public event EventHandler Edit;
+        public event EventHandler Delete;
 
         public OrderForm()
         {
@@ -23,6 +25,9 @@ namespace MillionBeauty
             discountRegexTextBox.Text = "0";
             grandTotalTextBox.Text = "0";
 
+            orderDetails = new BindingList<OrderDetail>();
+            OrderDetailsSource = orderDetails;
+
             discountRegexTextBox.CustomPattern = @"^\d+([-+.]\d+)?$";
             discountRegexTextBox.Validating += DiscountRegexTextBoxValidating;
 
@@ -31,12 +36,15 @@ namespace MillionBeauty
             orderDetailsControl.EnterKeyDowned += OrderDetailsControlEnterKeyDowned;
             orderDetailsControl.DeleteKeyDowned += OrderDetailsControlDeleteKeyDowned;
 
+            editButton.Click += EditButtonClick;
+            deleteButton.Click += new EventHandler(DeleteButtonClick);
             saveButton.Click += SaveButtonClick;
             printButton.Click += PrintButtonClick;
             KeyDown += OrderFormKeyDown;
             Load += OrderFormLoad;
         }
 
+        private BindingList<OrderDetail> orderDetails;
         private bool viewOnly;
         private string customerId;
 
@@ -116,7 +124,7 @@ namespace MillionBeauty
         internal protected string SalePerson 
         {
             get { return salesPersonTextBox.Text; }
-            set { salesPersonTextBox.Text = value;          }
+            set { salesPersonTextBox.Text = value; }
         }
 
         internal protected string Total
@@ -153,6 +161,7 @@ namespace MillionBeauty
         protected void ReadOnly()
         {
             viewOnly = true;
+            
             customerFindButton.Enabled = false;         
             salesPersonTextBox.Enabled = false;
             discountRegexTextBox.ReadOnly = true;
@@ -160,6 +169,30 @@ namespace MillionBeauty
             printButton.Enabled = true;
             
             orderDetailsControl.ReadOnly();
+        }
+
+        protected void AllowEdit()
+        {
+            editButton.Visible = true;
+            editButton.Enabled = true;
+            deleteButton.Visible = true;
+            deleteButton.Enabled = true;
+        }
+
+        protected void EditView()
+        {
+            viewOnly = false;
+            editButton.Visible = false;
+            editButton.Enabled = false;
+            deleteButton.Visible = false;
+            deleteButton.Enabled = false;
+            customerFindButton.Enabled = true;
+            salesPersonTextBox.Enabled = true;
+            discountRegexTextBox.ReadOnly = false;
+            saveButton.Enabled = true;
+            printButton.Enabled = false;
+
+            orderDetailsControl.EditView();
         }
 
         private void OrderFormLoad(object sender, EventArgs e)
@@ -170,7 +203,8 @@ namespace MillionBeauty
         internal protected virtual void FormLoad()
         {
         }
-            
+
+        #region Customer Pick
         private void CustomerPickButtonClick(object sender, EventArgs e)
         {
             if (!viewOnly)
@@ -181,9 +215,28 @@ namespace MillionBeauty
 
         internal protected virtual void CustomerPickButtonClicked()
         {
-        }        
+            FindCustomerForm findCustomerForm = new FindCustomerForm();
+            findCustomerForm.CustomerSelected += FindCustomerFormCustomerSelected;
+            findCustomerForm.ShowDialog(this);
+            findCustomerForm.CustomerSelected -= FindCustomerFormCustomerSelected;
+        }
+
+        private void FindCustomerFormCustomerSelected(object sender, EventArgs e)
+        {
+            FindCustomerForm findCustomerForm = sender as FindCustomerForm;
+            CustomerId = findCustomerForm.Id;
+            CustomerTitle = findCustomerForm.TitleOfCourtesy;
+            CustomerName = findCustomerForm.CustomerName;
+            Address = findCustomerForm.Address;
+            Postcode = findCustomerForm.Postcode;
+            State = findCustomerForm.State;
+            Phone = findCustomerForm.Phone;
+            Company = findCustomerForm.Company;
+        }
+        #endregion Customer Pick
 
         #region Order Details Control Event Handlers
+        #region Order Details Insert
         private void OrderDetailsControlAddButtonClicked(object sender, EventArgs e)
         {
             if (!viewOnly)
@@ -194,8 +247,36 @@ namespace MillionBeauty
 
         internal protected virtual void OrderDetailsInserted()
         {
-        }          
+            InsertOrderDetailForm insertOrderDetailForm = new InsertOrderDetailForm();
+            insertOrderDetailForm.Added += InsertOrderDetailFormAdded;
+            insertOrderDetailForm.ShowDialog(this);
+            insertOrderDetailForm.Added -= InsertOrderDetailFormAdded;
+        }
 
+        private void InsertOrderDetailFormAdded(object sender, EventArgs e)
+        {
+            BindingList<OrderDetail> orderDetailList = OrderDetailsSource as BindingList<OrderDetail>;
+
+            InsertOrderDetailForm insertOrderDetailForm = sender as InsertOrderDetailForm;
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.ProductId = Convert.ToInt64(insertOrderDetailForm.ProductId, CultureInfo.InvariantCulture);
+            orderDetail.Product = insertOrderDetailForm.Product;
+            orderDetail.Description = insertOrderDetailForm.Description;
+            orderDetail.ProductType = insertOrderDetailForm.ProductType;
+            orderDetail.InStock = Convert.ToInt64(insertOrderDetailForm.InStock, CultureInfo.InvariantCulture);
+            orderDetail.Price = Convert.ToDecimal(insertOrderDetailForm.Price, CultureInfo.InvariantCulture);
+            orderDetail.Quantity = Convert.ToInt64(insertOrderDetailForm.Quantity, CultureInfo.InvariantCulture);
+            orderDetail.Cost = Convert.ToDecimal(insertOrderDetailForm.Cost, CultureInfo.InvariantCulture);
+            orderDetail.DiscountPercent = Convert.ToDecimal(insertOrderDetailForm.DiscountPercent, CultureInfo.InvariantCulture);
+            orderDetail.TotalCost = Convert.ToDecimal(insertOrderDetailForm.TotalCost, CultureInfo.InvariantCulture);
+
+            (orderDetailList).Add(orderDetail);
+
+            UpdateTotalPrice(orderDetailList);
+        }
+        #endregion Order Details Insert
+
+        #region Order Details Update
         private void OrderDetailsControlEnterKeyDowned(object sender, EventArgs e)
         {
             if (!viewOnly)
@@ -206,8 +287,60 @@ namespace MillionBeauty
 
         internal protected virtual void OrderDetailsUpdated()
         {
-        }         
+            UpdateOrderDetailForm updateOrderDetailForm = new UpdateOrderDetailForm();
+            updateOrderDetailForm.Inserted += UpdateOrderDetailFormInserted;
+            updateOrderDetailForm.Updated += UpdateOrderDetailFormUpdated;
+            updateOrderDetailForm.ShowDialog(this);
+            updateOrderDetailForm.Inserted -= UpdateOrderDetailFormInserted;
+            updateOrderDetailForm.Updated -= UpdateOrderDetailFormUpdated;
+        }
 
+        private void UpdateOrderDetailFormInserted(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = OrderDetailSelectedRow;
+
+            if (selectedRow != null)
+            {
+                UpdateOrderDetailForm updateOrderDetailForm = sender as UpdateOrderDetailForm;
+                updateOrderDetailForm.ProductId = selectedRow.Cells[0].Value.ToString();
+                updateOrderDetailForm.Product = selectedRow.Cells[1].Value.ToString();
+                updateOrderDetailForm.Description = selectedRow.Cells[2].Value.ToString();
+                updateOrderDetailForm.ProductType = selectedRow.Cells[3].Value.ToString();
+                updateOrderDetailForm.InStock = selectedRow.Cells[4].Value.ToString();
+                updateOrderDetailForm.Price = selectedRow.Cells[5].Value.ToString();
+                updateOrderDetailForm.Quantity = selectedRow.Cells[6].Value.ToString();
+                updateOrderDetailForm.Cost = selectedRow.Cells[7].Value.ToString();
+                updateOrderDetailForm.DiscountPercent = selectedRow.Cells[8].Value.ToString();
+                updateOrderDetailForm.TotalCost = selectedRow.Cells[9].Value.ToString();
+                Int64 left = Convert.ToInt64(selectedRow.Cells[4].Value, CultureInfo.InvariantCulture) + Convert.ToInt64(selectedRow.Cells[6].Value, CultureInfo.InvariantCulture);
+                updateOrderDetailForm.DefaultInStock = left;
+            }
+        }
+
+        private void UpdateOrderDetailFormUpdated(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = OrderDetailSelectedRow;
+
+            if (selectedRow != null)
+            {
+                UpdateOrderDetailForm updateOrderDetailForm = sender as UpdateOrderDetailForm;
+                selectedRow.Cells[0].Value = Convert.ToInt64(updateOrderDetailForm.ProductId, CultureInfo.InvariantCulture);
+                selectedRow.Cells[1].Value = updateOrderDetailForm.Product;
+                selectedRow.Cells[2].Value = updateOrderDetailForm.Description;
+                selectedRow.Cells[3].Value = updateOrderDetailForm.ProductType;
+                selectedRow.Cells[4].Value = Convert.ToInt64(updateOrderDetailForm.InStock, CultureInfo.InvariantCulture);
+                selectedRow.Cells[5].Value = Convert.ToDecimal(updateOrderDetailForm.Price, CultureInfo.InvariantCulture);
+                selectedRow.Cells[6].Value = Convert.ToInt64(updateOrderDetailForm.Quantity, CultureInfo.InvariantCulture);
+                selectedRow.Cells[7].Value = Convert.ToDecimal(updateOrderDetailForm.Cost, CultureInfo.InvariantCulture);
+                selectedRow.Cells[8].Value = Convert.ToDecimal(updateOrderDetailForm.DiscountPercent, CultureInfo.InvariantCulture);
+                selectedRow.Cells[9].Value = Convert.ToDecimal(updateOrderDetailForm.TotalCost, CultureInfo.InvariantCulture);
+
+                UpdateTotalPrice(orderDetails);
+            }
+        }        
+        #endregion Order Details Update
+
+        #region Order Details Delete
         private void OrderDetailsControlDeleteKeyDowned(object sender, EventArgs e)
         {
             if (!viewOnly)
@@ -218,13 +351,32 @@ namespace MillionBeauty
 
         internal protected virtual void OrderDetailsDeleted()
         {
+            DataGridViewRow selectedRow = OrderDetailSelectedRow;
+
+            if (selectedRow != null)
+            {
+                string index = selectedRow.Cells[0].Value.ToString();
+                string deleteQuery = string.Format(CultureInfo.InvariantCulture, "Are you sure you want to delete product {0}", index);
+                DialogResult result = MessageBox.Show(
+                    deleteQuery, Properties.Resources.Title,
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning,
+                    MessageBoxDefaultButton.Button2,
+                    MessageBoxOptions.RightAlign &
+                    MessageBoxOptions.RtlReading);
+                if (result == DialogResult.OK)
+                {
+                    DeleteOrderDetailRow(selectedRow);
+                    UpdateTotalPrice(orderDetails);
+                }
+            }     
         }
 
         protected void DeleteOrderDetailRow(DataGridViewRow selectedRow)
         {
             orderDetailsControl.DeleteRow(selectedRow);
         }
-
+        #endregion Order Details Delete
         #endregion Order Details Control Event Handlers
 
         private void DiscountRegexTextBoxValidating(object sender, CancelEventArgs e)
@@ -252,12 +404,12 @@ namespace MillionBeauty
             }
         } 
 
-        protected void UpdateTotalPrice(BindingList<OrderDetail> orderDetails)
+        protected void UpdateTotalPrice(BindingList<OrderDetail> orderDetailList)
         {
             Decimal totalPrice = new decimal();
             totalPrice = 0;
 
-            foreach (OrderDetail orderItem in orderDetails)
+            foreach (OrderDetail orderItem in orderDetailList)
             {
                 totalPrice = totalPrice + orderItem.TotalCost;
             }
@@ -283,6 +435,24 @@ namespace MillionBeauty
                 default:
                     break;
             }
+        }
+
+        private void EditButtonClick(object sender, EventArgs e)
+        {
+            EventHandler eventHandler = Edit;
+            if (eventHandler != null)
+            {
+                eventHandler(sender, EventArgs.Empty);
+            }  
+        }
+
+        void DeleteButtonClick(object sender, EventArgs e)
+        {
+            EventHandler eventHandler = Delete;
+            if (eventHandler != null)
+            {
+                eventHandler(sender, EventArgs.Empty);
+            }     
         }
 
         private void SaveButtonClick(object sender, EventArgs e)

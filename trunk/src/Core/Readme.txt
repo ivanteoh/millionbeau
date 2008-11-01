@@ -1,5 +1,5 @@
 ﻿"CREATE TABLE Customers (" +
-"CustomerID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+"CustomerId INTEGER PRIMARY KEY AUTOINCREMENT, " +
 "TitleOfCourtesy VARCHAR(10) NULL, " +
 "Name VARCHAR(100) NOT NULL, " +
 "Address VARCHAR(100) NULL, " +
@@ -9,7 +9,7 @@
 "CompanyName VARCHAR(100) NULL)";
 
 "CREATE TABLE Products (" +
-"ProductID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+"ProductId INTEGER PRIMARY KEY AUTOINCREMENT, " +
 "Name VARCHAR(100) NOT NULL, " +
 "Description VARCHAR(100) NULL, " +
 "Type VARCHAR(100) NULL, " +
@@ -18,11 +18,11 @@
 "Price NUMERIC DEFAULT 0 NOT NULL)";
 
 "CREATE TABLE Orders (" +
-"OrderID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+"OrderId INTEGER PRIMARY KEY AUTOINCREMENT, " +
 "Year VARCHAR(4) NOT NULL, " +
 "OrderDate VARCHAR(100) NOT NULL, " +
 "OrderTime VARCHAR(100) NOT NULL, " +
-"CustomerID INTEGER NOT NULL, " +
+"CustomerId INTEGER NOT NULL, " +
 "TitleOfCourtesy VARCHAR(10) NOT NULL, " +
 "Name VARCHAR(100) NOT NULL, " +
 "Address VARCHAR(100) NULL, " +
@@ -31,13 +31,14 @@
 "Phone VARCHAR(100) NULL, " +
 "CompanyName VARCHAR(100) NULL, " +
 "SalePerson VARCHAR(100) NULL, " +
-"Sum NUMERIC DEFAULT 0 NOT NULL, " +
-"DiscountRM NUMERIC DEFAULT 0 NOT NULL, " +
-"Total NUMERIC DEFAULT 0 NOT NULL)";
+"Total NUMERIC DEFAULT 0 NOT NULL, " +
+"Rebate NUMERIC DEFAULT 0 NOT NULL, " +
+"GrandTotal NUMERIC DEFAULT 0 NOT NULL)";
 
 "CREATE TABLE OrderDetails (" +
-"OrderID INTEGER NOT NULL, " +
-"ProductID INTEGER NOT NULL, " +
+"OrderDetailId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+"OrderId INTEGER NOT NULL, " +
+"ProductId INTEGER NOT NULL, " +
 "Name VARCHAR(100) NOT NULL, " +
 "Description VARCHAR(100) NULL, " +
 "Type VARCHAR(100) NULL, " +
@@ -45,7 +46,7 @@
 "Price NUMERIC DEFAULT 0 NOT NULL, " +
 "Quantity INTEGER DEFAULT 0 NOT NULL, " +
 "Cost NUMERIC DEFAULT 0 NOT NULL, " +
-"DiscountPercent NUMERIC DEFAULT 0 NOT NULL, " +
+"Discount NUMERIC DEFAULT 0 NOT NULL, " +
 "TotalCost NUMERIC DEFAULT 0 NOT NULL)";
 
 Take note that Specification of the product is not include in the order details, that is what you want.

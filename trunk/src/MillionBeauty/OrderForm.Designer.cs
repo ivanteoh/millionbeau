@@ -66,6 +66,8 @@
             this.grandTotalTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.printButton = new System.Windows.Forms.Button();
+            this.editButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
             this.customerGroupBox.SuspendLayout();
             this.newOrderGroupBox.SuspendLayout();
             this.itemGroupBox.SuspendLayout();
@@ -312,11 +314,25 @@
             this.printButton.Name = "printButton";
             this.printButton.UseVisualStyleBackColor = true;
             // 
+            // editButton
+            // 
+            resources.ApplyResources(this.editButton, "editButton");
+            this.editButton.Name = "editButton";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteButton
+            // 
+            resources.ApplyResources(this.deleteButton, "deleteButton");
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
             // OrderForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.newOrderGroupBox);
+            this.Controls.Add(this.editButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.printButton);
             this.KeyPreview = true;
@@ -369,5 +385,7 @@
         private System.Windows.Forms.TextBox salesPersonTextBox;
         private CustomControl.RegexTextBox discountRegexTextBox;
         private OrderDetailsControl orderDetailsControl;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button deleteButton;
     }
 }
