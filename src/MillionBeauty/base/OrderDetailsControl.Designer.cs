@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.addButton = new System.Windows.Forms.Button();
             this.bindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addButton = new System.Windows.Forms.Button();
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +39,7 @@
             this.inStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.discountPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.totalCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -60,6 +61,7 @@
             this.inStockDataGridViewTextBoxColumn,
             this.priceDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn,
             this.discountPercentDataGridViewTextBoxColumn,
             this.totalCostDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.bindingSource;
@@ -67,6 +69,10 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(284, 151);
             this.dataGridView.TabIndex = 0;
+            // 
+            // bindingSource
+            // 
+            this.bindingSource.DataSource = typeof(MillionBeauty.OrderDetail);
             // 
             // addButton
             // 
@@ -77,10 +83,6 @@
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
-            // 
-            // bindingSource
-            // 
-            this.bindingSource.DataSource = typeof(MillionBeauty.OrderDetail);
             // 
             // productIdDataGridViewTextBoxColumn
             // 
@@ -124,6 +126,12 @@
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "Cost";
+            this.costDataGridViewTextBoxColumn.HeaderText = "Cost";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
+            // 
             // discountPercentDataGridViewTextBoxColumn
             // 
             this.discountPercentDataGridViewTextBoxColumn.DataPropertyName = "DiscountPercent";
@@ -154,6 +162,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.BindingSource bindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
@@ -161,8 +170,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn inStockDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn discountPercentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalCostDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bindingSource;
     }
 }

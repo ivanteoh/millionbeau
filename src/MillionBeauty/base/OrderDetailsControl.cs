@@ -67,8 +67,13 @@ namespace MillionBeauty
         public void ReadOnly()
         {
             dataGridView.ReadOnly = true;
-            dataGridView.Enabled = true;
             addButton.Enabled = false;
+        }
+
+        public void EditView()
+        {
+            dataGridView.ReadOnly = false;
+            addButton.Enabled = true;
         }
 
         private void DataGridViewKeyDown(object sender, KeyEventArgs e)

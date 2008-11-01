@@ -20,7 +20,7 @@ namespace MillionBeauty
         /// a default public constructor
         /// </remarks>
         private DatabaseBuilder()
-        {
+        {            
             fact = DbProviderFactories.GetFactory("System.Data.SQLite");
         }
         #endregion Construction  / Destruction
@@ -67,10 +67,10 @@ namespace MillionBeauty
 
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
                 }
             }
             catch (DbException ex)
@@ -85,19 +85,19 @@ namespace MillionBeauty
         /// Main function to call all creating table functions.
         /// </summary>
         /// <param name="fact">Sqlite database provider factory.</param>
-        /// <param name="cnn">Sqlite connection object that associate with the command.</param>
+        /// <param name="connection">Sqlite connection object that associate with the command.</param>
         public void CreateDatabase()
         {
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    CreateCustomersTable(cnn);
-                    CreateProductsTable(cnn);
-                    CreateOrdersTable(cnn);
-                    CreateOrderDetailsTable(cnn);
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    CreateCustomersTable(connection);
+                    CreateProductsTable(connection);
+                    CreateOrdersTable(connection);
+                    CreateOrderDetailsTable(connection);
                 }
             }
             catch (DbException ex)
@@ -110,14 +110,14 @@ namespace MillionBeauty
         /// <summary>
         /// Create table for ID and string data.
         /// </summary>
-        /// <param name="cnn">Sqlite connection object that associate with the command.</param>
-        private static void CreateCustomersTable(DbConnection cnn)
+        /// <param name="connection">Sqlite connection object that associate with the command.</param>
+        private static void CreateCustomersTable(DbConnection connection)
         {
-            using (DbCommand cmd = cnn.CreateCommand())
+            using (DbCommand cmd = connection.CreateCommand())
             {
                 cmd.CommandText =
                     "CREATE TABLE Customers (" +
-                    "CustomerID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "CustomerId INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "TitleOfCourtesy VARCHAR(10) NOT NULL, " +
                     "Name VARCHAR(100) NOT NULL, " +
                     "Address VARCHAR(100) NULL, " +
@@ -138,11 +138,11 @@ namespace MillionBeauty
 
                 try
                 {
-                    using (DbConnection cnn = fact.CreateConnection())
+                    using (DbConnection connection = fact.CreateConnection())
                     {
-                        cnn.ConnectionString = dbConnectionStr;
-                        cnn.Open();
-                        using (DbCommand cmd = cnn.CreateCommand())
+                        connection.ConnectionString = dbConnectionStr;
+                        connection.Open();
+                        using (DbCommand cmd = connection.CreateCommand())
                         {
                             cmd.CommandText = "SELECT * FROM Customers";
 
@@ -175,11 +175,11 @@ namespace MillionBeauty
         {
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         cmd.CommandText =
                             "INSERT INTO Customers " +
@@ -231,7 +231,7 @@ namespace MillionBeauty
         }
 
         public void UpdateCustomer(
-            string id,
+            string customerId,
             string title,
             string name,
             string address,
@@ -242,11 +242,11 @@ namespace MillionBeauty
         {
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         string updateQuery = 
                             string.Format(CultureInfo.InvariantCulture,
@@ -255,9 +255,9 @@ namespace MillionBeauty
                             "Address = '{2}', Postcode = '{3}', " +
                             "State = '{4}', Phone = '{5}', " +
                             "CompanyName = '{6}' " +
-                            "WHERE CustomerID = '{7}'",
+                            "WHERE CustomerId = '{7}'",
                             title, name, address, postcode,
-                            state, phone, company, id);
+                            state, phone, company, customerId);
                         cmd.CommandText = updateQuery;  
                         cmd.ExecuteNonQuery();
                     }
@@ -269,18 +269,18 @@ namespace MillionBeauty
             }
         }
 
-        public void DeleteCustomer(string index)
+        public void DeleteCustomer(string customerId)
         {
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         string deleteQuery = string.Format(CultureInfo.InvariantCulture,
-                            "DELETE FROM Customers WHERE CustomerID = '{0}'", index);
+                            "DELETE FROM Customers WHERE CustomerId = '{0}'", customerId);
                         cmd.CommandText = deleteQuery;
                         cmd.ExecuteNonQuery();
                     }
@@ -292,21 +292,21 @@ namespace MillionBeauty
             }
         }
 
-        public object Customer(string index)
+        public object Customer(string customerId)
         {
             DataSet dataSet = new DataSet();
             dataSet.Locale = CultureInfo.InvariantCulture;
 
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         string customerQuery = 
-                            string.Format(CultureInfo.InvariantCulture, "SELECT * FROM Customers WHERE CustomerID = '{0}'", index);
+                            string.Format(CultureInfo.InvariantCulture, "SELECT * FROM Customers WHERE CustomerId = '{0}'", customerId);
                         cmd.CommandText = customerQuery;  
 
                         using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
@@ -328,13 +328,13 @@ namespace MillionBeauty
         #endregion Customers Table
 
         #region Products Table
-        private static void CreateProductsTable(DbConnection cnn)
+        private static void CreateProductsTable(DbConnection connection)
         {
-            using (DbCommand cmd = cnn.CreateCommand())
+            using (DbCommand cmd = connection.CreateCommand())
             {
                 cmd.CommandText =
                     "CREATE TABLE Products (" +
-                    "ProductID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "ProductId INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "Name VARCHAR(100) NOT NULL, " +
                     "Description VARCHAR(100) NULL, " +
                     "Type VARCHAR(100) NULL, " +
@@ -354,11 +354,11 @@ namespace MillionBeauty
 
                 try
                 {
-                    using (DbConnection cnn = fact.CreateConnection())
+                    using (DbConnection connection = fact.CreateConnection())
                     {
-                        cnn.ConnectionString = dbConnectionStr;
-                        cnn.Open();
-                        using (DbCommand cmd = cnn.CreateCommand())
+                        connection.ConnectionString = dbConnectionStr;
+                        connection.Open();
+                        using (DbCommand cmd = connection.CreateCommand())
                         {
                             cmd.CommandText = "SELECT * FROM Products";
 
@@ -390,11 +390,11 @@ namespace MillionBeauty
         {
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         cmd.CommandText =
                             "INSERT INTO Products " +
@@ -441,7 +441,7 @@ namespace MillionBeauty
         }
 
         public void UpdateProduct(
-            string id,
+            string productId,
             string name,
             string description,
             string type,
@@ -451,11 +451,11 @@ namespace MillionBeauty
         {
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         string updateQuery =
                             string.Format(CultureInfo.InvariantCulture,
@@ -463,9 +463,9 @@ namespace MillionBeauty
                             "Name = '{0}', Description = '{1}', " +
                             "Type = '{2}', Specification = '{3}', " +
                             "InStock = '{4}', Price = '{5}' " +
-                            "WHERE ProductID = '{6}'",
+                            "WHERE ProductId = '{6}'",
                             name, description, type, specification,
-                            inStock, price, id);
+                            inStock, price, productId);
                         cmd.CommandText = updateQuery;
                         cmd.ExecuteNonQuery();
                     }
@@ -477,18 +477,18 @@ namespace MillionBeauty
             }
         }
 
-        public void DeleteProduct(string index)
+        public void DeleteProduct(string productId)
         {
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         string deleteQuery = string.Format(CultureInfo.InvariantCulture,
-                            "DELETE FROM Products WHERE ProductID = '{0}'", index);
+                            "DELETE FROM Products WHERE ProductId = '{0}'", productId);
                         cmd.CommandText = deleteQuery;
                         cmd.ExecuteNonQuery();
                     }
@@ -502,17 +502,17 @@ namespace MillionBeauty
         #endregion Products Table
 
         #region Orders Table
-        private static void CreateOrdersTable(DbConnection cnn)
+        private static void CreateOrdersTable(DbConnection connection)
         {
-            using (DbCommand cmd = cnn.CreateCommand())
+            using (DbCommand cmd = connection.CreateCommand())
             {
                 cmd.CommandText =
                     "CREATE TABLE Orders (" +
-                    "OrderID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "OrderId INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "Year VARCHAR(4) NOT NULL, " +
                     "OrderDate VARCHAR(100) NOT NULL, " +
                     "OrderTime VARCHAR(100) NOT NULL, " +
-                    "CustomerID INTEGER NOT NULL, " +
+                    "CustomerId INTEGER NOT NULL, " +
                     "TitleOfCourtesy VARCHAR(10) NOT NULL, " +
                     "Name VARCHAR(100) NOT NULL, " +
                     "Address VARCHAR(100) NULL, " +
@@ -521,9 +521,9 @@ namespace MillionBeauty
                     "Phone VARCHAR(100) NULL, " +
                     "CompanyName VARCHAR(100) NULL, " + 
                     "SalePerson VARCHAR(100) NULL, " +
-                    "Sum NUMERIC DEFAULT 0 NOT NULL, " +
-                    "DiscountRM NUMERIC DEFAULT 0 NOT NULL, " +
-                    "Total NUMERIC DEFAULT 0 NOT NULL)";
+                    "Total NUMERIC DEFAULT 0 NOT NULL, " +
+                    "Rebate NUMERIC DEFAULT 0 NOT NULL, " +
+                    "GrandTotal NUMERIC DEFAULT 0 NOT NULL)";
                 cmd.ExecuteNonQuery();
             }
         }
@@ -537,11 +537,11 @@ namespace MillionBeauty
 
                 try
                 {
-                    using (DbConnection cnn = fact.CreateConnection())
+                    using (DbConnection connection = fact.CreateConnection())
                     {
-                        cnn.ConnectionString = dbConnectionStr;
-                        cnn.Open();
-                        using (DbCommand cmd = cnn.CreateCommand())
+                        connection.ConnectionString = dbConnectionStr;
+                        connection.Open();
+                        using (DbCommand cmd = connection.CreateCommand())
                         {
                             cmd.CommandText = "SELECT * FROM Orders";
 
@@ -566,9 +566,9 @@ namespace MillionBeauty
         public void InsertOrder(
             string customerId,
             string salePerson,
-            string sum,
-            string discountRM,
-            string total)
+            string total,
+            string rebate,
+            string grandTotal)
         {
             DateTime dataTimeNow = DateTime.Now;
 
@@ -592,20 +592,20 @@ namespace MillionBeauty
                 string phone = customerInfo[6].ToString();
                 string company = customerInfo[7].ToString();
                                 
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         cmd.CommandText =
                             "INSERT INTO Orders " +
                             "(Year, OrderDate, OrderTime, " + 
-                            "CustomerID, TitleOfCourtesy, Name, Address, Postcode, State, Phone, CompanyName, " +
-                            "SalePerson, Sum, DiscountRM, Total) " +
+                            "CustomerId, TitleOfCourtesy, Name, Address, Postcode, State, Phone, CompanyName, " +
+                            "SalePerson, Total, Rebate, GrandTotal) " +
                             "Values (@year, @orderDate, @orderTime, " + 
                             "@customerId, @title, @name, @address, @postcode, @state, @phone, @company, " +
-                            "@salePerson, @sum, @discountRM, @total)";
+                            "@salePerson, @total, @rebate, @grandTotal)";
 
                         DbParameter yearDb = cmd.CreateParameter();
                         yearDb.ParameterName = "@year";
@@ -668,18 +668,18 @@ namespace MillionBeauty
                         cmd.Parameters.Add(salePersonDb);
 
                         DbParameter sumDb = cmd.CreateParameter();
-                        sumDb.ParameterName = "@sum";
-                        sumDb.Value = sum;
+                        sumDb.ParameterName = "@total";
+                        sumDb.Value = total;
                         cmd.Parameters.Add(sumDb);
 
                         DbParameter discountRMDb = cmd.CreateParameter();
-                        discountRMDb.ParameterName = "@discountRM";
-                        discountRMDb.Value = discountRM;
+                        discountRMDb.ParameterName = "@rebate";
+                        discountRMDb.Value = rebate;
                         cmd.Parameters.Add(discountRMDb);
 
                         DbParameter totalDb = cmd.CreateParameter();
-                        totalDb.ParameterName = "@total";
-                        totalDb.Value = total;
+                        totalDb.ParameterName = "@grandTotal";
+                        totalDb.Value = grandTotal;
                         cmd.Parameters.Add(totalDb);
 
                         cmd.ExecuteNonQuery();
@@ -692,6 +692,91 @@ namespace MillionBeauty
             }
         }
 
+        public void UpdateOrder(
+            string orderId,
+            string customerId,
+            string salePerson,
+            string total,
+            string rebate,
+            string grandTotal)
+        {            
+            try
+            {
+                DataTable customerTable = Customer(customerId) as DataTable;
+                if (customerTable == null && customerTable.Rows.Count != 1)
+                    return;
+
+                DataRow currentCustomer = customerTable.Rows[0];
+                object[] customerInfo = currentCustomer.ItemArray;
+
+                if (customerInfo.Length != 8)
+                    return;
+
+                string title = customerInfo[1].ToString();
+                string name = customerInfo[2].ToString();
+                string address = customerInfo[3].ToString();
+                string postcode = customerInfo[4].ToString();
+                string state = customerInfo[5].ToString();
+                string phone = customerInfo[6].ToString();
+                string company = customerInfo[7].ToString();
+
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        string updateQuery =
+                            string.Format(CultureInfo.InvariantCulture,
+                            "UPDATE Orders SET " +
+                            "CustomerId = '{0}', " +
+                            "TitleOfCourtesy = '{1}', Name = '{2}', " +
+                            "Address = '{3}', Postcode = '{4}', " +
+                            "State = '{5}', Phone = '{6}', " +
+                            "CompanyName = '{7}', " +
+                            "SalePerson = '{8}', Total = '{9}', " +
+                            "Rebate = '{10}', GrandTotal = '{11}' " +
+                            "WHERE OrderId = '{12}'",
+                            customerId, title, name, address, 
+                            postcode, state, phone, company,
+                            salePerson, total, rebate,
+                            grandTotal, orderId);
+                        cmd.CommandText = updateQuery;
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Update Order: {0}", ex.Message);
+            }
+        }
+
+        public void DeleteOrder(string orderId)
+        {
+            DeleteOrderDetail(orderId);
+
+            try
+            {
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        string deleteQuery = string.Format(CultureInfo.InvariantCulture,
+                            "DELETE FROM Orders WHERE OrderId = '{0}'", orderId);
+                        cmd.CommandText = deleteQuery;
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Delete Order: {0}", ex.Message);
+            }
+        }
+
         public object[] LastOrder()
         {            
             DataSet dataSet = new DataSet();
@@ -699,13 +784,13 @@ namespace MillionBeauty
 
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
-                        cmd.CommandText = "SELECT * FROM Orders WHERE OrderID = (select max(OrderID) from Orders)";
+                        cmd.CommandText = "SELECT * FROM Orders WHERE OrderId = (select max(OrderId) from Orders)";
 
                         using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
                         {
@@ -742,13 +827,13 @@ namespace MillionBeauty
 
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
-                        string selectQuery = string.Format(CultureInfo.InvariantCulture, "SELECT * FROM Orders WHERE OrderID = {0}", orderId);
+                        string selectQuery = string.Format(CultureInfo.InvariantCulture, "SELECT * FROM Orders WHERE OrderId = {0}", orderId);
                         cmd.CommandText = selectQuery;
 
                         using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
@@ -781,14 +866,15 @@ namespace MillionBeauty
         #endregion Orders Table
 
         #region Order Details
-        private static void CreateOrderDetailsTable(DbConnection cnn)
+        private static void CreateOrderDetailsTable(DbConnection connection)
         {
-            using (DbCommand cmd = cnn.CreateCommand())
+            using (DbCommand cmd = connection.CreateCommand())
             {
                 cmd.CommandText =
                     "CREATE TABLE OrderDetails (" +
-                    "OrderID INTEGER NOT NULL, " +
-                    "ProductID INTEGER NOT NULL, " +
+                    "OrderDetailId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "OrderId INTEGER NOT NULL, " +
+                    "ProductId INTEGER NOT NULL, " +
                     "Name VARCHAR(100) NOT NULL, " +
                     "Description VARCHAR(100) NULL, " +
                     "Type VARCHAR(100) NULL, " +
@@ -796,7 +882,7 @@ namespace MillionBeauty
                     "Price NUMERIC DEFAULT 0 NOT NULL, " +
                     "Quantity INTEGER DEFAULT 1 NOT NULL, " +
                     "Cost NUMERIC DEFAULT 0 NOT NULL, " +
-                    "DiscountPercent NUMERIC DEFAULT 0 NOT NULL, " +
+                    "Discount NUMERIC DEFAULT 0 NOT NULL, " +
                     "TotalCost NUMERIC DEFAULT 0 NOT NULL)";
                 cmd.ExecuteNonQuery();
             }
@@ -811,13 +897,13 @@ namespace MillionBeauty
 
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
-                        string selectQuery = string.Format(CultureInfo.InvariantCulture, "SELECT * FROM OrderDetails WHERE OrderID = '{0}'", orderId);
+                        string selectQuery = string.Format(CultureInfo.InvariantCulture, "SELECT * FROM OrderDetails WHERE OrderId = '{0}'", orderId);
                         cmd.CommandText = selectQuery;
 
                         using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
@@ -875,23 +961,23 @@ namespace MillionBeauty
             DbParameter priceDb;
             DbParameter quantityDb;
             DbParameter costDb;
-            DbParameter discountPercentDb;
-            DbParameter totalCostDb;
+            DbParameter discountDb;
+            DbParameter totalCostDb;            
 
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         foreach (OrderDetail orderDetail in orderDetails)
                         {
                             cmd.CommandText =
                             "INSERT INTO OrderDetails " +
-                            "(OrderID, ProductID, Name, Description, Type, InStock, Price, Quantity, Cost, DiscountPercent, TotalCost) " +
-                            "Values (@orderId, @productId, @name, @description, @type, @inStock, @price, @quantity, @cost, @discountPercent, @totalCost)";
+                            "(OrderId, ProductId, Name, Description, Type, InStock, Price, Quantity, Cost, Discount, TotalCost) " +
+                            "Values (@orderId, @productId, @name, @description, @type, @inStock, @price, @quantity, @cost, @discount, @totalCost)";
                             orderIdDb = cmd.CreateParameter();
                             orderIdDb.ParameterName = "@orderId";
                             orderIdDb.Value = orderId;
@@ -937,10 +1023,10 @@ namespace MillionBeauty
                             costDb.Value = orderDetail.Cost;
                             cmd.Parameters.Add(costDb);
 
-                            discountPercentDb = cmd.CreateParameter();
-                            discountPercentDb.ParameterName = "@discountPercent";
-                            discountPercentDb.Value = orderDetail.DiscountPercent;
-                            cmd.Parameters.Add(discountPercentDb);
+                            discountDb = cmd.CreateParameter();
+                            discountDb.ParameterName = "@discount";
+                            discountDb.Value = orderDetail.DiscountPercent;
+                            cmd.Parameters.Add(discountDb);
 
                             totalCostDb = cmd.CreateParameter();
                             totalCostDb.ParameterName = "@totalCost";
@@ -960,11 +1046,11 @@ namespace MillionBeauty
             // Update the product in stock quantity
             try
             {
-                using (DbConnection cnn = fact.CreateConnection())
+                using (DbConnection connection = fact.CreateConnection())
                 {
-                    cnn.ConnectionString = dbConnectionStr;
-                    cnn.Open();
-                    using (DbCommand cmd = cnn.CreateCommand())
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
                     {
                         foreach (OrderDetail orderDetail in orderDetails)
                         {
@@ -972,7 +1058,7 @@ namespace MillionBeauty
                                 CultureInfo.InvariantCulture,
                                 "UPDATE Products SET " +
                                 "InStock = '{0}' " +
-                                "WHERE ProductID = '{1}'", 
+                                "WHERE ProductId = '{1}'", 
                                 orderDetail.InStock, orderDetail.ProductId);
                             cmd.CommandText = updateQuery;
                             cmd.ExecuteNonQuery();
@@ -985,8 +1071,74 @@ namespace MillionBeauty
                 Console.WriteLine("FAIL - Update Product In Stock: {0}", ex.Message);
             }
         }
-        #endregion Order Details
 
+        public void UpdateOrderDetail(
+            string orderId,
+            BindingList<OrderDetail> orderDetails)
+        {
+            DeleteOrderDetail(orderId);
+            InsertOrderDetail(orderId, orderDetails);
+        }
+
+        /// <summary>
+        /// Deletes the order detail. It will put the quantity back to stock.
+        /// </summary>
+        /// <param name="orderId">The order id.</param>
+        public void DeleteOrderDetail(string orderId)
+        {
+            // Update the product in stock quantity
+            BindingList<OrderDetail> orderDetails = OrderDetail(orderId);
+
+            // Update the product in stock quantity
+            try
+            {
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        foreach (OrderDetail orderDetail in orderDetails)
+                        {
+                            long total = orderDetail.InStock + orderDetail.Quantity;
+                            string updateQuery = string.Format(
+                                CultureInfo.InvariantCulture,
+                                "UPDATE Products SET " +
+                                "InStock = '{0}' " +
+                                "WHERE ProductId = '{1}'",
+                                total, orderDetail.ProductId);
+                            cmd.CommandText = updateQuery;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Update Product In Stock: {0}", ex.Message);
+            }            
+
+            try
+            {                
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        string deleteQuery = string.Format(CultureInfo.InvariantCulture,
+                            "DELETE FROM OrderDetails WHERE OrderId = '{0}'", orderId);
+                        cmd.CommandText = deleteQuery;
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Delete Order Detail: {0}", ex.Message);
+            }
+        }
+        #endregion Order Details
         #endregion methods
     }
 }

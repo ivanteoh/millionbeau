@@ -712,7 +712,7 @@
     <value>orderDetailsControl</value>
   </data>
   <data name="&gt;&gt;orderDetailsControl.Type" xml:space="preserve">
-    <value>MillionBeauty.OrderDetailsControl, MillionBeauty, Version=0.1.3222.19114, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
+    <value>MillionBeauty.OrderDetailsControl, MillionBeauty, Version=0.1.3227.16731, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
   </data>
   <data name="&gt;&gt;orderDetailsControl.Parent" xml:space="preserve">
     <value>itemGroupBox</value>
@@ -958,7 +958,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;newOrderGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="saveButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>328, 502</value>
@@ -982,7 +982,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;saveButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="printButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>409, 502</value>
@@ -1006,7 +1006,61 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;printButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="editButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 502</value>
+  </data>
+  <data name="editButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="editButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="editButton.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="editButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;editButton.Name" xml:space="preserve">
+    <value>editButton</value>
+  </data>
+  <data name="&gt;&gt;editButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;editButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;editButton.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="deleteButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 502</value>
+  </data>
+  <data name="deleteButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="deleteButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="deleteButton.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="deleteButton.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;deleteButton.Name" xml:space="preserve">
+    <value>deleteButton</value>
+  </data>
+  <data name="&gt;&gt;deleteButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deleteButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;deleteButton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
