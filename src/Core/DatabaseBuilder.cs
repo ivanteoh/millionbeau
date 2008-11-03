@@ -320,7 +320,7 @@ namespace MillionBeauty
             }
             catch (DbException ex)
             {
-                Console.WriteLine("FAIL - Get Customer: {0}", ex.Message);
+                Console.WriteLine("FAIL - Get Customer {0}: {1}", customerId, ex.Message);
             }
 
             return dataSet.Tables[0];
@@ -498,6 +498,66 @@ namespace MillionBeauty
             {
                 Console.WriteLine("FAIL - Delete Product: {0}", ex.Message);
             }
+        }
+
+        public object Product(string productId)
+        {
+            DataSet dataSet = new DataSet();
+            dataSet.Locale = CultureInfo.InvariantCulture;
+
+            try
+            {
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        string customerQuery =
+                            string.Format(CultureInfo.InvariantCulture, "SELECT * FROM Products WHERE ProductId = '{0}'", productId);
+                        cmd.CommandText = customerQuery;
+
+                        using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
+                        {
+                            dataAdapter.SelectCommand = cmd;
+                            dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
+                            dataAdapter.Fill(dataSet);
+                        }
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Get Product {0}: {1}", productId, ex.Message);
+            }
+
+            return dataSet.Tables[0];
+        }
+
+        public long InStockProduct(string productId)
+        {
+            long result = 0;
+
+            try
+            {
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        string selectQuery = string.Format(CultureInfo.InvariantCulture, "SELECT InStock FROM Products WHERE ProductId = {0}", productId);
+                        cmd.CommandText = selectQuery;
+
+                        result = (long)cmd.ExecuteScalar();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Get In Stock Product {0}: {1}", productId, ex.Message);
+            }
+            return result;
         }
         #endregion Products Table
 
@@ -927,19 +987,19 @@ namespace MillionBeauty
 
             foreach (DataRow row in currentTable.Rows)
             {
-                if (row[0].ToString() == orderId)
+                if (row[1].ToString() == orderId)
                 {
                     orderDetail = new OrderDetail();
-                    orderDetail.ProductId = Convert.ToInt64(row[1], CultureInfo.InvariantCulture);
-                    orderDetail.Product = row[2].ToString();
-                    orderDetail.Description = row[3].ToString();
-                    orderDetail.ProductType = row[4].ToString();
-                    orderDetail.InStock = Convert.ToInt64(row[5], CultureInfo.InvariantCulture);
-                    orderDetail.Price = Convert.ToDecimal(row[6], CultureInfo.InvariantCulture);
-                    orderDetail.Quantity = Convert.ToInt64(row[7], CultureInfo.InvariantCulture);
-                    orderDetail.Cost = Convert.ToDecimal(row[8], CultureInfo.InvariantCulture);
-                    orderDetail.DiscountPercent = Convert.ToDecimal(row[9], CultureInfo.InvariantCulture);
-                    orderDetail.TotalCost = Convert.ToDecimal(row[10], CultureInfo.InvariantCulture);
+                    orderDetail.ProductId = Convert.ToInt64(row[2], CultureInfo.InvariantCulture);
+                    orderDetail.Product = row[3].ToString();
+                    orderDetail.Description = row[4].ToString();
+                    orderDetail.ProductType = row[5].ToString();
+                    orderDetail.InStock = Convert.ToInt64(row[6], CultureInfo.InvariantCulture);
+                    orderDetail.Price = Convert.ToDecimal(row[7], CultureInfo.InvariantCulture);
+                    orderDetail.Quantity = Convert.ToInt64(row[8], CultureInfo.InvariantCulture);
+                    orderDetail.Cost = Convert.ToDecimal(row[9], CultureInfo.InvariantCulture);
+                    orderDetail.DiscountPercent = Convert.ToDecimal(row[10], CultureInfo.InvariantCulture);
+                    orderDetail.TotalCost = Convert.ToDecimal(row[11], CultureInfo.InvariantCulture);
 
                     orderDetails.Add(orderDetail);
                 }                
@@ -1100,7 +1160,7 @@ namespace MillionBeauty
                     {
                         foreach (OrderDetail orderDetail in orderDetails)
                         {
-                            long total = orderDetail.InStock + orderDetail.Quantity;
+                            long total = InStockProduct(orderDetail.ProductId.ToString(CultureInfo.InvariantCulture)) + orderDetail.Quantity;
                             string updateQuery = string.Format(
                                 CultureInfo.InvariantCulture,
                                 "UPDATE Products SET " +

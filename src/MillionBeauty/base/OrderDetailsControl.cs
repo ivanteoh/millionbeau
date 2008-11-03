@@ -72,7 +72,7 @@ namespace MillionBeauty
 
         public void EditView()
         {
-            dataGridView.ReadOnly = false;
+            dataGridView.ReadOnly = true;
             addButton.Enabled = true;
         }
 

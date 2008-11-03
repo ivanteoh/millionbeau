@@ -37,7 +37,7 @@ namespace MillionBeauty
             orderDetailsControl.DeleteKeyDowned += OrderDetailsControlDeleteKeyDowned;
 
             editButton.Click += EditButtonClick;
-            deleteButton.Click += new EventHandler(DeleteButtonClick);
+            deleteButton.Click += DeleteButtonClick;
             saveButton.Click += SaveButtonClick;
             printButton.Click += PrintButtonClick;
             KeyDown += OrderFormKeyDown;
@@ -160,10 +160,12 @@ namespace MillionBeauty
 
         protected void ReadOnly()
         {
+            Text = "Order";
+
             viewOnly = true;
             
             customerFindButton.Enabled = false;         
-            salesPersonTextBox.Enabled = false;
+            salesPersonTextBox.ReadOnly = true;
             discountRegexTextBox.ReadOnly = true;
             saveButton.Enabled = false;
             printButton.Enabled = true;
@@ -181,6 +183,8 @@ namespace MillionBeauty
 
         protected void EditView()
         {
+            Text = "Edit Order";
+
             viewOnly = false;
             editButton.Visible = false;
             editButton.Enabled = false;
@@ -297,23 +301,51 @@ namespace MillionBeauty
 
         private void UpdateOrderDetailFormInserted(object sender, EventArgs e)
         {
+            // must get instock from products
             DataGridViewRow selectedRow = OrderDetailSelectedRow;
 
             if (selectedRow != null)
             {
+                string productId = selectedRow.Cells[0].Value.ToString();
+
+                DataTable productTable = DatabaseBuilder.Instance.Product(productId) as DataTable;
+
+                if (productTable == null && productTable.Rows.Count != 1)
+                    return;
+
+                DataRow currentProduct = productTable.Rows[0];
+                object[] productInfo = currentProduct.ItemArray;
+
+                if (productInfo.Length != 7)
+                    return;                
+
                 UpdateOrderDetailForm updateOrderDetailForm = sender as UpdateOrderDetailForm;
-                updateOrderDetailForm.ProductId = selectedRow.Cells[0].Value.ToString();
-                updateOrderDetailForm.Product = selectedRow.Cells[1].Value.ToString();
-                updateOrderDetailForm.Description = selectedRow.Cells[2].Value.ToString();
-                updateOrderDetailForm.ProductType = selectedRow.Cells[3].Value.ToString();
-                updateOrderDetailForm.InStock = selectedRow.Cells[4].Value.ToString();
-                updateOrderDetailForm.Price = selectedRow.Cells[5].Value.ToString();
-                updateOrderDetailForm.Quantity = selectedRow.Cells[6].Value.ToString();
-                updateOrderDetailForm.Cost = selectedRow.Cells[7].Value.ToString();
-                updateOrderDetailForm.DiscountPercent = selectedRow.Cells[8].Value.ToString();
-                updateOrderDetailForm.TotalCost = selectedRow.Cells[9].Value.ToString();
-                Int64 left = Convert.ToInt64(selectedRow.Cells[4].Value, CultureInfo.InvariantCulture) + Convert.ToInt64(selectedRow.Cells[6].Value, CultureInfo.InvariantCulture);
-                updateOrderDetailForm.DefaultInStock = left;
+                updateOrderDetailForm.AddButtonText = "Edit";
+
+                updateOrderDetailForm.ProductId = productId;
+                updateOrderDetailForm.Product = productInfo[1].ToString();
+                updateOrderDetailForm.Description = productInfo[2].ToString();
+                updateOrderDetailForm.ProductType = productInfo[3].ToString();
+
+                long inStock = Convert.ToInt64(productInfo[5]);
+                updateOrderDetailForm.InStock = inStock.ToString();
+
+                decimal price = Convert.ToDecimal(productInfo[6]);
+                updateOrderDetailForm.Price = price.ToString();
+
+                long quantity = Convert.ToInt64(selectedRow.Cells[6].Value);
+                updateOrderDetailForm.Quantity = quantity.ToString();
+
+                decimal cost = price * quantity;
+                updateOrderDetailForm.Cost = cost.ToString();
+
+                decimal discountPercent = Convert.ToDecimal(selectedRow.Cells[8].Value);
+                updateOrderDetailForm.DiscountPercent = discountPercent.ToString();
+
+                decimal totalCost = cost * discountPercent / 100;
+                updateOrderDetailForm.TotalCost = decimal.Round(totalCost, 2).ToString();
+
+                updateOrderDetailForm.DefaultInStock = inStock + quantity;
             }
         }
 
@@ -335,7 +367,7 @@ namespace MillionBeauty
                 selectedRow.Cells[8].Value = Convert.ToDecimal(updateOrderDetailForm.DiscountPercent, CultureInfo.InvariantCulture);
                 selectedRow.Cells[9].Value = Convert.ToDecimal(updateOrderDetailForm.TotalCost, CultureInfo.InvariantCulture);
 
-                UpdateTotalPrice(orderDetails);
+                UpdateTotalPrice((BindingList<OrderDetail>)OrderDetailsSource);
             }
         }        
         #endregion Order Details Update
@@ -367,7 +399,7 @@ namespace MillionBeauty
                 if (result == DialogResult.OK)
                 {
                     DeleteOrderDetailRow(selectedRow);
-                    UpdateTotalPrice(orderDetails);
+                    UpdateTotalPrice((BindingList<OrderDetail>)OrderDetailsSource);
                 }
             }     
         }

@@ -94,7 +94,7 @@ namespace MillionBeauty
 
         private void ShowDatabaseForm()
         {
-            DatabaseForm databaseForm = new DatabaseForm();
+            OptionsForm databaseForm = new OptionsForm();
             databaseForm.ShowDialog(this);
         }
 

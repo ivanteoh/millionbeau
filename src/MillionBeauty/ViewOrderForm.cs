@@ -44,7 +44,8 @@ namespace MillionBeauty
                 MessageBoxOptions.RtlReading);
             if (result == DialogResult.OK)
             {
-                DatabaseBuilder.Instance.DeleteOrder(OrderId);                
+                DatabaseBuilder.Instance.DeleteOrder(OrderId);
+                Close();
             } 
         }
 

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 using System.Globalization;
 namespace MillionBeauty
 {
-    public partial class DatabaseForm : Form
+    public partial class OptionsForm : Form
     {
-        public DatabaseForm()
+        public OptionsForm()
         {
             InitializeComponent();
             newButton.Click += NewButtonClick;

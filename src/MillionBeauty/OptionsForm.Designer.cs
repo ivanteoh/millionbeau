@@ -1,6 +1,6 @@
 ﻿namespace MillionBeauty
 {
-    partial class DatabaseForm
+    partial class OptionsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatabaseForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionsForm));
             this.newButton = new System.Windows.Forms.Button();
             this.loadButton = new System.Windows.Forms.Button();
             this.currentLabel = new System.Windows.Forms.Label();
