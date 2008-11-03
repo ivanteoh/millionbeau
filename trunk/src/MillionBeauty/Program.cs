@@ -78,7 +78,7 @@ namespace MillionBeauty
             else
             {
                 Properties.Settings.Default.Upgrade();
-                Application.Run(new DatabaseForm());
+                Application.Run(new OptionsForm());
             }
 #else
             // Debug code: Straight away run main form

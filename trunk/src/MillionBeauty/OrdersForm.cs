@@ -13,6 +13,7 @@ namespace MillionBeauty
         {
             this.Text = "Orders List";
             AddButtonName = "Pick";
+            ReadOnly = true;
         }
 
         internal protected override void FormLoad()

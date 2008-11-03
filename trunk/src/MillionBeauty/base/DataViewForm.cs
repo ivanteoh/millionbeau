@@ -22,6 +22,12 @@ namespace MillionBeauty
             Load += DataViewFormLoad;
         }
 
+        protected bool ReadOnly 
+        {
+            get { return dataGridViewControl.ReadOnly; }
+            set { dataGridViewControl.ReadOnly = value; }
+        }
+
         protected object DataSetSource
         {
             get

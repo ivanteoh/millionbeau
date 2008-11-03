@@ -13,6 +13,7 @@ namespace MillionBeauty
         {
             this.Text = "Select Customer";
             AddButtonName = "Pick";
+            ReadOnly = true;
         }
 
         private string id;
