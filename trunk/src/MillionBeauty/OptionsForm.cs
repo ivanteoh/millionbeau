@@ -16,12 +16,14 @@ namespace MillionBeauty
             InitializeComponent();
             newButton.Click += NewButtonClick;
             loadButton.Click += LoadButtonClick;
-            Load += DatabaseFormLoad;
-        }
+            okButton.Click += OkButtonClick;
+            cancelButton.Click += CancelButtonClick;
+            Load += OptionsFormLoad;
+        }        
 
         private bool forceRestart;
 
-        private void DatabaseFormLoad(object sender, EventArgs e)
+        private void OptionsFormLoad(object sender, EventArgs e)
         {
             if (!Properties.Settings.Default.GotDatabase)
             {
@@ -91,6 +93,57 @@ namespace MillionBeauty
                 Application.Restart();                   
             }
             openFileDialog.Dispose();    
-        }  
+        }
+
+        private void CancelButtonClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void OkButtonClick(object sender, EventArgs e)
+        {
+            if (keyTextBox.Text == Properties.Settings.Default.Key)
+            {
+                if (enterTextBox.Text == reEnterTextBox.Text)
+                {
+                    Properties.Settings.Default.Key = enterTextBox.Text;
+                    Properties.Settings.Default.Save();
+
+                    MessageBox.Show(
+                    "Password changed.",
+                    Properties.Resources.Title,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign & MessageBoxOptions.RtlReading);
+                    keyTextBox.Text = string.Empty;
+                    enterTextBox.Text = string.Empty;
+                    reEnterTextBox.Text = string.Empty;
+                }
+                else 
+                {
+                    MessageBox.Show(
+                    "Re-enter password not the same. Please try it again.",
+                    Properties.Resources.Title,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign & MessageBoxOptions.RtlReading);
+                    enterTextBox.Text = string.Empty;
+                    reEnterTextBox.Text = string.Empty;
+                }
+            }
+            else
+            {
+                MessageBox.Show(this,
+                    "Wrong password. Please try it again.",
+                    Properties.Resources.Title,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign & MessageBoxOptions.RtlReading);
+                keyTextBox.Text = string.Empty;
+            }
+        }
     }
 }

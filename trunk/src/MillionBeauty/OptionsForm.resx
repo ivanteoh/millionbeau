@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="newButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>124, 75</value>
+    <value>302, 93</value>
   </data>
   <data name="newButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -142,16 +142,16 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;newButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>databaseTabPage</value>
   </data>
   <data name="&gt;&gt;newButton.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="loadButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="loadButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 75</value>
+    <value>383, 93</value>
   </data>
   <data name="loadButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -169,16 +169,16 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;loadButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>databaseTabPage</value>
   </data>
   <data name="&gt;&gt;loadButton.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="currentLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="currentLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 9</value>
+    <value>16, 14</value>
   </data>
   <data name="currentLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>123, 13</value>
@@ -196,16 +196,16 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;currentLabel.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>databaseTabPage</value>
   </data>
   <data name="&gt;&gt;currentLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="databaseLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="databaseLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 35</value>
+    <value>16, 41</value>
   </data>
   <data name="databaseLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 13</value>
@@ -220,9 +220,285 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;databaseLabel.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>databaseTabPage</value>
   </data>
   <data name="&gt;&gt;databaseLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="databaseTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="databaseTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="databaseTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>466, 124</value>
+  </data>
+  <data name="databaseTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="databaseTabPage.Text" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="&gt;&gt;databaseTabPage.Name" xml:space="preserve">
+    <value>databaseTabPage</value>
+  </data>
+  <data name="&gt;&gt;databaseTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;databaseTabPage.Parent" xml:space="preserve">
+    <value>optionTabControl</value>
+  </data>
+  <data name="&gt;&gt;databaseTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="keyLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="keyLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="keyLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 15</value>
+  </data>
+  <data name="keyLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 13</value>
+  </data>
+  <data name="keyLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="keyLabel.Text" xml:space="preserve">
+    <value>Current password:</value>
+  </data>
+  <data name="&gt;&gt;keyLabel.Name" xml:space="preserve">
+    <value>keyLabel</value>
+  </data>
+  <data name="&gt;&gt;keyLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyLabel.Parent" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;keyLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="keyTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 12</value>
+  </data>
+  <data name="keyTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 20</value>
+  </data>
+  <data name="keyTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;keyTextBox.Name" xml:space="preserve">
+    <value>keyTextBox</value>
+  </data>
+  <data name="&gt;&gt;keyTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyTextBox.Parent" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;keyTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="enterLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="enterLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 41</value>
+  </data>
+  <data name="enterLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 13</value>
+  </data>
+  <data name="enterLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="enterLabel.Text" xml:space="preserve">
+    <value>Enter new password:</value>
+  </data>
+  <data name="&gt;&gt;enterLabel.Name" xml:space="preserve">
+    <value>enterLabel</value>
+  </data>
+  <data name="&gt;&gt;enterLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;enterLabel.Parent" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;enterLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="enterTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 38</value>
+  </data>
+  <data name="enterTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 20</value>
+  </data>
+  <data name="enterTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;enterTextBox.Name" xml:space="preserve">
+    <value>enterTextBox</value>
+  </data>
+  <data name="&gt;&gt;enterTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;enterTextBox.Parent" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;enterTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="reEnterLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="reEnterLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 67</value>
+  </data>
+  <data name="reEnterLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 13</value>
+  </data>
+  <data name="reEnterLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="reEnterLabel.Text" xml:space="preserve">
+    <value>Re-enter password:</value>
+  </data>
+  <data name="&gt;&gt;reEnterLabel.Name" xml:space="preserve">
+    <value>reEnterLabel</value>
+  </data>
+  <data name="&gt;&gt;reEnterLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;reEnterLabel.Parent" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;reEnterLabel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="reEnterTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 64</value>
+  </data>
+  <data name="reEnterTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>159, 20</value>
+  </data>
+  <data name="reEnterTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;reEnterTextBox.Name" xml:space="preserve">
+    <value>reEnterTextBox</value>
+  </data>
+  <data name="&gt;&gt;reEnterTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;reEnterTextBox.Parent" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;reEnterTextBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 93</value>
+  </data>
+  <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="okButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="&gt;&gt;okButton.Name" xml:space="preserve">
+    <value>okButton</value>
+  </data>
+  <data name="&gt;&gt;okButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cancelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>383, 93</value>
+  </data>
+  <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="keyTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="keyTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="keyTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>466, 124</value>
+  </data>
+  <data name="keyTabPage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="keyTabPage.Text" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="&gt;&gt;keyTabPage.Name" xml:space="preserve">
+    <value>keyTabPage</value>
+  </data>
+  <data name="&gt;&gt;keyTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keyTabPage.Parent" xml:space="preserve">
+    <value>optionTabControl</value>
+  </data>
+  <data name="&gt;&gt;keyTabPage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="optionTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="optionTabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="optionTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>474, 150</value>
+  </data>
+  <data name="optionTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;optionTabControl.Name" xml:space="preserve">
+    <value>optionTabControl</value>
+  </data>
+  <data name="&gt;&gt;optionTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optionTabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;optionTabControl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -232,7 +508,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>292, 110</value>
+    <value>474, 150</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1370,10 +1646,10 @@
     <value>CenterParent</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Create Database</value>
+    <value>Options</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>DatabaseForm</value>
+    <value>OptionsForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
