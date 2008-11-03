@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             this.nameRegexTextBox = new CustomControl.RegexTextBox();
             this.idLabel = new System.Windows.Forms.Label();
             this.idTextLabel = new System.Windows.Forms.Label();
@@ -51,179 +52,116 @@
             // nameRegexTextBox
             // 
             this.nameRegexTextBox.CustomPattern = "^()$";
-            this.nameRegexTextBox.Location = new System.Drawing.Point(120, 68);
-            this.nameRegexTextBox.MaxLength = 100;
+            resources.ApplyResources(this.nameRegexTextBox, "nameRegexTextBox");
             this.nameRegexTextBox.Name = "nameRegexTextBox";
-            this.nameRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameRegexTextBox.TabIndex = 10;
             // 
             // idLabel
             // 
-            this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(12, 13);
+            resources.ApplyResources(this.idLabel, "idLabel");
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(18, 13);
-            this.idLabel.TabIndex = 0;
-            this.idLabel.Text = "ID";
             // 
             // idTextLabel
             // 
-            this.idTextLabel.AutoSize = true;
-            this.idTextLabel.Location = new System.Drawing.Point(117, 13);
+            resources.ApplyResources(this.idTextLabel, "idTextLabel");
             this.idTextLabel.Name = "idTextLabel";
-            this.idTextLabel.Size = new System.Drawing.Size(16, 13);
-            this.idTextLabel.TabIndex = 8;
-            this.idTextLabel.Text = "-1";
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Location = new System.Drawing.Point(12, 42);
+            resources.ApplyResources(this.titleLabel, "titleLabel");
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(83, 13);
-            this.titleLabel.TabIndex = 1;
-            this.titleLabel.Text = "Title of Courtesy";
             // 
             // nameLabel
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(12, 71);
+            resources.ApplyResources(this.nameLabel, "nameLabel");
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(35, 13);
-            this.nameLabel.TabIndex = 2;
-            this.nameLabel.Text = "Name";
             // 
             // addressLabel
             // 
-            this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(12, 100);
+            resources.ApplyResources(this.addressLabel, "addressLabel");
             this.addressLabel.Name = "addressLabel";
-            this.addressLabel.Size = new System.Drawing.Size(45, 13);
-            this.addressLabel.TabIndex = 3;
-            this.addressLabel.Text = "Address";
             // 
             // postcodeLabel
             // 
-            this.postcodeLabel.AutoSize = true;
-            this.postcodeLabel.Location = new System.Drawing.Point(12, 129);
+            resources.ApplyResources(this.postcodeLabel, "postcodeLabel");
             this.postcodeLabel.Name = "postcodeLabel";
-            this.postcodeLabel.Size = new System.Drawing.Size(52, 13);
-            this.postcodeLabel.TabIndex = 4;
-            this.postcodeLabel.Text = "Postcode";
             // 
             // stateLabel
             // 
-            this.stateLabel.AutoSize = true;
-            this.stateLabel.Location = new System.Drawing.Point(12, 158);
+            resources.ApplyResources(this.stateLabel, "stateLabel");
             this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(32, 13);
-            this.stateLabel.TabIndex = 5;
-            this.stateLabel.Text = "State";
             // 
             // phoneLabel
             // 
-            this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(12, 187);
+            resources.ApplyResources(this.phoneLabel, "phoneLabel");
             this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(38, 13);
-            this.phoneLabel.TabIndex = 6;
-            this.phoneLabel.Text = "Phone";
             // 
             // companyLabel
             // 
-            this.companyLabel.AutoSize = true;
-            this.companyLabel.Location = new System.Drawing.Point(12, 216);
+            resources.ApplyResources(this.companyLabel, "companyLabel");
             this.companyLabel.Name = "companyLabel";
-            this.companyLabel.Size = new System.Drawing.Size(82, 13);
-            this.companyLabel.TabIndex = 7;
-            this.companyLabel.Text = "Company Name";
             // 
             // titleComboBox
             // 
             this.titleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.titleComboBox.FormattingEnabled = true;
             this.titleComboBox.Items.AddRange(new object[] {
-            "Mr.",
-            "Mrs.",
-            "Mdm.",
-            "Ms.",
-            "Miss",
-            "Dr."});
-            this.titleComboBox.Location = new System.Drawing.Point(120, 39);
+            resources.GetString("titleComboBox.Items"),
+            resources.GetString("titleComboBox.Items1"),
+            resources.GetString("titleComboBox.Items2"),
+            resources.GetString("titleComboBox.Items3"),
+            resources.GetString("titleComboBox.Items4"),
+            resources.GetString("titleComboBox.Items5")});
+            resources.ApplyResources(this.titleComboBox, "titleComboBox");
             this.titleComboBox.Name = "titleComboBox";
-            this.titleComboBox.Size = new System.Drawing.Size(121, 21);
-            this.titleComboBox.TabIndex = 9;
             // 
             // addressRegexTextBox
             // 
             this.addressRegexTextBox.CustomPattern = "^()$";
-            this.addressRegexTextBox.Location = new System.Drawing.Point(120, 97);
-            this.addressRegexTextBox.MaxLength = 100;
+            resources.ApplyResources(this.addressRegexTextBox, "addressRegexTextBox");
             this.addressRegexTextBox.Name = "addressRegexTextBox";
-            this.addressRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addressRegexTextBox.TabIndex = 11;
             // 
             // postcodeRegexTextBox
             // 
             this.postcodeRegexTextBox.CustomPattern = "^()$";
-            this.postcodeRegexTextBox.Location = new System.Drawing.Point(120, 126);
-            this.postcodeRegexTextBox.MaxLength = 100;
+            resources.ApplyResources(this.postcodeRegexTextBox, "postcodeRegexTextBox");
             this.postcodeRegexTextBox.Name = "postcodeRegexTextBox";
-            this.postcodeRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.postcodeRegexTextBox.TabIndex = 12;
             // 
             // stateRegexTextBox
             // 
             this.stateRegexTextBox.CustomPattern = "^()$";
-            this.stateRegexTextBox.Location = new System.Drawing.Point(120, 155);
-            this.stateRegexTextBox.MaxLength = 100;
+            resources.ApplyResources(this.stateRegexTextBox, "stateRegexTextBox");
             this.stateRegexTextBox.Name = "stateRegexTextBox";
-            this.stateRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.stateRegexTextBox.TabIndex = 13;
             // 
             // phoneRegexTextBox
             // 
             this.phoneRegexTextBox.CustomPattern = "^()$";
-            this.phoneRegexTextBox.Location = new System.Drawing.Point(120, 184);
-            this.phoneRegexTextBox.MaxLength = 100;
+            resources.ApplyResources(this.phoneRegexTextBox, "phoneRegexTextBox");
             this.phoneRegexTextBox.Name = "phoneRegexTextBox";
-            this.phoneRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.phoneRegexTextBox.TabIndex = 14;
             // 
             // companyRegexTextBox
             // 
             this.companyRegexTextBox.CustomPattern = "^()$";
-            this.companyRegexTextBox.Location = new System.Drawing.Point(120, 213);
-            this.companyRegexTextBox.MaxLength = 100;
+            resources.ApplyResources(this.companyRegexTextBox, "companyRegexTextBox");
             this.companyRegexTextBox.Name = "companyRegexTextBox";
-            this.companyRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.companyRegexTextBox.TabIndex = 15;
             // 
             // okButton
             // 
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(120, 272);
+            resources.ApplyResources(this.okButton, "okButton");
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 16;
-            this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             // 
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(205, 272);
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 17;
-            this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
             // CustomerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 307);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.idTextLabel);
             this.Controls.Add(this.titleLabel);
@@ -245,8 +183,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CustomerForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.ResumeLayout(false);
             this.PerformLayout();
 

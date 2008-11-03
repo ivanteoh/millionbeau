@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetailForm));
             this.nameLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.typeLabel = new System.Windows.Forms.Label();
@@ -56,131 +57,82 @@
             // 
             // nameLabel
             // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(6, 44);
+            resources.ApplyResources(this.nameLabel, "nameLabel");
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(35, 13);
-            this.nameLabel.TabIndex = 3;
-            this.nameLabel.Text = "Name";
             // 
             // descriptionLabel
             // 
-            this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(6, 70);
+            resources.ApplyResources(this.descriptionLabel, "descriptionLabel");
             this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(60, 13);
-            this.descriptionLabel.TabIndex = 5;
-            this.descriptionLabel.Text = "Description";
             // 
             // typeLabel
             // 
-            this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(6, 96);
+            resources.ApplyResources(this.typeLabel, "typeLabel");
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(31, 13);
-            this.typeLabel.TabIndex = 7;
-            this.typeLabel.Text = "Type";
             // 
             // inStockLabel
             // 
-            this.inStockLabel.AutoSize = true;
-            this.inStockLabel.Location = new System.Drawing.Point(6, 122);
+            resources.ApplyResources(this.inStockLabel, "inStockLabel");
             this.inStockLabel.Name = "inStockLabel";
-            this.inStockLabel.Size = new System.Drawing.Size(47, 13);
-            this.inStockLabel.TabIndex = 9;
-            this.inStockLabel.Text = "In Stock";
             // 
             // priceLabel
             // 
-            this.priceLabel.AutoSize = true;
-            this.priceLabel.Location = new System.Drawing.Point(6, 148);
+            resources.ApplyResources(this.priceLabel, "priceLabel");
             this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(31, 13);
-            this.priceLabel.TabIndex = 11;
-            this.priceLabel.Text = "Price";
             // 
             // quantityLabel
             // 
-            this.quantityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.quantityLabel.AutoSize = true;
-            this.quantityLabel.Location = new System.Drawing.Point(18, 208);
+            resources.ApplyResources(this.quantityLabel, "quantityLabel");
             this.quantityLabel.Name = "quantityLabel";
-            this.quantityLabel.Size = new System.Drawing.Size(46, 13);
-            this.quantityLabel.TabIndex = 14;
-            this.quantityLabel.Text = "Quantity";
             // 
             // discountLabel
             // 
-            this.discountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.discountLabel.AutoSize = true;
-            this.discountLabel.Location = new System.Drawing.Point(18, 260);
+            resources.ApplyResources(this.discountLabel, "discountLabel");
             this.discountLabel.Name = "discountLabel";
-            this.discountLabel.Size = new System.Drawing.Size(66, 13);
-            this.discountLabel.TabIndex = 18;
-            this.discountLabel.Text = "Discount (%)";
             // 
             // totalCostLabel
             // 
-            this.totalCostLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.totalCostLabel.AutoSize = true;
-            this.totalCostLabel.Location = new System.Drawing.Point(18, 286);
+            resources.ApplyResources(this.totalCostLabel, "totalCostLabel");
             this.totalCostLabel.Name = "totalCostLabel";
-            this.totalCostLabel.Size = new System.Drawing.Size(55, 13);
-            this.totalCostLabel.TabIndex = 20;
-            this.totalCostLabel.Text = "Total Cost";
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(84, 41);
+            resources.ApplyResources(this.nameTextBox, "nameTextBox");
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.ReadOnly = true;
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 4;
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(84, 67);
+            resources.ApplyResources(this.descriptionTextBox, "descriptionTextBox");
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ReadOnly = true;
-            this.descriptionTextBox.Size = new System.Drawing.Size(100, 20);
-            this.descriptionTextBox.TabIndex = 6;
             // 
             // typeTextBox
             // 
-            this.typeTextBox.Location = new System.Drawing.Point(84, 93);
+            resources.ApplyResources(this.typeTextBox, "typeTextBox");
             this.typeTextBox.Name = "typeTextBox";
             this.typeTextBox.ReadOnly = true;
-            this.typeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.typeTextBox.TabIndex = 8;
             // 
             // inStockTextBox
             // 
-            this.inStockTextBox.Location = new System.Drawing.Point(84, 119);
+            resources.ApplyResources(this.inStockTextBox, "inStockTextBox");
             this.inStockTextBox.Name = "inStockTextBox";
             this.inStockTextBox.ReadOnly = true;
-            this.inStockTextBox.Size = new System.Drawing.Size(100, 20);
-            this.inStockTextBox.TabIndex = 10;
             // 
             // priceTextBox
             // 
-            this.priceTextBox.Location = new System.Drawing.Point(84, 145);
+            resources.ApplyResources(this.priceTextBox, "priceTextBox");
             this.priceTextBox.Name = "priceTextBox";
             this.priceTextBox.ReadOnly = true;
-            this.priceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.priceTextBox.TabIndex = 12;
             // 
             // totalCostTextBox
             // 
-            this.totalCostTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.totalCostTextBox.Location = new System.Drawing.Point(105, 283);
+            resources.ApplyResources(this.totalCostTextBox, "totalCostTextBox");
             this.totalCostTextBox.Name = "totalCostTextBox";
             this.totalCostTextBox.ReadOnly = true;
-            this.totalCostTextBox.Size = new System.Drawing.Size(100, 20);
-            this.totalCostTextBox.TabIndex = 21;
             // 
             // productGroupBox
             // 
-            this.productGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.productGroupBox.Controls.Add(this.label1);
             this.productGroupBox.Controls.Add(this.idTextBox);
             this.productGroupBox.Controls.Add(this.nameLabel);
@@ -194,88 +146,60 @@
             this.productGroupBox.Controls.Add(this.priceLabel);
             this.productGroupBox.Controls.Add(this.priceTextBox);
             this.productGroupBox.Controls.Add(this.productFindButton);
-            this.productGroupBox.Location = new System.Drawing.Point(12, -1);
+            resources.ApplyResources(this.productGroupBox, "productGroupBox");
             this.productGroupBox.Name = "productGroupBox";
-            this.productGroupBox.Size = new System.Drawing.Size(206, 200);
-            this.productGroupBox.TabIndex = 0;
             this.productGroupBox.TabStop = false;
-            this.productGroupBox.Text = "Product";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 18);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ID";
             // 
             // idTextBox
             // 
-            this.idTextBox.Location = new System.Drawing.Point(84, 15);
+            resources.ApplyResources(this.idTextBox, "idTextBox");
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(100, 20);
-            this.idTextBox.TabIndex = 2;
             // 
             // productFindButton
             // 
-            this.productFindButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.productFindButton.Location = new System.Drawing.Point(112, 171);
+            resources.ApplyResources(this.productFindButton, "productFindButton");
             this.productFindButton.Name = "productFindButton";
-            this.productFindButton.Size = new System.Drawing.Size(75, 23);
-            this.productFindButton.TabIndex = 13;
-            this.productFindButton.Text = "Find";
             this.productFindButton.UseVisualStyleBackColor = true;
             // 
             // addButton
             // 
-            this.addButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.addButton.Location = new System.Drawing.Point(145, 325);
+            resources.ApplyResources(this.addButton, "addButton");
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 22;
-            this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
             // 
             // quantityRegexTextBox
             // 
             this.quantityRegexTextBox.CustomPattern = "^()$";
-            this.quantityRegexTextBox.Location = new System.Drawing.Point(105, 205);
+            resources.ApplyResources(this.quantityRegexTextBox, "quantityRegexTextBox");
             this.quantityRegexTextBox.Name = "quantityRegexTextBox";
-            this.quantityRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.quantityRegexTextBox.TabIndex = 15;
             // 
             // discountRegexTextBox
             // 
             this.discountRegexTextBox.CustomPattern = "^()$";
-            this.discountRegexTextBox.Location = new System.Drawing.Point(105, 257);
+            resources.ApplyResources(this.discountRegexTextBox, "discountRegexTextBox");
             this.discountRegexTextBox.Name = "discountRegexTextBox";
-            this.discountRegexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.discountRegexTextBox.TabIndex = 19;
             // 
             // costLabel
             // 
-            this.costLabel.AutoSize = true;
-            this.costLabel.Location = new System.Drawing.Point(18, 234);
+            resources.ApplyResources(this.costLabel, "costLabel");
             this.costLabel.Name = "costLabel";
-            this.costLabel.Size = new System.Drawing.Size(28, 13);
-            this.costLabel.TabIndex = 16;
-            this.costLabel.Text = "Cost";
             // 
             // costTextBox
             // 
-            this.costTextBox.Location = new System.Drawing.Point(105, 231);
+            resources.ApplyResources(this.costTextBox, "costTextBox");
             this.costTextBox.Name = "costTextBox";
             this.costTextBox.ReadOnly = true;
-            this.costTextBox.Size = new System.Drawing.Size(100, 20);
-            this.costTextBox.TabIndex = 17;
             // 
             // OrderDetailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 360);
             this.Controls.Add(this.productGroupBox);
             this.Controls.Add(this.quantityLabel);
             this.Controls.Add(this.quantityRegexTextBox);
@@ -289,9 +213,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "OrderDetailForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Order Detail";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.productGroupBox.ResumeLayout(false);
             this.productGroupBox.PerformLayout();
             this.ResumeLayout(false);
