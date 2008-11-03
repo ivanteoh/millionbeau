@@ -11,9 +11,9 @@ namespace MillionBeauty
 
             Text = Properties.Resources.Title;
 
-            customersToolStripButton.Click += CustomersToolStripButtonClick;
-            productsToolStripButton.Click += ProductsToolStripButtonClick;
-            databaseToolStripMenuItem.Click += DatabaseToolStripMenuItemClick;
+            customersButton.Click += CustomersButtonClick;
+            productsButton.Click += ProductsButtonClick;
+            optionsButton.Click += OptionsButtonClick;
             newOrderButton.Click += NewOrderButtonClick;
             ordersButton.Click += OrdersButtonClick;
 
@@ -41,7 +41,7 @@ namespace MillionBeauty
                 case Keys.D:
                     if (e.Control)
                     {
-                        ShowDatabaseForm();
+                        ShowOptionsForm();
                     }
                     break;
                 case Keys.P:
@@ -55,19 +55,19 @@ namespace MillionBeauty
             }
         }
 
-        private void CustomersToolStripButtonClick(object sender, System.EventArgs e)
+        private void CustomersButtonClick(object sender, System.EventArgs e)
         {
             ShowCustomersForm();
         }        
 
-        private void ProductsToolStripButtonClick(object sender, System.EventArgs e)
+        private void ProductsButtonClick(object sender, System.EventArgs e)
         {
             ShowProductsForm();
-        }        
+        }
 
-        private void DatabaseToolStripMenuItemClick(object sender, System.EventArgs e)
+        private void OptionsButtonClick(object sender, System.EventArgs e)
         {
-            ShowDatabaseForm();
+            ShowOptionsForm();
         }
 
         private void NewOrderButtonClick(object sender, System.EventArgs e)
@@ -92,10 +92,10 @@ namespace MillionBeauty
             productsForm.ShowDialog(this);
         }
 
-        private void ShowDatabaseForm()
+        private void ShowOptionsForm()
         {
-            OptionsForm databaseForm = new OptionsForm();
-            databaseForm.ShowDialog(this);
+            OptionsForm optionsForm = new OptionsForm();
+            optionsForm.ShowDialog(this);
         }
 
         private void ShowNewOrderForm()
@@ -108,6 +108,6 @@ namespace MillionBeauty
         {
             OrdersForm ordersForm = new OrdersForm();
             ordersForm.ShowDialog(this);
-        }
+        }        
     }
 }

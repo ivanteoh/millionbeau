@@ -117,106 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 0</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="customersToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="customersToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="customersToolStripButton.Text" xml:space="preserve">
-    <value>&amp;Customers List</value>
-  </data>
-  <data name="productsToolStripButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="productsToolStripButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="productsToolStripButton.Text" xml:space="preserve">
-    <value>&amp;Products List</value>
-  </data>
-  <data name="databaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
-  </data>
-  <data name="databaseToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Database</value>
-  </data>
-  <data name="toolsToolStripDropDownButton.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="toolsToolStripDropDownButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 22</value>
-  </data>
-  <data name="toolsToolStripDropDownButton.Text" xml:space="preserve">
-    <value>&amp;Tools</value>
-  </data>
-  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 25</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Name" xml:space="preserve">
-    <value>toolStrip</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <metadata name="statusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>0, 251</value>
-  </metadata>
-  <data name="connectionStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 17</value>
-  </data>
-  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 251</value>
-  </data>
-  <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 22</value>
-  </data>
-  <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="statusStrip.Text" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
-  <data name="&gt;&gt;statusStrip.Name" xml:space="preserve">
-    <value>statusStrip</value>
-  </data>
-  <data name="&gt;&gt;statusStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;statusStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="newOrderButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 28</value>
+    <value>3, 3</value>
   </data>
   <data name="newOrderButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>128, 128</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="newOrderButton.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="newOrderButton.Text" xml:space="preserve">
-    <value>New Order</value>
   </data>
   <data name="&gt;&gt;newOrderButton.Name" xml:space="preserve">
     <value>newOrderButton</value>
@@ -225,22 +135,19 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;newOrderButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>newOrderTableLayoutPanel</value>
   </data>
   <data name="&gt;&gt;newOrderButton.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="ordersButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 28</value>
+    <value>3, 3</value>
   </data>
   <data name="ordersButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>128, 128</value>
   </data>
   <data name="ordersButton.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="ordersButton.Text" xml:space="preserve">
-    <value>Orders List</value>
   </data>
   <data name="&gt;&gt;ordersButton.Name" xml:space="preserve">
     <value>ordersButton</value>
@@ -249,10 +156,446 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ordersButton.Parent" xml:space="preserve">
-    <value>$this</value>
+    <value>orderTableLayoutPanel</value>
   </data>
   <data name="&gt;&gt;ordersButton.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="customersButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="customersButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 128</value>
+  </data>
+  <data name="customersButton.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;customersButton.Name" xml:space="preserve">
+    <value>customersButton</value>
+  </data>
+  <data name="&gt;&gt;customersButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customersButton.Parent" xml:space="preserve">
+    <value>customersTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;customersButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="productsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="productsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 128</value>
+  </data>
+  <data name="productsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;productsButton.Name" xml:space="preserve">
+    <value>productsButton</value>
+  </data>
+  <data name="&gt;&gt;productsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;productsButton.Parent" xml:space="preserve">
+    <value>productsTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;productsButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="optionsButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="optionsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 128</value>
+  </data>
+  <data name="optionsButton.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;optionsButton.Name" xml:space="preserve">
+    <value>optionsButton</value>
+  </data>
+  <data name="&gt;&gt;optionsButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optionsButton.Parent" xml:space="preserve">
+    <value>optionsTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;optionsButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="customersTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;customersLabel.Name" xml:space="preserve">
+    <value>customersLabel</value>
+  </data>
+  <data name="&gt;&gt;customersLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customersLabel.Parent" xml:space="preserve">
+    <value>customersTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;customersLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="customersTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="customersTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="customersTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 145</value>
+  </data>
+  <data name="customersTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;customersTableLayoutPanel.Name" xml:space="preserve">
+    <value>customersTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;customersTableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customersTableLayoutPanel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;customersTableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="customersTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="customersButton" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="customersLabel" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="productsTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;productsLabel.Name" xml:space="preserve">
+    <value>productsLabel</value>
+  </data>
+  <data name="&gt;&gt;productsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;productsLabel.Parent" xml:space="preserve">
+    <value>productsTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;productsLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="productsTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 154</value>
+  </data>
+  <data name="productsTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="productsTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 145</value>
+  </data>
+  <data name="productsTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;productsTableLayoutPanel.Name" xml:space="preserve">
+    <value>productsTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;productsTableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;productsTableLayoutPanel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;productsTableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="productsTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="productsButton" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="productsLabel" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="optionsTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="optionsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optionsLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="optionsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 0</value>
+  </data>
+  <data name="optionsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 145</value>
+  </data>
+  <data name="optionsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="optionsLabel.Text" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="optionsLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;optionsLabel.Name" xml:space="preserve">
+    <value>optionsLabel</value>
+  </data>
+  <data name="&gt;&gt;optionsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optionsLabel.Parent" xml:space="preserve">
+    <value>optionsTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;optionsLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="optionsTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 305</value>
+  </data>
+  <data name="optionsTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="optionsTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 145</value>
+  </data>
+  <data name="optionsTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;optionsTableLayoutPanel.Name" xml:space="preserve">
+    <value>optionsTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;optionsTableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optionsTableLayoutPanel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;optionsTableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="optionsTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="optionsButton" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="optionsLabel" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="newOrderTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="newOrderLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="newOrderLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="newOrderLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 0</value>
+  </data>
+  <data name="newOrderLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 145</value>
+  </data>
+  <data name="newOrderLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="newOrderLabel.Text" xml:space="preserve">
+    <value>New Order</value>
+  </data>
+  <data name="newOrderLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;newOrderLabel.Name" xml:space="preserve">
+    <value>newOrderLabel</value>
+  </data>
+  <data name="&gt;&gt;newOrderLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newOrderLabel.Parent" xml:space="preserve">
+    <value>newOrderTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;newOrderLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="newOrderTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>319, 3</value>
+  </data>
+  <data name="newOrderTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="newOrderTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 145</value>
+  </data>
+  <data name="newOrderTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;newOrderTableLayoutPanel.Name" xml:space="preserve">
+    <value>newOrderTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;newOrderTableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newOrderTableLayoutPanel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;newOrderTableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="newOrderTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="newOrderButton" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="newOrderLabel" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="orderTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="ordersLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ordersLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ordersLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 0</value>
+  </data>
+  <data name="ordersLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 145</value>
+  </data>
+  <data name="ordersLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ordersLabel.Text" xml:space="preserve">
+    <value>Orders List</value>
+  </data>
+  <data name="ordersLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;ordersLabel.Name" xml:space="preserve">
+    <value>ordersLabel</value>
+  </data>
+  <data name="&gt;&gt;ordersLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ordersLabel.Parent" xml:space="preserve">
+    <value>orderTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;ordersLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="orderTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>319, 154</value>
+  </data>
+  <data name="orderTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="orderTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>310, 145</value>
+  </data>
+  <data name="orderTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;orderTableLayoutPanel.Name" xml:space="preserve">
+    <value>orderTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;orderTableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;orderTableLayoutPanel.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;orderTableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="orderTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="ordersButton" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="ordersLabel" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="tableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>632, 453</value>
+  </data>
+  <data name="tableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel.Name" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="customersTableLayoutPanel" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="productsTableLayoutPanel" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="optionsTableLayoutPanel" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="newOrderTableLayoutPanel" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="orderTableLayoutPanel" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="customersLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="customersLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="customersLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 0</value>
+  </data>
+  <data name="customersLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 145</value>
+  </data>
+  <data name="customersLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="customersLabel.Text" xml:space="preserve">
+    <value>Customers List</value>
+  </data>
+  <data name="customersLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;customersLabel.Name" xml:space="preserve">
+    <value>customersLabel</value>
+  </data>
+  <data name="&gt;&gt;customersLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;customersLabel.Parent" xml:space="preserve">
+    <value>customersTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;customersLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="productsLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="productsLabel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="productsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>137, 0</value>
+  </data>
+  <data name="productsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 145</value>
+  </data>
+  <data name="productsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="productsLabel.Text" xml:space="preserve">
+    <value>Products List</value>
+  </data>
+  <data name="productsLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;productsLabel.Name" xml:space="preserve">
+    <value>productsLabel</value>
+  </data>
+  <data name="&gt;&gt;productsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;productsLabel.Parent" xml:space="preserve">
+    <value>productsTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;productsLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -261,7 +604,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>292, 273</value>
+    <value>632, 453</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1395,35 +1738,8 @@
         //////////////////////////////////8=
 </value>
   </data>
-  <data name="&gt;&gt;customersToolStripButton.Name" xml:space="preserve">
-    <value>customersToolStripButton</value>
-  </data>
-  <data name="&gt;&gt;customersToolStripButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;productsToolStripButton.Name" xml:space="preserve">
-    <value>productsToolStripButton</value>
-  </data>
-  <data name="&gt;&gt;productsToolStripButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolsToolStripDropDownButton.Name" xml:space="preserve">
-    <value>toolsToolStripDropDownButton</value>
-  </data>
-  <data name="&gt;&gt;toolsToolStripDropDownButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;databaseToolStripMenuItem.Name" xml:space="preserve">
-    <value>databaseToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;databaseToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;connectionStatusLabel.Name" xml:space="preserve">
-    <value>connectionStatusLabel</value>
-  </data>
-  <data name="&gt;&gt;connectionStatusLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>560, 420</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

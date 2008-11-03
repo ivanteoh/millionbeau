@@ -67,6 +67,13 @@ namespace MillionBeauty.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap AddOrder {
+            get {
+                object obj = ResourceManager.GetObject("AddOrder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap AddProduct {
             get {
                 object obj = ResourceManager.GetObject("AddProduct", resourceCulture);
@@ -85,6 +92,13 @@ namespace MillionBeauty.Properties {
             get {
                 object obj = ResourceManager.GetObject("mb", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Orders {
+            get {
+                object obj = ResourceManager.GetObject("Orders", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
