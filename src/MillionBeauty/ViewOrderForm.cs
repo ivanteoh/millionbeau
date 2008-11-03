@@ -26,27 +26,63 @@ namespace MillionBeauty
 
         private void ViewOrderFormEdit(object sender, EventArgs e)
         {
-            EditView();
+            EnterKeyForm enterKeyForm = new EnterKeyForm();
+            if (enterKeyForm.ShowDialog(this) == DialogResult.OK)
+            {
+                if (enterKeyForm.Key == Properties.Settings.Default.Key)
+                {
+                    EditView();
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Wrong Password. Please try it again.",
+                        Properties.Resources.Title,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.RightAlign &
+                        MessageBoxOptions.RtlReading);
+                }
+            }    
         }
 
         private void ViewOrderFormDelete(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(OrderId))
-                return;
-
-            string deleteQuery = string.Format(CultureInfo.InvariantCulture, "Are you sure you want to delete order {0}", OrderId);
-            DialogResult result = MessageBox.Show(
-                deleteQuery, Properties.Resources.Title,
-                MessageBoxButtons.OKCancel,
-                MessageBoxIcon.Warning,
-                MessageBoxDefaultButton.Button2,
-                MessageBoxOptions.RightAlign &
-                MessageBoxOptions.RtlReading);
-            if (result == DialogResult.OK)
+            EnterKeyForm enterKeyForm = new EnterKeyForm();
+            if (enterKeyForm.ShowDialog(this) == DialogResult.OK)
             {
-                DatabaseBuilder.Instance.DeleteOrder(OrderId);
-                Close();
-            } 
+                if (enterKeyForm.Key == Properties.Settings.Default.Key)
+                {
+                    if (string.IsNullOrEmpty(OrderId))
+                        return;
+
+                    string deleteQuery = string.Format(CultureInfo.InvariantCulture, "Are you sure you want to delete order {0}", OrderId);
+                    DialogResult result = MessageBox.Show(
+                        deleteQuery, Properties.Resources.Title,
+                        MessageBoxButtons.OKCancel,
+                        MessageBoxIcon.Warning,
+                        MessageBoxDefaultButton.Button2,
+                        MessageBoxOptions.RightAlign &
+                        MessageBoxOptions.RtlReading);
+                    if (result == DialogResult.OK)
+                    {
+                        DatabaseBuilder.Instance.DeleteOrder(OrderId);
+                        Close();
+                    } 
+                }
+                else
+                {
+                    MessageBox.Show(
+                        "Wrong Password. Please try it again.", 
+                        Properties.Resources.Title,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.RightAlign &
+                        MessageBoxOptions.RtlReading);
+                }
+            }            
         }
 
         private void ViewOrderFormSave(object sender, EventArgs e)
