@@ -29,6 +29,12 @@ namespace MillionBeauty
 
         private Int64 originalInStock;
 
+        internal protected string AddButtonText
+        {
+            get { return addButton.Text; }
+            set { addButton.Text = value; }
+        }
+
         internal protected Int64 DefaultInStock
         {
             get { return originalInStock; }

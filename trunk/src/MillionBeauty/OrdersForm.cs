@@ -43,7 +43,7 @@ namespace MillionBeauty
                 viewOrderForm.Year = SelectedRow.Cells[1].Value as string;
                 viewOrderForm.OrderDate = SelectedRow.Cells[2].Value as string;
                 viewOrderForm.OrderTime = SelectedRow.Cells[3].Value as string;
-                viewOrderForm.CustomerId = SelectedRow.Cells[4].Value as string;
+                viewOrderForm.CustomerId = SelectedRow.Cells[4].Value.ToString();
                 viewOrderForm.CustomerTitle = SelectedRow.Cells[5].Value as string;
                 viewOrderForm.CustomerName = SelectedRow.Cells[6].Value as string;
                 viewOrderForm.Address = SelectedRow.Cells[7].Value as string;
@@ -62,6 +62,7 @@ namespace MillionBeauty
                     viewOrderForm.OrderDetailsSource = orderDetails;
                 }
                 viewOrderForm.ShowDialog(this);
+                DataSetSource = DatabaseBuilder.Instance.OrdersTable;
             }          
         }
     }
