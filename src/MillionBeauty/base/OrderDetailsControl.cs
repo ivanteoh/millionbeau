@@ -14,6 +14,7 @@ namespace MillionBeauty
         public event EventHandler EnterKeyDowned;
         public event EventHandler DeleteKeyDowned;
         public event EventHandler EscapeKeyDowned;
+        private bool readOnly;
 
         public OrderDetailsControl()
         {
@@ -26,10 +27,17 @@ namespace MillionBeauty
             dataGridView.MultiSelect = false;
             dataGridView.RowHeadersVisible = false;
             dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dataGridView.MouseDown += DataGridViewMouseDown;
+            dataGridView.RowContextMenuStripNeeded += DataGridViewRowContextMenuStripNeeded;
+
+            editToolStripMenuItem.Click += EditToolStripMenuItemClick;
+            deleteToolStripMenuItem.Click += DeleteToolStripMenuItemClick;
 
             dataGridView.KeyDown += DataGridViewKeyDown;
             addButton.Click += AddButtonClick;
         }
+
+            
 
         public object DataSetSource
         {
@@ -66,12 +74,14 @@ namespace MillionBeauty
 
         public void ReadOnly()
         {
+            readOnly = true;
             dataGridView.ReadOnly = true;
             addButton.Enabled = false;
         }
 
         public void EditView()
         {
+            readOnly = false;
             dataGridView.ReadOnly = true;
             addButton.Enabled = true;
         }
@@ -137,5 +147,56 @@ namespace MillionBeauty
 
             dataGridView.Rows.Remove(row);
         }
+
+        private void DataGridViewMouseDown(object sender, MouseEventArgs e)
+        {
+            DataGridView.HitTestInfo hitTestInfo;
+            int rowIndex;
+            if (e.Button == MouseButtons.Right)
+            {
+                hitTestInfo = dataGridView.HitTest(e.X, e.Y);
+                rowIndex = hitTestInfo.RowIndex;
+                if (hitTestInfo.Type == DataGridViewHitTestType.Cell &&
+                    !dataGridView.Rows[rowIndex].Selected)
+                {
+                    if ((Control.ModifierKeys & Keys.Shift) == Keys.None &&
+                        (Control.ModifierKeys & Keys.Control) == Keys.None)
+                    {
+                        dataGridView.ClearSelection();
+                    }
+                    dataGridView.Rows[rowIndex].Selected = true;
+                }
+            }
+        }  
+
+        private void DataGridViewRowContextMenuStripNeeded(object sender, DataGridViewRowContextMenuStripNeededEventArgs e)
+        {
+            if (dataGridView.CurrentCell == null || readOnly)
+            {
+                e.ContextMenuStrip = null;
+            }
+            else
+            {
+                e.ContextMenuStrip = contextMenuStrip;
+            }
+        }
+
+        private void EditToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            EventHandler eventHandler = EnterKeyDowned;
+            if (eventHandler != null)
+            {
+                eventHandler(sender, EventArgs.Empty);
+            }
+        }
+
+        private void DeleteToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            EventHandler eventHandler = DeleteKeyDowned;
+            if (eventHandler != null)
+            {
+                eventHandler(sender, EventArgs.Empty);
+            }
+        }        
     }
 }
