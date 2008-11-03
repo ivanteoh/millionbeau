@@ -126,7 +126,7 @@
     <value>0, 0</value>
   </data>
   <data name="dataGridViewControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 273</value>
+    <value>472, 333</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="dataGridViewControl.TabIndex" type="System.Int32, mscorlib">
@@ -136,7 +136,7 @@
     <value>dataGridViewControl</value>
   </data>
   <data name="&gt;&gt;dataGridViewControl.Type" xml:space="preserve">
-    <value>MillionBeauty.DataGridViewControl, MillionBeauty, Version=1.0.3219.20398, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
+    <value>MillionBeauty.DataGridViewControl, MillionBeauty, Version=0.1.3229.28682, Culture=neutral, PublicKeyToken=51eda0a19bf6b40e</value>
   </data>
   <data name="&gt;&gt;dataGridViewControl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -151,7 +151,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>292, 273</value>
+    <value>472, 333</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

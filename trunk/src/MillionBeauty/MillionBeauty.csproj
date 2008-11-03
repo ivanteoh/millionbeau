@@ -153,10 +153,10 @@
     <Compile Include="NewOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderForm.cs">
+    <Compile Include="base\OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OrderForm.Designer.cs">
+    <Compile Include="base\OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FindCustomerForm.cs">
@@ -216,7 +216,7 @@
       <DependentUpon>OrderDetailForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="OrderForm.resx">
+    <EmbeddedResource Include="base\OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>

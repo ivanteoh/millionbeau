@@ -133,7 +133,7 @@
             this.descriptionRegexTextBox.Location = new System.Drawing.Point(117, 68);
             this.descriptionRegexTextBox.MaxLength = 100;
             this.descriptionRegexTextBox.Name = "descriptionRegexTextBox";
-            this.descriptionRegexTextBox.Size = new System.Drawing.Size(100, 20);
+            this.descriptionRegexTextBox.Size = new System.Drawing.Size(345, 20);
             this.descriptionRegexTextBox.TabIndex = 9;
             // 
             // typeRegexTextBox
@@ -151,7 +151,7 @@
             this.specificationRegexTextBox.Location = new System.Drawing.Point(117, 126);
             this.specificationRegexTextBox.MaxLength = 100;
             this.specificationRegexTextBox.Name = "specificationRegexTextBox";
-            this.specificationRegexTextBox.Size = new System.Drawing.Size(100, 20);
+            this.specificationRegexTextBox.Size = new System.Drawing.Size(345, 20);
             this.specificationRegexTextBox.TabIndex = 11;
             // 
             // inStockRegexTextBox
@@ -175,7 +175,7 @@
             // okButton
             // 
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(124, 227);
+            this.okButton.Location = new System.Drawing.Point(306, 240);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 14;
@@ -185,7 +185,7 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(205, 227);
+            this.cancelButton.Location = new System.Drawing.Point(387, 240);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 15;
@@ -196,7 +196,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 262);
+            this.ClientSize = new System.Drawing.Size(474, 275);
             this.Controls.Add(this.idLabel);
             this.Controls.Add(this.idTextLabel);
             this.Controls.Add(this.nameLabel);
@@ -216,7 +216,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ProductForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
             this.PerformLayout();
