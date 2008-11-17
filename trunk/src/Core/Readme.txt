@@ -55,3 +55,8 @@ Mr. Mrs. Mdm. Ms. Miss Dr.
 
 "OrderDate DATE NOT NULL, " +
 "OrderTime TIME NOT NULL, " +
+
+Requirement
+- Visual Studio 2008 Express
+- TortoiseSVN 
+- System.Data.SQLite (http://sqlite.phxsoftware.com/)
