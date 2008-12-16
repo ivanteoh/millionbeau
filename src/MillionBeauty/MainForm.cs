@@ -24,7 +24,7 @@ namespace MillionBeauty
         private void MainFormLoad(object sender, System.EventArgs e)
         {
             Text = Properties.Resources.Title;
-            string connectionString = string.Format(CultureInfo.InvariantCulture, "data source=\"{0}\"", Properties.Settings.Default.Database);
+            string connectionString = string.Format(CultureInfo.InvariantCulture, Properties.Resources.DataSource, Properties.Settings.Default.Database);
             Core.LoadDatabase(connectionString);
         }
 

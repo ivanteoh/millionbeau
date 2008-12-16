@@ -12,7 +12,7 @@ namespace MillionBeauty
         public ViewOrderForm()
             : base()
         {
-            Text = "Order";
+            Text = Properties.Resources.Order;
             Edit += ViewOrderFormEdit;
             Delete += ViewOrderFormDelete;
             Save += ViewOrderFormSave;
@@ -36,7 +36,7 @@ namespace MillionBeauty
                 else
                 {
                     MessageBox.Show(
-                        "Wrong Password. Please try it again.",
+                        Properties.Resources.ErrorWrongPassword,
                         Properties.Resources.Title,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error,
@@ -57,7 +57,7 @@ namespace MillionBeauty
                     if (string.IsNullOrEmpty(OrderId))
                         return;
 
-                    string deleteQuery = string.Format(CultureInfo.InvariantCulture, "Are you sure you want to delete order {0}", OrderId);
+                    string deleteQuery = string.Format(CultureInfo.InvariantCulture, Properties.Resources.DeleteOrder, OrderId);
                     DialogResult result = MessageBox.Show(
                         deleteQuery, Properties.Resources.Title,
                         MessageBoxButtons.OKCancel,
@@ -74,7 +74,7 @@ namespace MillionBeauty
                 else
                 {
                     MessageBox.Show(
-                        "Wrong Password. Please try it again.", 
+                        Properties.Resources.ErrorWrongPassword, 
                         Properties.Resources.Title,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error,

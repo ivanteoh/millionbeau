@@ -11,58 +11,45 @@ namespace MillionBeauty
         public FindProductForm()
             : base()
         {
-            this.Text = "Select Product";
-            AddButtonName = "Pick";
+            this.Text = Properties.Resources.SelectProduct;
+            AddButtonName = Properties.Resources.Pick;
         }
 
         private string id;
         private string product;
         private string description;
         private string productType;
-        //private string specification;
         private string inStock;
         private string price;
 
         internal string Id
         {
-            get { return id; }
-            //set { id = value; }
+            get { return id; }            
         }
 
         internal string Product
         {
-            get { return product; }
-            //set { product = value; }
+            get { return product; }            
         }
 
         internal string Description
         {
-            get { return description; }
-            //set { description = value; }
+            get { return description; }            
         }
 
         internal string ProductType
         {
-            get { return productType; }
-            //set { productType = value; }
+            get { return productType; }            
         }
-
-        //internal string Specification
-        //{
-        //    get { return specification; }
-        //    set { specification = value; }
-        //}
 
         internal string InStock
         {
-            get { return inStock; }
-            //set { inStock = value; }
+            get { return inStock; }            
         }
 
         internal string Price
         {
-            get { return price; }
-            //set { price = value; }
+            get { return price; }            
         }
 
         internal protected override void FormLoad()
@@ -89,7 +76,6 @@ namespace MillionBeauty
                 product = SelectedRow.Cells[1].Value as string;
                 description = SelectedRow.Cells[2].Value as string;
                 productType = SelectedRow.Cells[3].Value as string;
-                //specification = SelectedRow.Cells[4].Value as string;
                 inStock = SelectedRow.Cells[5].Value.ToString();
                 price = SelectedRow.Cells[6].Value.ToString();
 

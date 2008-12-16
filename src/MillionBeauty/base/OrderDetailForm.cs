@@ -130,7 +130,7 @@ namespace MillionBeauty
             {
                 e.Cancel = true;
                 MessageBox.Show(
-                    "Price has to be price format and can not be empty.",
+                    Properties.Resources.ErrorPriceFormat,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -146,7 +146,7 @@ namespace MillionBeauty
                     // Error
                     e.Cancel = true;
                     MessageBox.Show(
-                        "Quantity can not be more then in stock quantity.",
+                        Properties.Resources.ErrorQuantity,
                         Properties.Resources.Title,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error,
@@ -174,7 +174,7 @@ namespace MillionBeauty
             {
                 e.Cancel = true;
                 MessageBox.Show(
-                    "Discount has to be percentage format and can not be empty.",
+                    Properties.Resources.ErrorDiscountFormat,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,

@@ -44,9 +44,19 @@
             this.reEnterTextBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.companyTabPage = new System.Windows.Forms.TabPage();
+            this.editButton = new System.Windows.Forms.Button();
+            this.contactTextBox = new System.Windows.Forms.TextBox();
+            this.contactLabel = new System.Windows.Forms.Label();
+            this.numberTextBox = new System.Windows.Forms.TextBox();
+            this.numberLabel = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
             this.optionTabControl.SuspendLayout();
             this.databaseTabPage.SuspendLayout();
             this.keyTabPage.SuspendLayout();
+            this.companyTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // newButton
@@ -76,6 +86,7 @@
             // 
             this.optionTabControl.Controls.Add(this.databaseTabPage);
             this.optionTabControl.Controls.Add(this.keyTabPage);
+            this.optionTabControl.Controls.Add(this.companyTabPage);
             resources.ApplyResources(this.optionTabControl, "optionTabControl");
             this.optionTabControl.Name = "optionTabControl";
             this.optionTabControl.SelectedIndex = 0;
@@ -149,6 +160,62 @@
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
+            // companyTabPage
+            // 
+            this.companyTabPage.Controls.Add(this.nameLabel);
+            this.companyTabPage.Controls.Add(this.nameTextBox);
+            this.companyTabPage.Controls.Add(this.numberLabel);
+            this.companyTabPage.Controls.Add(this.numberTextBox);
+            this.companyTabPage.Controls.Add(this.contactLabel);
+            this.companyTabPage.Controls.Add(this.contactTextBox);
+            this.companyTabPage.Controls.Add(this.editButton);
+            this.companyTabPage.Controls.Add(this.saveButton);
+            resources.ApplyResources(this.companyTabPage, "companyTabPage");
+            this.companyTabPage.Name = "companyTabPage";
+            this.companyTabPage.UseVisualStyleBackColor = true;
+            // 
+            // editButton
+            // 
+            resources.ApplyResources(this.editButton, "editButton");
+            this.editButton.Name = "editButton";
+            this.editButton.UseVisualStyleBackColor = true;
+            // 
+            // contactTextBox
+            // 
+            resources.ApplyResources(this.contactTextBox, "contactTextBox");
+            this.contactTextBox.Name = "contactTextBox";
+            // 
+            // contactLabel
+            // 
+            resources.ApplyResources(this.contactLabel, "contactLabel");
+            this.contactLabel.Name = "contactLabel";
+            // 
+            // numberTextBox
+            // 
+            resources.ApplyResources(this.numberTextBox, "numberTextBox");
+            this.numberTextBox.Name = "numberTextBox";
+            // 
+            // numberLabel
+            // 
+            resources.ApplyResources(this.numberLabel, "numberLabel");
+            this.numberLabel.Name = "numberLabel";
+            // 
+            // nameTextBox
+            // 
+            resources.ApplyResources(this.nameTextBox, "nameTextBox");
+            this.nameTextBox.Name = "nameTextBox";
+            // 
+            // nameLabel
+            // 
+            resources.ApplyResources(this.nameLabel, "nameLabel");
+            this.nameLabel.Name = "nameLabel";
+            // 
+            // saveButton
+            // 
+            resources.ApplyResources(this.saveButton, "saveButton");
+            this.saveButton.Name = "saveButton";
+            this.saveButton.UseVisualStyleBackColor = true;
+            // 
             // OptionsForm
             // 
             resources.ApplyResources(this, "$this");
@@ -165,6 +232,8 @@
             this.databaseTabPage.PerformLayout();
             this.keyTabPage.ResumeLayout(false);
             this.keyTabPage.PerformLayout();
+            this.companyTabPage.ResumeLayout(false);
+            this.companyTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -186,5 +255,14 @@
         private System.Windows.Forms.TextBox keyTextBox;
         private System.Windows.Forms.Label keyLabel;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.TabPage companyTabPage;
+        private System.Windows.Forms.Label contactLabel;
+        private System.Windows.Forms.TextBox numberTextBox;
+        private System.Windows.Forms.Label numberLabel;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.TextBox contactTextBox;
+        private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.Button saveButton;
     }
 }

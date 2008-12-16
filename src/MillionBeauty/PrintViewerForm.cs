@@ -26,7 +26,12 @@ namespace MillionBeauty
         {
             if (!string.IsNullOrEmpty(orderId))
             {
-                documentViewer.LoadDocument(Core.LoadReceiptDocument(orderId));
+                documentViewer.LoadDocument(
+                    Core.LoadReceiptDocument(
+                    orderId,
+                    Properties.Settings.Default.CompanyName,
+                    Properties.Settings.Default.CompanyNumber,
+                    Properties.Settings.Default.CompanyContact));
             }            
         }
 
@@ -36,30 +41,6 @@ namespace MillionBeauty
         {
             get { return orderId; }
             set { orderId = value; }
-        }
-
-        private void LoadFixedDocument()
-        {
-            //FixedDocumentSequence fds = new FixedDocumentSequence();
-            //FixedDocument doc = new FixedDocument();
-
-            //// Add first page to document
-            //FixedPage page = new FixedPage();
-            //PageContent pageContent = new PageContent();
-            //((IAddChild)pageContent).AddChild(page);
-            //doc.Pages.Add(pageContent);
-
-            //// Add content to second page
-            //Canvas content = new Canvas();
-            //page.Children.Add(content);
-            ////ReceiptReport reciptReport = new ReceiptReport();
-            ////content.Children.Add(receiptReport);            
-
-            //DocumentReference docReference = new DocumentReference();
-            //docReference.SetDocument(doc);
-            //fds.References.Add(docReference);
-
-            documentViewer.LoadDocument(Core.LoadReceiptDocument("1"));
         }        
     }
 }

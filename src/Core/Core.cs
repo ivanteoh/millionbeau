@@ -8,6 +8,7 @@ using System.Xml;
 using System.Windows.Forms;
 using System.Windows.Markup;
 using System.Globalization;
+using System;
 
 namespace MillionBeauty
 {
@@ -25,7 +26,11 @@ namespace MillionBeauty
             DatabaseBuilder.Instance.CreateConnection();
         }
 
-        public static FixedDocumentSequence LoadReceiptDocument(string orderId)
+        public static FixedDocumentSequence LoadReceiptDocument(
+            string orderId,
+            string companyName,
+            string companyNumber,
+            string companyContact)
         {
             // Get order info
             object[] orderInfo = DatabaseBuilder.Instance.Order(orderId);
@@ -75,25 +80,39 @@ namespace MillionBeauty
             TextBlock companyTextBlock = new TextBlock();
             companyTextBlock.TextAlignment = TextAlignment.Center;
             stackPanel.Children.Add(companyTextBlock);
-
+            
             Span spanName = new Span();
             spanName.FontWeight = FontWeights.Bold;
-            spanName.Inlines.Add("Million Beauty Lights Trading Sdn. Bhd. ");
+            spanName.Inlines.Add(
+                string.Format(
+                CultureInfo.InvariantCulture, 
+                "{0} ",
+                companyName.Trim()));
             companyTextBlock.Inlines.Add(spanName);  
 
             Span spanCode = new Span();
             spanCode.BaselineAlignment = BaselineAlignment.Subscript;
-            spanCode.Inlines.Add("(800526-T)");
+            spanCode.Inlines.Add(
+                string.Format(
+                CultureInfo.InvariantCulture,
+                "({0})",
+                companyNumber.Trim()));
             companyTextBlock.Inlines.Add(spanCode);
 
-            companyTextBlock.Inlines.Add(new LineBreak());
-            companyTextBlock.Inlines.Add(new Run("17, 1st Floor, Tingkat Bukit Minyak 7,"));
-            companyTextBlock.Inlines.Add(new LineBreak());
-            companyTextBlock.Inlines.Add(new Run("Taman Bukit Minyak, 14000 Bukit Mertajam,"));
-            companyTextBlock.Inlines.Add(new LineBreak());
-            companyTextBlock.Inlines.Add(new Run("Penang"));
-            companyTextBlock.Inlines.Add(new LineBreak());
-            companyTextBlock.Inlines.Add(new Run("Tel no: 04-5022118 / 5089118 Fax no: 04-5089118"));
+            if (!string.IsNullOrEmpty(companyContact))
+            {
+                string[] contacts = companyContact.Split(Environment.NewLine.ToCharArray());
+                for (int i = 0; i < contacts.Length; i++)
+                {
+                    string currentString = contacts[i];
+                    if (!string.IsNullOrEmpty(currentString))
+                    {
+                        currentString = contacts[i].Trim();
+                        companyTextBlock.Inlines.Add(new LineBreak());
+                        companyTextBlock.Inlines.Add(new Run(currentString));
+                    }
+                }
+            }
 
             Separator hearderSeparator = new Separator();
             hearderSeparator.Margin = defaultThickness;

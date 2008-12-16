@@ -9,7 +9,7 @@ namespace MillionBeauty
         public UpdateCustomerForm()
             : base()
         {
-            Text = "Update Customer Info";
+            Text = Properties.Resources.UpdateCustomerInfo;
         }
 
         protected override void EnterCustomerInfo()

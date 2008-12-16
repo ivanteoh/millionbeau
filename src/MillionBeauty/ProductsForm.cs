@@ -11,7 +11,7 @@ namespace MillionBeauty
         public ProductsForm()
             : base()
         {
-            this.Text = "Proudcts List";            
+            this.Text = Properties.Resources.ProductsList;            
         }
 
         internal protected override void FormLoad()
@@ -61,7 +61,7 @@ namespace MillionBeauty
             if (SelectedRow != null)
             {
                 string index = SelectedRow.Cells[0].Value.ToString();
-                string deleteQuery = string.Format(CultureInfo.InvariantCulture, "Are you sure you want to delete product {0}", index);
+                string deleteQuery = string.Format(CultureInfo.InvariantCulture, Properties.Resources.DeleteProduct, index);
                 DialogResult result = MessageBox.Show(
                     deleteQuery, Properties.Resources.Title,
                     MessageBoxButtons.OKCancel,

@@ -60,10 +60,37 @@ namespace MillionBeauty.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap AddCustomer {
             get {
                 object obj = ResourceManager.GetObject("AddCustomer", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Customer.
+        /// </summary>
+        internal static string AddNewCustomer {
+            get {
+                return ResourceManager.GetString("AddNewCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add New Product.
+        /// </summary>
+        internal static string AddNewProduct {
+            get {
+                return ResourceManager.GetString("AddNewProduct", resourceCulture);
             }
         }
         
@@ -81,10 +108,208 @@ namespace MillionBeauty.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to {0:0.00}.
+        /// </summary>
+        internal static string CurrencyFormat {
+            get {
+                return ResourceManager.GetString("CurrencyFormat", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Customers {
             get {
                 object obj = ResourceManager.GetObject("Customers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customers List.
+        /// </summary>
+        internal static string CustomersList {
+            get {
+                return ResourceManager.GetString("CustomersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to data source=\&quot;{0}\&quot;.
+        /// </summary>
+        internal static string DataSource {
+            get {
+                return ResourceManager.GetString("DataSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete order {0}.
+        /// </summary>
+        internal static string DeleteOrder {
+            get {
+                return ResourceManager.GetString("DeleteOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete product {0}.
+        /// </summary>
+        internal static string DeleteProduct {
+            get {
+                return ResourceManager.GetString("DeleteProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit Order.
+        /// </summary>
+        internal static string EditOrder {
+            get {
+                return ResourceManager.GetString("EditOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} has detected that your user settings file has become corrupted. This may be due to a crash or improper exiting of the program. {0} must reset your user settings in order to continue.\n\nClick Yes to reset your user settings and continue.\n\nClick No if you wish to attempt manual repair or to rescue information before proceeding..
+        /// </summary>
+        internal static string ErrorCorrupSettingMessage {
+            get {
+                return ResourceManager.GetString("ErrorCorrupSettingMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Corrupt user settings.
+        /// </summary>
+        internal static string ErrorCorrupSettingTitle {
+            get {
+                return ResourceManager.GetString("ErrorCorrupSettingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customer name can not be empty..
+        /// </summary>
+        internal static string ErrorCustomerName {
+            get {
+                return ResourceManager.GetString("ErrorCustomerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discount has to be percentage format and can not be empty..
+        /// </summary>
+        internal static string ErrorDiscountFormat {
+            get {
+                return ResourceManager.GetString("ErrorDiscountFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product name, In Stock and Price can not be empty..
+        /// </summary>
+        internal static string ErrorNameEmpty {
+            get {
+                return ResourceManager.GetString("ErrorNameEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick a product before adding to order form..
+        /// </summary>
+        internal static string ErrorPickProduct {
+            get {
+                return ResourceManager.GetString("ErrorPickProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price has to be price format and can not be empty..
+        /// </summary>
+        internal static string ErrorPriceFormat {
+            get {
+                return ResourceManager.GetString("ErrorPriceFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product name can not be empty..
+        /// </summary>
+        internal static string ErrorProductName {
+            get {
+                return ResourceManager.GetString("ErrorProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity can not be more then in stock quantity..
+        /// </summary>
+        internal static string ErrorQuantity {
+            get {
+                return ResourceManager.GetString("ErrorQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quantity can not be zero..
+        /// </summary>
+        internal static string ErrorQuantityZero {
+            get {
+                return ResourceManager.GetString("ErrorQuantityZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discount has to be RM format and can not be empty..
+        /// </summary>
+        internal static string ErrorRebate {
+            get {
+                return ResourceManager.GetString("ErrorRebate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-enter password not the same. Please try it again..
+        /// </summary>
+        internal static string ErrorReenterPassword {
+            get {
+                return ResourceManager.GetString("ErrorReenterPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stock quantity has to be a number and can not be empty..
+        /// </summary>
+        internal static string ErrorStockQuantity {
+            get {
+                return ResourceManager.GetString("ErrorStockQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong password. Please try it again..
+        /// </summary>
+        internal static string ErrorWrongPassword {
+            get {
+                return ResourceManager.GetString("ErrorWrongPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Million Beauty Data files (*.db)|*.db|All files (*.*)|*.*.
+        /// </summary>
+        internal static string FileFilter {
+            get {
+                return ResourceManager.GetString("FileFilter", resourceCulture);
             }
         }
         
@@ -95,6 +320,33 @@ namespace MillionBeauty.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to New Order.
+        /// </summary>
+        internal static string NewOrder {
+            get {
+                return ResourceManager.GetString("NewOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Million Beauty Data File.
+        /// </summary>
+        internal static string OpenFileTitle {
+            get {
+                return ResourceManager.GetString("OpenFileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order.
+        /// </summary>
+        internal static string Order {
+            get {
+                return ResourceManager.GetString("Order", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Orders {
             get {
                 object obj = ResourceManager.GetObject("Orders", resourceCulture);
@@ -102,10 +354,91 @@ namespace MillionBeauty.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Orders List.
+        /// </summary>
+        internal static string OrdersList {
+            get {
+                return ResourceManager.GetString("OrdersList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password changed..
+        /// </summary>
+        internal static string PasswordChanged {
+            get {
+                return ResourceManager.GetString("PasswordChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pick.
+        /// </summary>
+        internal static string Pick {
+            get {
+                return ResourceManager.GetString("Pick", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Products {
             get {
                 object obj = ResourceManager.GetObject("Products", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Products List.
+        /// </summary>
+        internal static string ProductsList {
+            get {
+                return ResourceManager.GetString("ProductsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to restart the application with this new database.
+        /// </summary>
+        internal static string RestartApplication {
+            get {
+                return ResourceManager.GetString("RestartApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The application will restart and load this new database.
+        /// </summary>
+        internal static string RestartLoadDatabase {
+            get {
+                return ResourceManager.GetString("RestartLoadDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Million Beauty Data File.
+        /// </summary>
+        internal static string SaveFileTitle {
+            get {
+                return ResourceManager.GetString("SaveFileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Customer.
+        /// </summary>
+        internal static string SelectCustomer {
+            get {
+                return ResourceManager.GetString("SelectCustomer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Product.
+        /// </summary>
+        internal static string SelectProduct {
+            get {
+                return ResourceManager.GetString("SelectProduct", resourceCulture);
             }
         }
         
@@ -131,6 +464,33 @@ namespace MillionBeauty.Properties {
             get {
                 object obj = ResourceManager.GetObject("Tools", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Customer Info.
+        /// </summary>
+        internal static string UpdateCustomerInfo {
+            get {
+                return ResourceManager.GetString("UpdateCustomerInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Product Info.
+        /// </summary>
+        internal static string UpdateProductInfo {
+            get {
+                return ResourceManager.GetString("UpdateProductInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        internal static string Zero {
+            get {
+                return ResourceManager.GetString("Zero", resourceCulture);
             }
         }
     }

@@ -30,7 +30,7 @@ namespace MillionBeauty
             {
                 e.Cancel = true;
                 MessageBox.Show(
-                    "Customer name can not be empty.", 
+                    Properties.Resources.ErrorCustomerName, 
                     Properties.Resources.Title,
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Error, 
@@ -103,7 +103,7 @@ namespace MillionBeauty
             {
                 // Error
                 MessageBox.Show(
-                    "Customer name can not be empty.",
+                    Properties.Resources.ErrorCustomerName,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,

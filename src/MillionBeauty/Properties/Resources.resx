@@ -2329,4 +2329,124 @@
         NPhrSACfJHDtAv2AKEZbv6Bprz1n4OImDMXxq7nexVqP/wv1aAxxu2rSKAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddNewCustomer" xml:space="preserve">
+    <value>Add New Customer</value>
+  </data>
+  <data name="AddNewProduct" xml:space="preserve">
+    <value>Add New Product</value>
+  </data>
+  <data name="CurrencyFormat" xml:space="preserve">
+    <value>{0:0.00}</value>
+  </data>
+  <data name="CustomersList" xml:space="preserve">
+    <value>Customers List</value>
+  </data>
+  <data name="DataSource" xml:space="preserve">
+    <value>data source=\"{0}\"</value>
+  </data>
+  <data name="DeleteOrder" xml:space="preserve">
+    <value>Are you sure you want to delete order {0}</value>
+  </data>
+  <data name="DeleteProduct" xml:space="preserve">
+    <value>Are you sure you want to delete product {0}</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="EditOrder" xml:space="preserve">
+    <value>Edit Order</value>
+  </data>
+  <data name="ErrorCorrupSettingMessage" xml:space="preserve">
+    <value>{0} has detected that your user settings file has become corrupted. This may be due to a crash or improper exiting of the program. {0} must reset your user settings in order to continue.\n\nClick Yes to reset your user settings and continue.\n\nClick No if you wish to attempt manual repair or to rescue information before proceeding.</value>
+  </data>
+  <data name="ErrorCorrupSettingTitle" xml:space="preserve">
+    <value>Corrupt user settings</value>
+  </data>
+  <data name="ErrorCustomerName" xml:space="preserve">
+    <value>Customer name can not be empty.</value>
+  </data>
+  <data name="ErrorDiscountFormat" xml:space="preserve">
+    <value>Discount has to be percentage format and can not be empty.</value>
+  </data>
+  <data name="ErrorNameEmpty" xml:space="preserve">
+    <value>Product name, In Stock and Price can not be empty.</value>
+  </data>
+  <data name="ErrorPickProduct" xml:space="preserve">
+    <value>Pick a product before adding to order form.</value>
+  </data>
+  <data name="ErrorPriceFormat" xml:space="preserve">
+    <value>Price has to be price format and can not be empty.</value>
+  </data>
+  <data name="ErrorProductName" xml:space="preserve">
+    <value>Product name can not be empty.</value>
+  </data>
+  <data name="ErrorQuantity" xml:space="preserve">
+    <value>Quantity can not be more then in stock quantity.</value>
+  </data>
+  <data name="ErrorQuantityZero" xml:space="preserve">
+    <value>Quantity can not be zero.</value>
+  </data>
+  <data name="ErrorRebate" xml:space="preserve">
+    <value>Discount has to be RM format and can not be empty.</value>
+  </data>
+  <data name="ErrorReenterPassword" xml:space="preserve">
+    <value>Re-enter password not the same. Please try it again.</value>
+  </data>
+  <data name="ErrorStockQuantity" xml:space="preserve">
+    <value>Stock quantity has to be a number and can not be empty.</value>
+  </data>
+  <data name="ErrorWrongPassword" xml:space="preserve">
+    <value>Wrong password. Please try it again.</value>
+  </data>
+  <data name="FileFilter" xml:space="preserve">
+    <value>Million Beauty Data files (*.db)|*.db|All files (*.*)|*.*</value>
+  </data>
+  <data name="NewOrder" xml:space="preserve">
+    <value>New Order</value>
+  </data>
+  <data name="OpenFileTitle" xml:space="preserve">
+    <value>Open Million Beauty Data File</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="OrdersList" xml:space="preserve">
+    <value>Orders List</value>
+  </data>
+  <data name="PasswordChanged" xml:space="preserve">
+    <value>Password changed.</value>
+  </data>
+  <data name="Pick" xml:space="preserve">
+    <value>Pick</value>
+  </data>
+  <data name="ProductsList" xml:space="preserve">
+    <value>Products List</value>
+  </data>
+  <data name="RestartApplication" xml:space="preserve">
+    <value>Do you want to restart the application with this new database</value>
+  </data>
+  <data name="RestartLoadDatabase" xml:space="preserve">
+    <value>The application will restart and load this new database</value>
+  </data>
+  <data name="SaveFileTitle" xml:space="preserve">
+    <value>New Million Beauty Data File</value>
+  </data>
+  <data name="SelectCustomer" xml:space="preserve">
+    <value>Select Customer</value>
+  </data>
+  <data name="SelectProduct" xml:space="preserve">
+    <value>Select Product</value>
+  </data>
+  <data name="UpdateCustomerInfo" xml:space="preserve">
+    <value>Update Customer Info</value>
+  </data>
+  <data name="UpdateProductInfo" xml:space="preserve">
+    <value>Update Product Info</value>
+  </data>
+  <data name="Zero" xml:space="preserve">
+    <value>0</value>
+  </data>
 </root>

@@ -41,18 +41,10 @@ namespace MillionBeauty
             { //(requires System.Configuration)
                 string filename = ((ConfigurationErrorsException)ex.InnerException).Filename;
 
-                if (MessageBox.Show(Properties.Resources.Title +
-                    " has detected that your" +
-                    " user settings file has become corrupted. " +
-                    "This may be due to a crash or improper exiting" +
-                    " of the program. " +
-                    Properties.Resources.Title +
-                    " must reset your " +
-                    "user settings in order to continue.\n\nClick" +
-                    " Yes to reset your user settings and continue.\n\n" +
-                    "Click No if you wish to attempt manual repair" +
-                    " or to rescue information before proceeding.",
-                    "Corrupt user settings",
+                if (MessageBox.Show(string.Format(
+                    Properties.Resources.ErrorCorrupSettingMessage, 
+                    Properties.Resources.Title),
+                    Properties.Resources.ErrorCorrupSettingTitle,
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1, 
@@ -82,7 +74,7 @@ namespace MillionBeauty
             }
 #else
             // Debug code: Straight away run main form
-            Properties.Settings.Default.Database = @"D:\work\Data\MillionBeautyDB.s3db";
+            Properties.Settings.Default.Database = @"D:\work\Data\MillionBeautyDB.db";
             Application.Run(new MainForm());
 #endif
         }

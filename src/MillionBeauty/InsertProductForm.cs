@@ -9,7 +9,7 @@ namespace MillionBeauty
         public InsertProductForm()
             : base()
         {
-            Text = "Add New Product";
+            Text = Properties.Resources.AddNewProduct;
         }
 
         internal protected override void FormLoad()
