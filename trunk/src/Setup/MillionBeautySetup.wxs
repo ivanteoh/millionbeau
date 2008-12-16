@@ -1,18 +1,18 @@
 <?xml version='1.0' encoding='windows-1252'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2003/01/wi'>
 
-  <Product Name='MillionBeauty 0.1.3242' Id='FBF9C357-23E1-498b-A0FE-8C92F709E35D' UpgradeCode='8F4D56E1-4848-4134-A5A1-493295CBFF5C' Language='1033' Codepage='1252' Version='0.1.3242' Manufacturer='MB'>
+  <Product Name='MillionBeauty 0.1.3272' Id='FBF9C357-23E1-498b-A0FE-8C92F709E35D' UpgradeCode='8F4D56E1-4848-4134-A5A1-493295CBFF5C' Language='1033' Codepage='1252' Version='0.1.3272' Manufacturer='MB'>
 
     <Package Id='????????-????-????-????-????????????' Keywords='Installer'
-      Description="Million Beauty 0.1.3242 Installer"
+      Description="Million Beauty 0.1.3272 Installer"
       Comments='Million Beauty' Manufacturer='MB'
       InstallerVersion='100' Languages='1033' Compressed='yes' SummaryCodepage='1252' />
 			
 		<Upgrade Id='8F4D56E1-4848-4134-A5A1-493295CBFF5C'>
 			<UpgradeVersion OnlyDetect='yes' Property='PATCHFOUND'
-        Minimum='0.1.3242' IncludeMinimum='yes' Maximum='0.1.3242' IncludeMaximum='yes' />
+        Minimum='0.1.3272' IncludeMinimum='yes' Maximum='0.1.3272' IncludeMaximum='yes' />
       <UpgradeVersion OnlyDetect='yes' Property='NEWERFOUND'
-        Minimum='0.1.3242' IncludeMinimum='no' />
+        Minimum='0.1.3272' IncludeMinimum='no' />
     </Upgrade>
 		
 		<Property Id="FRAMEWORK35">

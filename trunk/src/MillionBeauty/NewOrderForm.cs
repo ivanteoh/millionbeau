@@ -12,7 +12,7 @@ namespace MillionBeauty
         public NewOrderForm()
             : base()
         {
-            Text = "New Order";            
+            Text = Properties.Resources.NewOrder;            
             Save += NewOrderFormSave;            
         }    
 

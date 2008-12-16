@@ -21,9 +21,9 @@ namespace MillionBeauty
 
             printButton.Enabled = false;
 
-            totalTextBox.Text = "0";
-            discountRegexTextBox.Text = "0";
-            grandTotalTextBox.Text = "0";
+            totalTextBox.Text = Properties.Resources.Zero;
+            discountRegexTextBox.Text = Properties.Resources.Zero;
+            grandTotalTextBox.Text = Properties.Resources.Zero;
 
             orderDetails = new BindingList<OrderDetail>();
             OrderDetailsSource = orderDetails;
@@ -160,7 +160,7 @@ namespace MillionBeauty
 
         protected void ReadOnly()
         {
-            Text = "Order";
+            Text = Properties.Resources.Order;
 
             viewOnly = true;
             
@@ -183,7 +183,7 @@ namespace MillionBeauty
 
         protected void EditView()
         {
-            Text = "Edit Order";
+            Text = Properties.Resources.EditOrder;
 
             viewOnly = false;
             editButton.Visible = false;
@@ -320,7 +320,7 @@ namespace MillionBeauty
                     return;                
 
                 UpdateOrderDetailForm updateOrderDetailForm = sender as UpdateOrderDetailForm;
-                updateOrderDetailForm.AddButtonText = "Edit";
+                updateOrderDetailForm.AddButtonText = Properties.Resources.Edit;
 
                 updateOrderDetailForm.ProductId = productId;
                 updateOrderDetailForm.Product = productInfo[1].ToString();
@@ -417,7 +417,7 @@ namespace MillionBeauty
             {
                 e.Cancel = true;
                 MessageBox.Show(
-                    "Discount has to be RM format and can not be empty.",
+                    Properties.Resources.ErrorRebate,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -431,8 +431,8 @@ namespace MillionBeauty
                 Decimal discount = Convert.ToDecimal(discountRegexTextBox.Text, CultureInfo.InvariantCulture);
                 Decimal result = totalPrice - discount;
 
-                discountRegexTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", discountRegexTextBox.Text);
-                grandTotalTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", Decimal.Round(result, 2));
+                discountRegexTextBox.Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.CurrencyFormat, discountRegexTextBox.Text);
+                grandTotalTextBox.Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.CurrencyFormat, Decimal.Round(result, 2));
             }
         } 
 
@@ -446,15 +446,15 @@ namespace MillionBeauty
                 totalPrice = totalPrice + orderItem.TotalCost;
             }
             Decimal roundTotalPrice = decimal.Round(totalPrice, 2);
-            totalTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", roundTotalPrice);
+            totalTextBox.Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.CurrencyFormat, roundTotalPrice);
 
             string discountText = discountRegexTextBox.Text;
 
             Decimal grandTotal = roundTotalPrice - Convert.ToDecimal(discountText, CultureInfo.InvariantCulture);
 
-            discountRegexTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", discountText);
+            discountRegexTextBox.Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.CurrencyFormat, discountText);
 
-            grandTotalTextBox.Text = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", Decimal.Round(grandTotal, 2));
+            grandTotalTextBox.Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.CurrencyFormat, Decimal.Round(grandTotal, 2));
         }
 
         private void OrderFormKeyDown(object sender, KeyEventArgs e)

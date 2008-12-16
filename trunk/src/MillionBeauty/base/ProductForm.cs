@@ -16,11 +16,11 @@ namespace MillionBeauty
 
             nameRegexTextBox.Validating += NameRegexTextBoxValidating;
 
-            inStockRegexTextBox.Text = "0";
+            inStockRegexTextBox.Text = Properties.Resources.Zero;
             inStockRegexTextBox.CustomPattern = @"^\d+$";
             inStockRegexTextBox.Validating += InStockRegexTextBoxValidating;
 
-            priceRegexTextBox.Text = "0";
+            priceRegexTextBox.Text = Properties.Resources.Zero;
             priceRegexTextBox.CustomPattern = @"^\d+([-+.]\d+)?$";
             priceRegexTextBox.Validating += PriceRegexTextBoxValidating;
 
@@ -38,7 +38,7 @@ namespace MillionBeauty
             {
                 e.Cancel = true;
                 MessageBox.Show(
-                    "Product name can not be empty.",
+                    Properties.Resources.ErrorProductName,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -54,7 +54,7 @@ namespace MillionBeauty
             {
                 e.Cancel = true;
                 MessageBox.Show(
-                    "Price has to be a number and can not be empty.",
+                    Properties.Resources.ErrorStockQuantity,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -70,7 +70,7 @@ namespace MillionBeauty
             {
                 e.Cancel = true;
                 MessageBox.Show(
-                    "Price has to be price format and can not be empty.",
+                    Properties.Resources.ErrorPriceFormat,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -139,7 +139,7 @@ namespace MillionBeauty
             {
                 // Error
                 MessageBox.Show(
-                    "Product name, In Stock and Price can not be empty.",
+                    Properties.Resources.ErrorNameEmpty,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,

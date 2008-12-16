@@ -33,7 +33,7 @@ namespace MillionBeauty
             if (string.IsNullOrEmpty(ProductId))
             {
                 MessageBox.Show(
-                    "Pick a product before adding to order form.",
+                    Properties.Resources.ErrorPickProduct,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -43,7 +43,7 @@ namespace MillionBeauty
             else if (Convert.ToInt64(Quantity, CultureInfo.InvariantCulture) == 0)
             {
                 MessageBox.Show(
-                    "Quantity can not be zero.",
+                    Properties.Resources.ErrorQuantityZero,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,

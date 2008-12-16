@@ -11,8 +11,8 @@ namespace MillionBeauty
         public FindCustomerForm()
             : base()
         {
-            this.Text = "Select Customer";
-            AddButtonName = "Pick";
+            this.Text = Properties.Resources.SelectCustomer;
+            AddButtonName = Properties.Resources.Pick;
             ReadOnly = true;
         }
 
@@ -27,50 +27,42 @@ namespace MillionBeauty
 
         internal string Id
         {
-            get { return id; }
-            //set { id = value; }
+            get { return id; }            
         }
 
         internal string TitleOfCourtesy
         {
-            get { return titleOfCourtesy; }
-            //set { titleOfCourtesy = value; }
+            get { return titleOfCourtesy; }            
         }
 
         internal string CustomerName
         {
-            get { return customerName; }
-            //set { customerName = value; }
+            get { return customerName; }            
         }
 
         internal string Address
         {
-            get { return address; }
-            //set { address = value; }
+            get { return address; }            
         }
 
         internal string Postcode
         {
-            get { return postcode; }
-            //set { postcode = value; }
+            get { return postcode; }            
         }
 
         internal string State
         {
-            get { return state; }
-            //set { state = value; }
+            get { return state; }            
         }
 
         internal string Phone
         {
-            get { return phone; }
-            //set { phone = value; }
+            get { return phone; }            
         }
 
         internal string Company
         {
-            get { return company; }
-            //set { company = value; }
+            get { return company; }            
         }
 
         internal protected override void FormLoad()

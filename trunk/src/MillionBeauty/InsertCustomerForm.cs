@@ -10,7 +10,7 @@ namespace MillionBeauty
         public InsertCustomerForm()
             : base()
         {
-            Text = "Add New Customer";
+            Text = Properties.Resources.AddNewCustomer;
         }
 
         internal protected override void FormLoad()

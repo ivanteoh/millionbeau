@@ -18,11 +18,11 @@ namespace MillionBeauty
 
         private void InsertOrderDetailFormLoad(object sender, EventArgs e)
         {
-            AddButtonText = "Add";
-            Quantity = "0";
-            Cost = "0";
-            DiscountPercent = "0";
-            TotalCost = "0";
+            AddButtonText = Properties.Resources.Add;
+            Quantity = Properties.Resources.Zero;
+            Cost = Properties.Resources.Zero;
+            DiscountPercent = Properties.Resources.Zero;
+            TotalCost = Properties.Resources.Zero;
         }
 
         protected override void AddButtonClicked()
@@ -32,7 +32,7 @@ namespace MillionBeauty
             if (string.IsNullOrEmpty(ProductId))
             {
                 MessageBox.Show(
-                    "Pick a product before adding to order form.",
+                    Properties.Resources.ErrorPickProduct,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -42,7 +42,7 @@ namespace MillionBeauty
             else if (Convert.ToInt64(Quantity, CultureInfo.InvariantCulture) == 0)
             {
                 MessageBox.Show(
-                    "Quantity can not be zero.",
+                    Properties.Resources.ErrorQuantityZero,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,

@@ -18,9 +18,11 @@ namespace MillionBeauty
             loadButton.Click += LoadButtonClick;
             okButton.Click += OkButtonClick;
             cancelButton.Click += CancelButtonClick;
+            editButton.Click += EditButtonClick;
+            saveButton.Click += SaveButtonClick;
             Load += OptionsFormLoad;
-        }        
-
+        }
+        
         private bool forceRestart;
 
         private void OptionsFormLoad(object sender, EventArgs e)
@@ -30,14 +32,19 @@ namespace MillionBeauty
                 forceRestart = true;
             }
             databaseLabel.Text = Properties.Settings.Default.Database;
+
+            nameTextBox.Text = Properties.Settings.Default.CompanyName;
+            numberTextBox.Text = Properties.Settings.Default.CompanyNumber;
+            contactTextBox.Text = Properties.Settings.Default.CompanyContact;
+            EnableTextBox(false);
         }
 
         private void NewButtonClick(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-            saveFileDialog.Title = "New Million Beauty Data File";
-            saveFileDialog.Filter = "Million Beauty Data files (*.s3db)|*.s3db|All files (*.*)|*.*";
+            saveFileDialog.Title = Properties.Resources.SaveFileTitle;
+            saveFileDialog.Filter = Properties.Resources.FileFilter;
             saveFileDialog.FilterIndex = 1;
             saveFileDialog.RestoreDirectory = true;
 
@@ -48,11 +55,11 @@ namespace MillionBeauty
                     File.Delete(saveFileDialog.FileName);
                 }
 
-                string connectionString = string.Format(CultureInfo.InvariantCulture, "data source=\"{0}\"", saveFileDialog.FileName);
+                string connectionString = string.Format(CultureInfo.InvariantCulture, Properties.Resources.DataSource, saveFileDialog.FileName);
                 Core.NewDatabase(connectionString);
 
                 if (forceRestart || MessageBox.Show(
-                    "Do you want to restart the application with this new database", 
+                    Properties.Resources.RestartApplication, 
                     Properties.Resources.Title, 
                     MessageBoxButtons.YesNo, 
                     MessageBoxIcon.Question, 
@@ -73,15 +80,15 @@ namespace MillionBeauty
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Path.GetDirectoryName(Application.ExecutablePath);
-            openFileDialog.Title = "Open Million Beauty Data File";
-            openFileDialog.Filter = "Million Beauty Data files (*.s3db)|*.s3db|All files (*.*)|*.*";
+            openFileDialog.Title = Properties.Resources.OpenFileTitle;
+            openFileDialog.Filter = Properties.Resources.FileFilter;
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show(
-                    "The application will restart and load this new database", 
+                    Properties.Resources.RestartLoadDatabase, 
                     Properties.Resources.Title, 
                     MessageBoxButtons.OK, 
                     MessageBoxIcon.Information, 
@@ -110,7 +117,7 @@ namespace MillionBeauty
                     Properties.Settings.Default.Save();
 
                     MessageBox.Show(
-                    "Password changed.",
+                    Properties.Resources.PasswordChanged,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information,
@@ -123,7 +130,7 @@ namespace MillionBeauty
                 else 
                 {
                     MessageBox.Show(
-                    "Re-enter password not the same. Please try it again.",
+                    Properties.Resources.ErrorReenterPassword,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -136,7 +143,7 @@ namespace MillionBeauty
             else
             {
                 MessageBox.Show(this,
-                    "Wrong password. Please try it again.",
+                    Properties.Resources.ErrorWrongPassword,
                     Properties.Resources.Title,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -144,6 +151,47 @@ namespace MillionBeauty
                     MessageBoxOptions.RightAlign & MessageBoxOptions.RtlReading);
                 keyTextBox.Text = string.Empty;
             }
+        }
+
+        private void EditButtonClick(object sender, EventArgs e)
+        {
+            EnterKeyForm enterKeyForm = new EnterKeyForm();
+            if (enterKeyForm.ShowDialog(this) == DialogResult.OK)
+            {
+                if (enterKeyForm.Key == Properties.Settings.Default.Key)
+                {
+                    EnableTextBox(true);
+                }
+                else
+                {
+                    MessageBox.Show(
+                        Properties.Resources.ErrorWrongPassword,
+                        Properties.Resources.Title,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.RightAlign &
+                        MessageBoxOptions.RtlReading);
+                }
+            }    
+        }
+
+        private void SaveButtonClick(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.CompanyName = nameTextBox.Text;
+            Properties.Settings.Default.CompanyNumber = numberTextBox.Text;
+            Properties.Settings.Default.CompanyContact = contactTextBox.Text;
+            Properties.Settings.Default.Save();
+            EnableTextBox(false);         
+        }
+
+        private void EnableTextBox(bool isEnable)
+        {
+            nameTextBox.Enabled = isEnable;
+            numberTextBox.Enabled = isEnable;
+            contactTextBox.Enabled = isEnable;
+            saveButton.Enabled = isEnable;
+            editButton.Enabled = !isEnable;
         }
     }
 }

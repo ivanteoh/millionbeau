@@ -11,8 +11,8 @@ namespace MillionBeauty
         public OrdersForm()
             : base()
         {
-            this.Text = "Orders List";
-            AddButtonName = "Pick";
+            this.Text = Properties.Resources.OrdersList;
+            AddButtonName = Properties.Resources.Pick;
             ReadOnly = true;
         }
 
@@ -54,9 +54,9 @@ namespace MillionBeauty
                 viewOrderForm.Company = SelectedRow.Cells[11].Value.ToString();
                 viewOrderForm.SalePerson = SelectedRow.Cells[12].Value.ToString();
 
-                viewOrderForm.Total = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[13].Value);
-                viewOrderForm.Discount = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[14].Value);
-                viewOrderForm.GrandTotal = String.Format(CultureInfo.InvariantCulture, "{0:0.00}", SelectedRow.Cells[15].Value);
+                viewOrderForm.Total = String.Format(CultureInfo.InvariantCulture, Properties.Resources.CurrencyFormat, SelectedRow.Cells[13].Value);
+                viewOrderForm.Discount = String.Format(CultureInfo.InvariantCulture, Properties.Resources.CurrencyFormat, SelectedRow.Cells[14].Value);
+                viewOrderForm.GrandTotal = String.Format(CultureInfo.InvariantCulture, Properties.Resources.CurrencyFormat, SelectedRow.Cells[15].Value);
                 BindingList<OrderDetail> orderDetails = DatabaseBuilder.Instance.OrderDetail(orderId);
                 if (orderDetails != null)
                 {
