@@ -45,18 +45,29 @@
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.companyTabPage = new System.Windows.Forms.TabPage();
-            this.editButton = new System.Windows.Forms.Button();
-            this.contactTextBox = new System.Windows.Forms.TextBox();
-            this.contactLabel = new System.Windows.Forms.Label();
-            this.numberTextBox = new System.Windows.Forms.TextBox();
-            this.numberLabel = new System.Windows.Forms.Label();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.numberLabel = new System.Windows.Forms.Label();
+            this.numberTextBox = new System.Windows.Forms.TextBox();
+            this.contactLabel = new System.Windows.Forms.Label();
+            this.contactTextBox = new System.Windows.Forms.TextBox();
+            this.editButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
+            this.aboutTabPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.labelProductName = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.labelCopyright = new System.Windows.Forms.Label();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.optionTabControl.SuspendLayout();
             this.databaseTabPage.SuspendLayout();
             this.keyTabPage.SuspendLayout();
             this.companyTabPage.SuspendLayout();
+            this.aboutTabPage.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // newButton
@@ -87,6 +98,7 @@
             this.optionTabControl.Controls.Add(this.databaseTabPage);
             this.optionTabControl.Controls.Add(this.keyTabPage);
             this.optionTabControl.Controls.Add(this.companyTabPage);
+            this.optionTabControl.Controls.Add(this.aboutTabPage);
             resources.ApplyResources(this.optionTabControl, "optionTabControl");
             this.optionTabControl.Name = "optionTabControl";
             this.optionTabControl.SelectedIndex = 0;
@@ -174,47 +186,104 @@
             this.companyTabPage.Name = "companyTabPage";
             this.companyTabPage.UseVisualStyleBackColor = true;
             // 
-            // editButton
+            // nameLabel
             // 
-            resources.ApplyResources(this.editButton, "editButton");
-            this.editButton.Name = "editButton";
-            this.editButton.UseVisualStyleBackColor = true;
-            // 
-            // contactTextBox
-            // 
-            resources.ApplyResources(this.contactTextBox, "contactTextBox");
-            this.contactTextBox.Name = "contactTextBox";
-            // 
-            // contactLabel
-            // 
-            resources.ApplyResources(this.contactLabel, "contactLabel");
-            this.contactLabel.Name = "contactLabel";
-            // 
-            // numberTextBox
-            // 
-            resources.ApplyResources(this.numberTextBox, "numberTextBox");
-            this.numberTextBox.Name = "numberTextBox";
-            // 
-            // numberLabel
-            // 
-            resources.ApplyResources(this.numberLabel, "numberLabel");
-            this.numberLabel.Name = "numberLabel";
+            resources.ApplyResources(this.nameLabel, "nameLabel");
+            this.nameLabel.Name = "nameLabel";
             // 
             // nameTextBox
             // 
             resources.ApplyResources(this.nameTextBox, "nameTextBox");
             this.nameTextBox.Name = "nameTextBox";
             // 
-            // nameLabel
+            // numberLabel
             // 
-            resources.ApplyResources(this.nameLabel, "nameLabel");
-            this.nameLabel.Name = "nameLabel";
+            resources.ApplyResources(this.numberLabel, "numberLabel");
+            this.numberLabel.Name = "numberLabel";
+            // 
+            // numberTextBox
+            // 
+            resources.ApplyResources(this.numberTextBox, "numberTextBox");
+            this.numberTextBox.Name = "numberTextBox";
+            // 
+            // contactLabel
+            // 
+            resources.ApplyResources(this.contactLabel, "contactLabel");
+            this.contactLabel.Name = "contactLabel";
+            // 
+            // contactTextBox
+            // 
+            resources.ApplyResources(this.contactTextBox, "contactTextBox");
+            this.contactTextBox.Name = "contactTextBox";
+            // 
+            // editButton
+            // 
+            resources.ApplyResources(this.editButton, "editButton");
+            this.editButton.Name = "editButton";
+            this.editButton.UseVisualStyleBackColor = true;
             // 
             // saveButton
             // 
             resources.ApplyResources(this.saveButton, "saveButton");
             this.saveButton.Name = "saveButton";
             this.saveButton.UseVisualStyleBackColor = true;
+            // 
+            // aboutTabPage
+            // 
+            this.aboutTabPage.Controls.Add(this.tableLayoutPanel);
+            resources.ApplyResources(this.aboutTabPage, "aboutTabPage");
+            this.aboutTabPage.Name = "aboutTabPage";
+            this.aboutTabPage.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel
+            // 
+            resources.ApplyResources(this.tableLayoutPanel, "tableLayoutPanel");
+            this.tableLayoutPanel.Controls.Add(this.labelProductName, 1, 0);
+            this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
+            this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 3);
+            this.tableLayoutPanel.Controls.Add(this.closeButton, 1, 4);
+            this.tableLayoutPanel.Controls.Add(this.logoPictureBox, 0, 0);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            // 
+            // labelProductName
+            // 
+            resources.ApplyResources(this.labelProductName, "labelProductName");
+            this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelProductName.Name = "labelProductName";
+            // 
+            // labelVersion
+            // 
+            resources.ApplyResources(this.labelVersion, "labelVersion");
+            this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelVersion.Name = "labelVersion";
+            // 
+            // labelCopyright
+            // 
+            resources.ApplyResources(this.labelCopyright, "labelCopyright");
+            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelCopyright.Name = "labelCopyright";
+            // 
+            // textBoxDescription
+            // 
+            resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.ReadOnly = true;
+            this.textBoxDescription.TabStop = false;
+            // 
+            // closeButton
+            // 
+            resources.ApplyResources(this.closeButton, "closeButton");
+            this.closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.closeButton.Name = "closeButton";
+            // 
+            // logoPictureBox
+            // 
+            resources.ApplyResources(this.logoPictureBox, "logoPictureBox");
+            this.logoPictureBox.Image = global::MillionBeauty.Properties.Resources.AboutMB;
+            this.logoPictureBox.Name = "logoPictureBox";
+            this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 5);
+            this.logoPictureBox.TabStop = false;
             // 
             // OptionsForm
             // 
@@ -234,6 +303,10 @@
             this.keyTabPage.PerformLayout();
             this.companyTabPage.ResumeLayout(false);
             this.companyTabPage.PerformLayout();
+            this.aboutTabPage.ResumeLayout(false);
+            this.tableLayoutPanel.ResumeLayout(false);
+            this.tableLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,5 +337,13 @@
         private System.Windows.Forms.TextBox contactTextBox;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.TabPage aboutTabPage;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        private System.Windows.Forms.Label labelProductName;
+        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.Label labelCopyright;
+        private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.PictureBox logoPictureBox;
     }
 }

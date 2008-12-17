@@ -80,24 +80,30 @@ namespace MillionBeauty
             TextBlock companyTextBlock = new TextBlock();
             companyTextBlock.TextAlignment = TextAlignment.Center;
             stackPanel.Children.Add(companyTextBlock);
-            
-            Span spanName = new Span();
-            spanName.FontWeight = FontWeights.Bold;
-            spanName.Inlines.Add(
-                string.Format(
-                CultureInfo.InvariantCulture, 
-                "{0} ",
-                companyName.Trim()));
-            companyTextBlock.Inlines.Add(spanName);  
 
-            Span spanCode = new Span();
-            spanCode.BaselineAlignment = BaselineAlignment.Subscript;
-            spanCode.Inlines.Add(
-                string.Format(
-                CultureInfo.InvariantCulture,
-                "({0})",
-                companyNumber.Trim()));
-            companyTextBlock.Inlines.Add(spanCode);
+            if (!String.IsNullOrEmpty(companyName))
+            {
+                Span spanName = new Span();
+                spanName.FontWeight = FontWeights.Bold;
+                spanName.Inlines.Add(
+                    string.Format(
+                    CultureInfo.InvariantCulture,
+                    "{0} ",
+                    companyName.Trim()));
+                companyTextBlock.Inlines.Add(spanName);
+            }
+
+            if (!String.IsNullOrEmpty(companyNumber))
+            {
+                Span spanCode = new Span();
+                spanCode.BaselineAlignment = BaselineAlignment.Subscript;
+                spanCode.Inlines.Add(
+                    string.Format(
+                    CultureInfo.InvariantCulture,
+                    "({0})",
+                    companyNumber.Trim()));
+                companyTextBlock.Inlines.Add(spanCode);
+            }
 
             if (!string.IsNullOrEmpty(companyContact))
             {

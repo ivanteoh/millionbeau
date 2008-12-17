@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{B1F6233C-1521-4EF7-85F7-A539A7C60D1B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -318,10 +318,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Content Include="ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ReceiptTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Resources\AboutMB.png" />
     <None Include="Resources\Orders.png" />
     <None Include="Resources\AddOrder.png" />
   </ItemGroup>

@@ -61,6 +61,22 @@ namespace MillionBeauty.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About {0}.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        internal static System.Drawing.Bitmap AboutMB {
+            get {
+                object obj = ResourceManager.GetObject("AboutMB", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add.
         /// </summary>
         internal static string Add {
@@ -117,6 +133,15 @@ namespace MillionBeauty.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to ^\d+([-+.]\d+)?$.
+        /// </summary>
+        internal static string CurrencyPattern {
+            get {
+                return ResourceManager.GetString("CurrencyPattern", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Customers {
             get {
                 object obj = ResourceManager.GetObject("Customers", resourceCulture);
@@ -134,7 +159,7 @@ namespace MillionBeauty.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to data source=\&quot;{0}\&quot;.
+        ///   Looks up a localized string similar to data source=&quot;{0}&quot;.
         /// </summary>
         internal static string DataSource {
             get {
@@ -330,6 +355,15 @@ namespace MillionBeauty.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ^\d+$.
+        /// </summary>
+        internal static string NumberPattern {
+            get {
+                return ResourceManager.GetString("NumberPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Million Beauty Data File.
         /// </summary>
         internal static string OpenFileTitle {
@@ -482,6 +516,15 @@ namespace MillionBeauty.Properties {
         internal static string UpdateProductInfo {
             get {
                 return ResourceManager.GetString("UpdateProductInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version {0}.
+        /// </summary>
+        internal static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
             }
         }
         
