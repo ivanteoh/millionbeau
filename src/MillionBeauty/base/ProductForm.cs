@@ -17,11 +17,11 @@ namespace MillionBeauty
             nameRegexTextBox.Validating += NameRegexTextBoxValidating;
 
             inStockRegexTextBox.Text = Properties.Resources.Zero;
-            inStockRegexTextBox.CustomPattern = @"^\d+$";
+            inStockRegexTextBox.CustomPattern = Properties.Resources.NumberPattern;
             inStockRegexTextBox.Validating += InStockRegexTextBoxValidating;
 
             priceRegexTextBox.Text = Properties.Resources.Zero;
-            priceRegexTextBox.CustomPattern = @"^\d+([-+.]\d+)?$";
+            priceRegexTextBox.CustomPattern = Properties.Resources.CurrencyPattern;
             priceRegexTextBox.Validating += PriceRegexTextBoxValidating;
 
             okButton.Click += new EventHandler(OkButtonClick);

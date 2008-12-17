@@ -7,6 +7,8 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Reflection;
+
 namespace MillionBeauty
 {
     public partial class OptionsForm : Form
@@ -14,14 +16,26 @@ namespace MillionBeauty
         public OptionsForm()
         {
             InitializeComponent();
+
+            //  Initialize the AboutBox to display the product information from the assembly information.
+            //  Change assembly information settings for your application through either:
+            //  - Project->Properties->Application->Assembly Information
+            //  - AssemblyInfo.cs
+            Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.About, AssemblyTitle);
+            labelProductName.Text = AssemblyProduct;
+            labelVersion.Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.Version, AssemblyVersion);
+            labelCopyright.Text = AssemblyCopyright;
+            textBoxDescription.Text = AssemblyDescription;
+
             newButton.Click += NewButtonClick;
             loadButton.Click += LoadButtonClick;
             okButton.Click += OkButtonClick;
             cancelButton.Click += CancelButtonClick;
             editButton.Click += EditButtonClick;
             saveButton.Click += SaveButtonClick;
+            closeButton.Click += CloseButtonClick;
             Load += OptionsFormLoad;
-        }
+        }        
         
         private bool forceRestart;
 
@@ -193,5 +207,103 @@ namespace MillionBeauty
             saveButton.Enabled = isEnable;
             editButton.Enabled = !isEnable;
         }
+
+        private void CloseButtonClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        #region Assembly Attribute Accessors
+        /// <summary>
+        /// Gets the assembly title name.
+        /// </summary>
+        /// <value>The assembly title name.</value>
+        public static string AssemblyTitle
+        {
+            get
+            {
+                // Get all Title attributes on this assembly
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+                // If there is at least one Title attribute
+                if (attributes.Length > 0)
+                {
+                    // Select the first one
+                    AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
+                    // If it is not an empty string, return it
+                    if (!String.IsNullOrEmpty(titleAttribute.Title))
+                        return titleAttribute.Title;
+                }
+                // If there was no Title attribute, or if the Title attribute was the empty string, return the .exe name
+                return Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+            }
+        }
+
+        /// <summary>
+        /// Gets the assembly version.
+        /// </summary>
+        /// <value>The assembly version.</value>
+        public static string AssemblyVersion
+        {
+            get
+            {
+                return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the assembly description.
+        /// </summary>
+        /// <value>The assembly description.</value>
+        public static string AssemblyDescription
+        {
+            get
+            {
+                // Get all Description attributes on this assembly
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
+                // If there aren't any Description attributes, return an empty string
+                if (attributes.Length == 0)
+                    return "";
+                // If there is a Description attribute, return its value
+                return ((AssemblyDescriptionAttribute)attributes[0]).Description;
+            }
+        }
+
+        /// <summary>
+        /// Gets the assembly product.
+        /// </summary>
+        /// <value>The assembly product.</value>
+        public static string AssemblyProduct
+        {
+            get
+            {
+                // Get all Product attributes on this assembly
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+                // If there aren't any Product attributes, return an empty string
+                if (attributes.Length == 0)
+                    return "";
+                // If there is a Product attribute, return its value
+                return ((AssemblyProductAttribute)attributes[0]).Product;
+            }
+        }
+
+        /// <summary>
+        /// Gets the assembly copyright.
+        /// </summary>
+        /// <value>The assembly copyright.</value>
+        public static string AssemblyCopyright
+        {
+            get
+            {
+                // Get all Copyright attributes on this assembly
+                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+                // If there aren't any Copyright attributes, return an empty string
+                if (attributes.Length == 0)
+                    return "";
+                // If there is a Copyright attribute, return its value
+                return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+            }
+        }
+
+        #endregion
     }
 }

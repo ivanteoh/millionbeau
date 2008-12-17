@@ -17,10 +17,10 @@ namespace MillionBeauty
 
             productFindButton.Click += PoductFindButtonClick;
 
-            quantityRegexTextBox.CustomPattern = @"^\d+$";
+            quantityRegexTextBox.CustomPattern = Properties.Resources.NumberPattern;
             quantityRegexTextBox.Validating += QuantityRegexTextBoxValidating;
 
-            discountRegexTextBox.CustomPattern = @"^\d+([-+.]\d+)?$";
+            discountRegexTextBox.CustomPattern = Properties.Resources.CurrencyPattern;
             discountRegexTextBox.Validating += DiscountRegexTextBoxValidating;
             
             addButton.Click += AddButtonClick;

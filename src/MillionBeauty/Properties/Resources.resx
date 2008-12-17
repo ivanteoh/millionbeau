@@ -2345,7 +2345,7 @@
     <value>Customers List</value>
   </data>
   <data name="DataSource" xml:space="preserve">
-    <value>data source=\"{0}\"</value>
+    <value>data source="{0}"</value>
   </data>
   <data name="DeleteOrder" xml:space="preserve">
     <value>Are you sure you want to delete order {0}</value>
@@ -2448,5 +2448,21 @@
   </data>
   <data name="Zero" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="CurrencyPattern" xml:space="preserve">
+    <value>^\d+([-+.]\d+)?$</value>
+  </data>
+  <data name="NumberPattern" xml:space="preserve">
+    <value>^\d+$</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>About {0}</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AboutMB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AboutMB.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
