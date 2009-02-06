@@ -58,10 +58,10 @@ namespace MillionBeauty
 
         /// <type>Method</type>
         /// <summary>
-        /// Creates the connection.
+        /// Verify database.
         /// </summary>
         /// <param name="file">The file.</param>
-        public bool CreateConnection()
+        public bool VerifyDatabase()
         {
             bool isSuccess = true;
 
@@ -71,6 +71,44 @@ namespace MillionBeauty
                 {
                     connection.ConnectionString = dbConnectionStr;
                     connection.Open();
+
+                    DataRow[] foundTable = connection.GetSchema("Tables").Select("Table_Name='Versions'");
+                    if (foundTable.Length != 1)
+                    {
+                        CreateVersionTable(connection);
+                        InsertVersion(1.0);
+                    }
+
+                    foundTable = connection.GetSchema("Tables").Select("Table_Name='StrongKeys'");
+                    if (foundTable.Length != 1)
+                    {
+                        CreateStrongKeyTable(connection);
+                        GenerateDefaultStrongKey();
+                    }
+
+                    foundTable = connection.GetSchema("Tables").Select("Table_Name='Customers'");
+                    if (foundTable.Length != 1)
+                    {
+                        CreateCustomersTable(connection);
+                    }
+
+                    foundTable = connection.GetSchema("Tables").Select("Table_Name='Products'");
+                    if (foundTable.Length != 1)
+                    {
+                        CreateProductsTable(connection);
+                    }
+
+                    foundTable = connection.GetSchema("Tables").Select("Table_Name='Orders'");
+                    if (foundTable.Length != 1)
+                    {
+                        CreateOrdersTable(connection);
+                    }
+
+                    foundTable = connection.GetSchema("Tables").Select("Table_Name='OrderDetails'");
+                    if (foundTable.Length != 1)
+                    {
+                        CreateOrderDetailsTable(connection);
+                    }
                 }
             }
             catch (DbException ex)
@@ -94,6 +132,10 @@ namespace MillionBeauty
                 {
                     connection.ConnectionString = dbConnectionStr;
                     connection.Open();
+                    CreateVersionTable(connection);
+                    InsertVersion(1.0);
+                    CreateStrongKeyTable(connection);
+                    GenerateDefaultStrongKey();
                     CreateCustomersTable(connection);
                     CreateProductsTable(connection);
                     CreateOrdersTable(connection);
@@ -102,9 +144,139 @@ namespace MillionBeauty
             }
             catch (DbException ex)
             {
-                Console.WriteLine("FAIL - Create Table for String: {0}", ex.Message);
+                Console.WriteLine("FAIL - Create Table: {0}", ex.Message);
             }
-        }     
+        }
+
+        #region Version Table
+        /// <summary>
+        /// Create table for ID and string data.
+        /// </summary>
+        /// <param name="connection">Sqlite connection object that associate with the command.</param>
+        private static void CreateVersionTable(DbConnection connection)
+        {
+            using (DbCommand cmd = connection.CreateCommand())
+            {
+                cmd.CommandText =
+                    "CREATE TABLE Versions (" +
+                    "VersionId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "Version REAL NOT NULL)";
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void InsertVersion(
+            double version)
+        {
+            try
+            {
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText =
+                            "INSERT INTO Versions " +
+                            "(Version) " +
+                            "Values (@version)";
+                        DbParameter versionDb = cmd.CreateParameter();
+                        versionDb.ParameterName = "@version";
+                        versionDb.Value = version;
+                        cmd.Parameters.Add(versionDb);                        
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Insert Version: {0}", ex.Message);
+            }
+        }
+        #endregion Version Table
+
+        #region StrongKey Table
+        /// <summary>
+        /// Create table for ID and string data.
+        /// </summary>
+        /// <param name="connection">Sqlite connection object that associate with the command.</param>
+        private static void CreateStrongKeyTable(DbConnection connection)
+        {
+            using (DbCommand cmd = connection.CreateCommand())
+            {
+                cmd.CommandText =
+                    "CREATE TABLE StrongKeys (" +
+                    "StrongKeyId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "Name VARCHAR(100) NOT NULL, " +
+                    "StrongKey VARCHAR(100) NOT NULL)";
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void GenerateDefaultStrongKey()
+        {
+            try
+            {
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText =
+                            "INSERT INTO StrongKeys " +
+                            "(Name, StrongKey) " +
+                            "Values (@name, @strongKey)";
+
+                        DbParameter nameDb = cmd.CreateParameter();
+                        nameDb.ParameterName = "@name";
+                        nameDb.Value = "Default";
+                        cmd.Parameters.Add(nameDb);
+
+                        DbParameter strongKeyDb = cmd.CreateParameter();
+                        strongKeyDb.ParameterName = "@strongKey";
+                        strongKeyDb.Value = 1234;
+                        cmd.Parameters.Add(strongKeyDb);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Generate Default Strong Key: {0}", ex.Message);
+            }
+        }
+
+        public void UpdateDefaultStrongKey(
+            string strongKey)
+        {
+            try
+            {
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        string updateQuery =
+                            string.Format(CultureInfo.InvariantCulture,
+                            "UPDATE StrongKeys SET " +
+                            "StrongKey = '{0}' " +
+                            "WHERE Name = '{1}'",
+                            strongKey, "Default");
+                        cmd.CommandText = updateQuery;
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Update Default Strong Key: {0}", ex.Message);
+            }
+        }
+        #endregion StrongKey Table
 
         #region Customers Table
         /// <summary>

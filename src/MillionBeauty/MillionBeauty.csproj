@@ -290,7 +290,7 @@
     <None Include="Resources\AddCustomer.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\MB.ico" />
+    <None Include="Resources\MB.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">

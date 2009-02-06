@@ -49,6 +49,15 @@
 "Discount NUMERIC DEFAULT 0 NOT NULL, " +
 "TotalCost NUMERIC DEFAULT 0 NOT NULL)";
 
+"CREATE TABLE Versions (" +
+"VersionId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+"Version REAL NOT NULL)";
+
+"CREATE TABLE StrongKeys (" +
+"StrongKeyId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+"Name VARCHAR(100) NOT NULL, " +
+"StrongKey VARCHAR(100) NOT NULL)";
+
 Take note that Specification of the product is not include in the order details, that is what you want.
 
 Mr. Mrs. Mdm. Ms. Miss Dr.

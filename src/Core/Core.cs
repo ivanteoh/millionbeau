@@ -23,7 +23,7 @@ namespace MillionBeauty
         public static void LoadDatabase(string connectionString)
         {
             DatabaseBuilder.Instance.ConnectionString = connectionString;
-            DatabaseBuilder.Instance.CreateConnection();
+            DatabaseBuilder.Instance.VerifyDatabase();
         }
 
         public static FixedDocumentSequence LoadReceiptDocument(

@@ -74,7 +74,7 @@ namespace MillionBeauty
             }
 #else
             // Debug code: Straight away run main form
-            Properties.Settings.Default.Database = @"D:\work\Data\MillionBeautyDB.db";
+            Properties.Settings.Default.Database = @"D:\work\Data\MillionBeautyDB1_0.db";
             Application.Run(new MainForm());
 #endif
         }
