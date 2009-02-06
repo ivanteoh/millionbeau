@@ -2,9 +2,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Title="Main">
+    <Page.Resources>
+        <SolidColorBrush x:Key="backgroundBrush">#333333</SolidColorBrush>
+        <SolidColorBrush x:Key="foregroundBrush">White</SolidColorBrush>
+    </Page.Resources>
     <Grid>
         <Grid.Background>
-            <SolidColorBrush>#333333</SolidColorBrush>
+            <StaticResource ResourceKey="backgroundBrush" />            
         </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -21,35 +25,35 @@
                 ToolTip="Customers List" Click="customersButton_Click">
             <Image Source="..\Resources\Customers.png"></Image>
         </Button>
-        <Label Grid.Row="0" Grid.Column="1" Foreground="White"
+        <Label Grid.Row="0" Grid.Column="1" Foreground="{StaticResource foregroundBrush}"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             Customers List
         </Label>
         <Button Grid.Row="0" Grid.Column="2" ToolTip="Add Order">
             <Image Source="..\Resources\AddOrder.png"></Image>
         </Button>
-        <Label Grid.Row="0" Grid.Column="3" Foreground="White" 
+        <Label Grid.Row="0" Grid.Column="3" Foreground="{StaticResource foregroundBrush}" 
                VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             Add Order
         </Label>
         <Button Grid.Row="1" Grid.Column="0" ToolTip="Products List">
             <Image Source="..\Resources\Products.png"></Image>
         </Button>
-        <Label Grid.Row="1" Grid.Column="1" Foreground="White"
+        <Label Grid.Row="1" Grid.Column="1" Foreground="{StaticResource foregroundBrush}"
                VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             Products List
         </Label>
         <Button Grid.Row="1" Grid.Column="2" ToolTip="Orders List">
             <Image Source="..\Resources\Orders.png"></Image>
         </Button>
-        <Label Grid.Row="1" Grid.Column="3" Foreground="White"  
+        <Label Grid.Row="1" Grid.Column="3" Foreground="{StaticResource foregroundBrush}"  
                VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             Orders List
         </Label>
         <Button Name="optionsButton" Grid.Row="2" Grid.Column="0" ToolTip="Options" Click="optionsButton_Click">
             <Image Source="..\Resources\Tools.png"></Image>
         </Button>
-        <Label Grid.Row="2" Grid.Column="1" Foreground="White" 
+        <Label Grid.Row="2" Grid.Column="1" Foreground="{StaticResource foregroundBrush}" 
                VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             Options
         </Label>

@@ -75,6 +75,7 @@ namespace MillionBeauty
                 Properties.Settings.Default.Database = saveFileDialog.FileName;
                 Properties.Settings.Default.Save();
                 System.Windows.Forms.Application.Restart();
+                Application.Current.Shutdown();
             }
         }
 
@@ -93,6 +94,12 @@ namespace MillionBeauty
                 return;
             }
 
+            string connectionString = string.Format(
+                CultureInfo.InvariantCulture,
+                Properties.Resources.DataSource,
+                openFileDialog.FileName);
+            Core.LoadDatabase(connectionString);
+
             MessageBox.Show(
                 Properties.Resources.RestartLoadDatabase,
                 Properties.Resources.Title,
@@ -104,6 +111,7 @@ namespace MillionBeauty
             Properties.Settings.Default.Database = openFileDialog.FileName;
             Properties.Settings.Default.Save();
             System.Windows.Forms.Application.Restart();
+            Application.Current.Shutdown();
         }
     }
 }
