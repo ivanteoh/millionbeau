@@ -27,4 +27,10 @@ Change Log :
 - Change admin password.
 - Change company info.
 
--- Ivan Teoh. Dec 17, 2008
+1.1
+- Add database version table for update database purpose.
+- Add user password table for database administer purpose.
+- Add default password in database: Plan to keep the password in database instead configuration file.
+- Add verifying database method for adding two new tables to the old database.
+ 
+-- Ivan Teoh. Feb 06, 2009
