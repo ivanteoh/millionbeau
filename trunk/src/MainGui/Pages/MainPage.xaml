@@ -1,0 +1,57 @@
+﻿<Page x:Class="MillionBeauty.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Main">
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush>#333333</SolidColorBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button Name="customersButton" Grid.Row="0" Grid.Column="0" 
+                ToolTip="Customers List" Click="customersButton_Click">
+            <Image Source="..\Resources\Customers.png"></Image>
+        </Button>
+        <Label Grid.Row="0" Grid.Column="1" Foreground="White"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            Customers List
+        </Label>
+        <Button Grid.Row="0" Grid.Column="2" ToolTip="Add Order">
+            <Image Source="..\Resources\AddOrder.png"></Image>
+        </Button>
+        <Label Grid.Row="0" Grid.Column="3" Foreground="White" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            Add Order
+        </Label>
+        <Button Grid.Row="1" Grid.Column="0" ToolTip="Products List">
+            <Image Source="..\Resources\Products.png"></Image>
+        </Button>
+        <Label Grid.Row="1" Grid.Column="1" Foreground="White"
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            Products List
+        </Label>
+        <Button Grid.Row="1" Grid.Column="2" ToolTip="Orders List">
+            <Image Source="..\Resources\Orders.png"></Image>
+        </Button>
+        <Label Grid.Row="1" Grid.Column="3" Foreground="White"  
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            Orders List
+        </Label>
+        <Button Name="optionsButton" Grid.Row="2" Grid.Column="0" ToolTip="Options" Click="optionsButton_Click">
+            <Image Source="..\Resources\Tools.png"></Image>
+        </Button>
+        <Label Grid.Row="2" Grid.Column="1" Foreground="White" 
+               VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            Options
+        </Label>
+    </Grid>
+</Page>
