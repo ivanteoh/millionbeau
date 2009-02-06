@@ -1,0 +1,18 @@
+﻿<Page x:Class="MillionBeauty.DatabasePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Database Tab" Loaded="page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">Currently the database is</Label>
+        <TextBlock Name="databaseTextBlock" Grid.Row="1"></TextBlock>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Name="newButton" Click="newButton_Click">New</Button>
+            <Button Name="loadButton" Click="loadButton_Click">Load</Button>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,17 @@
+﻿<Page x:Class="MillionBeauty.CustomersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"  
+    Title="Customers List">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <toolkit:DataGrid Grid.Row="0">            
+        </toolkit:DataGrid>
+        <Button Name="addButton" Grid.Row="1" 
+                HorizontalAlignment="Right"
+                Click="addButton_Click">Add</Button>
+    </Grid>
+</Page>
