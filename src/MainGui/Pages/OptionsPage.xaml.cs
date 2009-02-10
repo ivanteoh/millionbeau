@@ -50,15 +50,13 @@ namespace MillionBeauty
         {
             databaseFrame.Navigate(new Uri("Pages/DatabasePage.xaml", UriKind.Relative));
 
-            companyNameTextBox.Text = Properties.Settings.Default.CompanyName;
-            companyNumberTextBox.Text = Properties.Settings.Default.CompanyNumber;
-            companyContactTextBox.Text = Properties.Settings.Default.CompanyContact;
-            EnableTextBox(false);
-        }
+            CompanyInfo companyInfo = DatabaseBuilder.Instance.CompanyInfo;
 
-        #region Database Tag
-        
-        #endregion Database Tag
+            companyNameTextBox.Text = companyInfo.CompanyName;
+            companyNumberTextBox.Text = companyInfo.CompanyNumber;
+            companyContactTextBox.Text = companyInfo.CompanyContact;
+            EnableTextBox(false);
+        }        
 
         #region Password Tag
         private void okButton_Click(object sender, RoutedEventArgs e)
@@ -68,14 +66,7 @@ namespace MillionBeauty
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Properties.Settings.Default.GotDatabase)
-            {
-                Application.Current.MainWindow.Close();
-            }
-            else
-            {
-                this.NavigationService.Navigate(new Uri("Pages/MainPage.xaml", UriKind.Relative));
-            }
+            this.NavigationService.Navigate(new Uri("Pages/MainPage.xaml", UriKind.Relative));
         }
         #endregion Password Tag
 
@@ -96,10 +87,12 @@ namespace MillionBeauty
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.CompanyName = companyNameTextBox.Text;
-            Properties.Settings.Default.CompanyNumber = companyNumberTextBox.Text;
-            Properties.Settings.Default.CompanyContact = companyContactTextBox.Text;
-            Properties.Settings.Default.Save();
+            CompanyInfo companyInfo = new CompanyInfo();
+
+            companyInfo.CompanyName = companyNameTextBox.Text;
+            companyInfo.CompanyNumber = companyNumberTextBox.Text;
+            companyInfo.CompanyContact = companyContactTextBox.Text;
+            DatabaseBuilder.Instance.CompanyInfo = companyInfo;            
             EnableTextBox(false);      
         }
         #endregion Company Tag
@@ -199,14 +192,7 @@ namespace MillionBeauty
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!Properties.Settings.Default.GotDatabase)
-            {
-                Application.Current.MainWindow.Close();
-            }
-            else
-            {
-                this.NavigationService.Navigate(new Uri("Pages/MainPage.xaml", UriKind.Relative));
-            }
+            this.NavigationService.Navigate(new Uri("Pages/MainPage.xaml", UriKind.Relative));
         }
         #endregion About Tag
 

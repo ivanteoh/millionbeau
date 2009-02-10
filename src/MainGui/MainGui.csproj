@@ -111,6 +111,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSetFactory.cs" />
     <Compile Include="Pages\CustomerPage.xaml.cs">
       <DependentUpon>CustomerPage.xaml</DependentUpon>
     </Compile>

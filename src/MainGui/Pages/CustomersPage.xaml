@@ -1,14 +1,23 @@
 ﻿<Page x:Class="MillionBeauty.CustomersPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"  
+    xmlns:toolkit="http://schemas.microsoft.com/wpf/2008/toolkit"
+    xmlns:local="clr-namespace:MillionBeauty"
     Title="Customers List">
+    <Page.Resources>
+        <ObjectDataProvider 
+            x:Key="customerDataProvider"
+            MethodName="CustomersTable"
+            ObjectType="{x:Type local:DataSetFactory}" />
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <toolkit:DataGrid Grid.Row="0">            
+        <toolkit:DataGrid Grid.Row="0" 
+                          DataContext="{StaticResource customerDataProvider}" 
+                          ItemsSource="{Binding Table}">            
         </toolkit:DataGrid>
         <Button Name="addButton" Grid.Row="1" 
                 HorizontalAlignment="Right"
