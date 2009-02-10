@@ -39,10 +39,10 @@ namespace MillionBeauty
             }
 #else
             // Debug code: Straight away run main form
-            Properties.Settings.Default.Database = @"D:\work\Data\MillionBeautyDB1_0.db";
-            //this.Source = new Uri("Pages/MainPage.xaml", UriKind.Relative);
-            this.Source = new Uri("Pages/DatabasePage.xaml", UriKind.Relative);
+            Properties.Settings.Default.Database = @"D:\work\Data\MillionBeautyDB.db";
+            this.Source = new Uri("Pages/MainPage.xaml", UriKind.Relative);
+            //this.Source = new Uri("Pages/DatabasePage.xaml", UriKind.Relative);
 #endif            
-        }        
+        }              
     }
 }

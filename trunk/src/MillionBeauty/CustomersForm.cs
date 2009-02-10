@@ -16,7 +16,7 @@ namespace MillionBeauty
 
         internal protected override void FormLoad()
         {
-            DataSetSource = DatabaseBuilder.Instance.CustomersTable; 
+            DataSetSource = DatabaseBuilder.Instance.CustomersTable.Tables[0]; 
         }
 
         internal protected override void AddButtonClicked()
@@ -30,7 +30,7 @@ namespace MillionBeauty
             DialogResult result = insertCustomerForm.ShowDialog(this);
             if (result == DialogResult.OK)
             {
-                DataSetSource = DatabaseBuilder.Instance.CustomersTable;
+                DataSetSource = DatabaseBuilder.Instance.CustomersTable.Tables[0];
             }
             base.ShowAddDialog();
         }
@@ -51,7 +51,7 @@ namespace MillionBeauty
                 DialogResult result = updateCustomerForm.ShowDialog(this);
                 if (result == DialogResult.OK)
                 {
-                    DataSetSource = DatabaseBuilder.Instance.CustomersTable;
+                    DataSetSource = DatabaseBuilder.Instance.CustomersTable.Tables[0];
                 }
             }
             base.ShowEnterDialog();
@@ -73,7 +73,7 @@ namespace MillionBeauty
                 if (result == DialogResult.OK)
                 {
                     DatabaseBuilder.Instance.DeleteCustomer(index);
-                    DataSetSource = DatabaseBuilder.Instance.CustomersTable;
+                    DataSetSource = DatabaseBuilder.Instance.CustomersTable.Tables[0];
                 }
 
             }

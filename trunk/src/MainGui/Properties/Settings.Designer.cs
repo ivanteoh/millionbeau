@@ -46,53 +46,5 @@ namespace MillionBeauty.Properties {
                 this["Database"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1234")]
-        public string Key {
-            get {
-                return ((string)(this["Key"]));
-            }
-            set {
-                this["Key"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CompanyName {
-            get {
-                return ((string)(this["CompanyName"]));
-            }
-            set {
-                this["CompanyName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CompanyNumber {
-            get {
-                return ((string)(this["CompanyNumber"]));
-            }
-            set {
-                this["CompanyNumber"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CompanyContact {
-            get {
-                return ((string)(this["CompanyContact"]));
-            }
-            set {
-                this["CompanyContact"] = value;
-            }
-        }
     }
 }

@@ -86,6 +86,13 @@ namespace MillionBeauty
                         GenerateDefaultStrongKey();
                     }
 
+                    foundTable = connection.GetSchema("Tables").Select("Table_Name='CompanyInfo'");
+                    if (foundTable.Length != 1)
+                    {
+                        CreateCompanyInfoTable(connection);
+                        GenerateEmptyCompanyInfo();
+                    }
+
                     foundTable = connection.GetSchema("Tables").Select("Table_Name='Customers'");
                     if (foundTable.Length != 1)
                     {
@@ -136,6 +143,8 @@ namespace MillionBeauty
                     InsertVersion(1.0);
                     CreateStrongKeyTable(connection);
                     GenerateDefaultStrongKey();
+                    CreateCompanyInfoTable(connection);
+                    GenerateEmptyCompanyInfo();
                     CreateCustomersTable(connection);
                     CreateProductsTable(connection);
                     CreateOrdersTable(connection);
@@ -278,6 +287,144 @@ namespace MillionBeauty
         }
         #endregion StrongKey Table
 
+        #region Company Info Table
+        /// <summary>
+        /// Create table for ID and string data.
+        /// </summary>
+        /// <param name="connection">Sqlite connection object that associate with the command.</param>
+        private static void CreateCompanyInfoTable(DbConnection connection)
+        {
+            using (DbCommand cmd = connection.CreateCommand())
+            {
+                cmd.CommandText =
+                    "CREATE TABLE CompanyInfo (" +
+                    "CompanyInfoId INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "Name VARCHAR(100), " +
+                    "Number VARCHAR(100), " +
+                    "Contact VARCHAR(1000))";
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void GenerateEmptyCompanyInfo()
+        {
+            try
+            {
+                using (DbConnection connection = fact.CreateConnection())
+                {
+                    connection.ConnectionString = dbConnectionStr;
+                    connection.Open();
+                    using (DbCommand cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText =
+                            "INSERT INTO CompanyInfo " +
+                            "(Name, Number, Contact) " +
+                            "Values (@name, @number, @contact)";
+
+                        DbParameter nameDb = cmd.CreateParameter();
+                        nameDb.ParameterName = "@name";
+                        nameDb.Value = "";
+                        cmd.Parameters.Add(nameDb);
+
+                        DbParameter numberDb = cmd.CreateParameter();
+                        numberDb.ParameterName = "@number";
+                        numberDb.Value = "";
+                        cmd.Parameters.Add(numberDb);
+
+                        DbParameter contactDb = cmd.CreateParameter();
+                        contactDb.ParameterName = "@contact";
+                        contactDb.Value = "";
+                        cmd.Parameters.Add(contactDb);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (DbException ex)
+            {
+                Console.WriteLine("FAIL - Generate Empty Company Info: {0}", ex.Message);
+            }
+        }
+
+        public void UpdateCompanyInfo(
+            string name, string number, string contact)
+        {
+            
+        }
+
+        public CompanyInfo CompanyInfo 
+        {
+            get
+            {
+                CompanyInfo companyInfo = new CompanyInfo();
+                DataSet dataSet = new DataSet();
+                dataSet.Locale = CultureInfo.InvariantCulture;
+
+                try
+                {
+                    using (DbConnection connection = fact.CreateConnection())
+                    {
+                        connection.ConnectionString = dbConnectionStr;
+                        connection.Open();
+                        using (DbCommand cmd = connection.CreateCommand())
+                        {
+                            string companyInfoQuery =
+                                string.Format(CultureInfo.InvariantCulture, "SELECT * FROM CompanyInfo WHERE CompanyInfoId = '1'");
+                            cmd.CommandText = companyInfoQuery;
+
+                            using (DbDataAdapter dataAdapter = fact.CreateDataAdapter())
+                            {
+                                dataAdapter.SelectCommand = cmd;
+                                dataAdapter.FillSchema(dataSet, SchemaType.Mapped);
+                                dataAdapter.Fill(dataSet);
+                            }
+                        }
+                    }
+                }
+                catch (DbException ex)
+                {
+                    Console.WriteLine("FAIL - Get Company Info: {0}", ex.Message);
+                }
+
+                Object[] items = dataSet.Tables[0].Rows[0].ItemArray;
+                companyInfo.CompanyName = items[1] as string;
+                companyInfo.CompanyNumber = items[2] as string;
+                companyInfo.CompanyContact = items[3] as string;
+
+                return companyInfo;                
+            }
+
+            set
+            {
+                try
+                {
+                    using (DbConnection connection = fact.CreateConnection())
+                    {
+                        connection.ConnectionString = dbConnectionStr;
+                        connection.Open();
+                        using (DbCommand cmd = connection.CreateCommand())
+                        {
+                            string updateQuery =
+                                string.Format(CultureInfo.InvariantCulture,
+                                "UPDATE CompanyInfo SET " +
+                                "Name = '{0}', " +
+                                "Number = '{1}', " +
+                                "Contact = '{2}' " +
+                                "WHERE CompanyInfoId = '{3}'",
+                                value.CompanyName, value.CompanyNumber, value.CompanyContact, "1");
+                            cmd.CommandText = updateQuery;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (DbException ex)
+                {
+                    Console.WriteLine("FAIL - Set Company Info: {0}", ex.Message);
+                }
+            } 
+        }
+        #endregion Company Info Table
+
         #region Customers Table
         /// <summary>
         /// Create table for ID and string data.
@@ -301,7 +448,7 @@ namespace MillionBeauty
             }
         }
 
-        public object CustomersTable 
+        public DataSet CustomersTable 
         {
             get
             {
@@ -332,7 +479,8 @@ namespace MillionBeauty
                     Console.WriteLine("FAIL - Customers Table: {0}", ex.Message);
                 }
 
-                return dataSet.Tables[0];
+                //return dataSet.Tables[0];
+                return dataSet;
             }
         }
 

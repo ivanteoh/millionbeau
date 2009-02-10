@@ -25,7 +25,7 @@ namespace MillionBeauty
             DatabaseBuilder.Instance.ConnectionString = connectionString;
             DatabaseBuilder.Instance.VerifyDatabase();
         }
-
+        
         public static FixedDocumentSequence LoadReceiptDocument(
             string orderId,
             string companyName,

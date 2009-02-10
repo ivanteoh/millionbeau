@@ -1,7 +1,7 @@
 ﻿<Page x:Class="MillionBeauty.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Main">
+    Title="Main" Loaded="page_Loaded">
     <Page.Resources>
         <SolidColorBrush x:Key="backgroundBrush">#333333</SolidColorBrush>
         <SolidColorBrush x:Key="foregroundBrush">White</SolidColorBrush>
