@@ -24,6 +24,7 @@ namespace MillionBeauty
             Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.About, AssemblyTitle);
             labelProductName.Text = AssemblyProduct;
             labelVersion.Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.Version, AssemblyVersion);
+            labelDatabaseVersion.Text = String.Format(CultureInfo.InvariantCulture, Properties.Resources.DatabaseVersion, DatabaseVersion);
             labelCopyright.Text = AssemblyCopyright;
             textBoxDescription.Text = AssemblyDescription;
 
@@ -47,9 +48,11 @@ namespace MillionBeauty
             }
             databaseLabel.Text = Properties.Settings.Default.Database;
 
-            nameTextBox.Text = Properties.Settings.Default.CompanyName;
-            numberTextBox.Text = Properties.Settings.Default.CompanyNumber;
-            contactTextBox.Text = Properties.Settings.Default.CompanyContact;
+            CompanyInfo companyInfo = DatabaseBuilder.Instance.CompanyInfo;
+
+            nameTextBox.Text = companyInfo.CompanyName;
+            numberTextBox.Text = companyInfo.CompanyNumber;
+            contactTextBox.Text = companyInfo.CompanyContact;
             EnableTextBox(false);
         }
 
@@ -113,23 +116,18 @@ namespace MillionBeauty
                 Properties.Settings.Default.Save();
                 Application.Restart();                   
             }
-            openFileDialog.Dispose();    
+            openFileDialog.Dispose();
         }
 
-        private void CancelButtonClick(object sender, EventArgs e)
-        {
-            Close();
-        }
-
+        #region Password Tag 
         private void OkButtonClick(object sender, EventArgs e)
         {
-            if (keyTextBox.Text == Properties.Settings.Default.Key)
+            if (DatabaseBuilder.Instance.CompareDefaultStrongKey(keyTextBox.Text))
             {
                 if (enterTextBox.Text == reEnterTextBox.Text)
                 {
-                    Properties.Settings.Default.Key = enterTextBox.Text;
-                    Properties.Settings.Default.Save();
-
+                    DatabaseBuilder.Instance.UpdateDefaultStrongKey(enterTextBox.Text);
+                    
                     MessageBox.Show(
                     Properties.Resources.PasswordChanged,
                     Properties.Resources.Title,
@@ -167,12 +165,28 @@ namespace MillionBeauty
             }
         }
 
+        private void CancelButtonClick(object sender, EventArgs e)
+        {
+            Close();
+        }
+        #endregion Password Tag
+
+        #region Company Tag
+        private void EnableTextBox(bool isEnable)
+        {
+            nameTextBox.Enabled = isEnable;
+            numberTextBox.Enabled = isEnable;
+            contactTextBox.Enabled = isEnable;
+            saveButton.Enabled = isEnable;
+            editButton.Enabled = !isEnable;
+        }
+
         private void EditButtonClick(object sender, EventArgs e)
         {
             EnterKeyForm enterKeyForm = new EnterKeyForm();
             if (enterKeyForm.ShowDialog(this) == DialogResult.OK)
             {
-                if (enterKeyForm.Key == Properties.Settings.Default.Key)
+                if (DatabaseBuilder.Instance.CompareDefaultStrongKey(enterKeyForm.Key))
                 {
                     EnableTextBox(true);
                 }
@@ -192,22 +206,17 @@ namespace MillionBeauty
 
         private void SaveButtonClick(object sender, EventArgs e)
         {
-            Properties.Settings.Default.CompanyName = nameTextBox.Text;
-            Properties.Settings.Default.CompanyNumber = numberTextBox.Text;
-            Properties.Settings.Default.CompanyContact = contactTextBox.Text;
-            Properties.Settings.Default.Save();
+            CompanyInfo companyInfo = new CompanyInfo();
+
+            companyInfo.CompanyName = nameTextBox.Text;
+            companyInfo.CompanyNumber = numberTextBox.Text;
+            companyInfo.CompanyContact = contactTextBox.Text;
+            DatabaseBuilder.Instance.CompanyInfo = companyInfo;   
             EnableTextBox(false);         
         }
+        #endregion Company Tag
 
-        private void EnableTextBox(bool isEnable)
-        {
-            nameTextBox.Enabled = isEnable;
-            numberTextBox.Enabled = isEnable;
-            contactTextBox.Enabled = isEnable;
-            saveButton.Enabled = isEnable;
-            editButton.Enabled = !isEnable;
-        }
-
+        #region About Tag
         private void CloseButtonClick(object sender, EventArgs e)
         {
             Close();
@@ -247,6 +256,18 @@ namespace MillionBeauty
             get
             {
                 return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the database version.
+        /// </summary>
+        /// <value>The database version.</value>
+        public static string DatabaseVersion
+        {
+            get
+            {
+                return DatabaseBuilder.Instance.DatabaseVersion.ToString();
             }
         }
 
@@ -305,5 +326,6 @@ namespace MillionBeauty
         }
 
         #endregion
+        #endregion About Tag
     }
 }

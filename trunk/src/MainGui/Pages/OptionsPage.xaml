@@ -18,17 +18,19 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+														<RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Label Grid.Row="0" Grid.Column="0">Current password</Label>
-                        <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
+                        <PasswordBox Name="keyTextBox" MaxLength="99" Grid.Row="0" Grid.Column="1" />
                         <Label Grid.Row="1" Grid.Column="0">Enter new password</Label>
-                        <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+                        <PasswordBox Name="enterTextBox" MaxLength="99" Grid.Row="1" Grid.Column="1" />
                         <Label Grid.Row="2" Grid.Column="0">Re-enter password</Label>
-                        <TextBox Grid.Row="2" Grid.Column="1"></TextBox>
+                        <PasswordBox Name="reEnterTextBox" MaxLength="99" Grid.Row="2" Grid.Column="1" />
+												<Label Name="passwordStatusLabel" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" />
                     </Grid>
                     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button Name="okButton" Click="okButton_Click">OK</Button>
@@ -75,15 +77,17 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2*"/>
+												<ColumnDefinition Width="2*" />
                     </Grid.ColumnDefinitions>
                     <Image Grid.Row="0" Grid.RowSpan="5" Grid.Column="0" Source="..\Resources\AboutMB.png" />
-                    <Label Name="productNameLabel" Grid.Row="0" Grid.Column="1">Product Name</Label>
+                    <Label Name="productNameLabel" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">Product Name</Label>
                     <Label Name="versionLabel"  Grid.Row="1" Grid.Column="1">Version</Label>
-                    <Label Name="copyrightLabel" Grid.Row="2" Grid.Column="1">Copyright</Label>
-                    <TextBox Name="descriptionTextBox" Grid.Row="3" Grid.Column="1" IsReadOnly="True">Description</TextBox>
-                    <Button Name="closeButton" Grid.Row="4" Grid.Column="1" 
+										<Label Name="databaseVersionLabel"  Grid.Row="1" Grid.Column="2">Database Version</Label>
+                    <Label Name="copyrightLabel" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">Copyright</Label>
+                    <TextBox Name="descriptionTextBox" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="True">Description</TextBox>
+                    <Button Name="closeButton" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" 
                             HorizontalAlignment="Right" Click="closeButton_Click">Close</Button>
                 </Grid>
             </TabItem>

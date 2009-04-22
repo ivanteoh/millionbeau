@@ -159,6 +159,15 @@ namespace MillionBeauty.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Database Version {0}.
+        /// </summary>
+        internal static string DatabaseVersion {
+            get {
+                return ResourceManager.GetString("DatabaseVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to data source=&quot;{0}&quot;.
         /// </summary>
         internal static string DataSource {
