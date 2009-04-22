@@ -41,6 +41,10 @@ namespace MillionBeauty
                 CultureInfo.InvariantCulture, 
                 Properties.Resources.Version, 
                 AssemblyVersion);
+            databaseVersionLabel.Content = String.Format(
+                CultureInfo.InvariantCulture,
+                Properties.Resources.DatabaseVersion,
+                DatabaseVersion);
             copyrightLabel.Content = AssemblyCopyright;
             descriptionTextBox.Text = AssemblyDescription;
             #endregion About Tag
@@ -61,7 +65,27 @@ namespace MillionBeauty
         #region Password Tag
         private void okButton_Click(object sender, RoutedEventArgs e)
         {
+            if (DatabaseBuilder.Instance.CompareDefaultStrongKey(keyTextBox.Password))
+            {
+                if (enterTextBox.Password == reEnterTextBox.Password)
+                {
+                    DatabaseBuilder.Instance.UpdateDefaultStrongKey(enterTextBox.Password);
 
+                    passwordStatusLabel.Content = Properties.Resources.PasswordChanged;
+                }
+                else
+                {
+                    passwordStatusLabel.Content = Properties.Resources.ErrorReenterPassword;
+                }
+            }
+            else
+            {
+                passwordStatusLabel.Content = Properties.Resources.ErrorWrongPassword;
+            }
+
+            keyTextBox.Clear();
+            enterTextBox.Clear();
+            reEnterTextBox.Clear();
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
@@ -98,6 +122,11 @@ namespace MillionBeauty
         #endregion Company Tag
 
         #region About Tag
+        private void closeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Pages/MainPage.xaml", UriKind.Relative));
+        }
+
         #region Assembly Attribute Accessors
         /// <summary>
         /// Gets the assembly title name.
@@ -132,6 +161,18 @@ namespace MillionBeauty
             get
             {
                 return Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Gets the database version.
+        /// </summary>
+        /// <value>The database version.</value>
+        public static string DatabaseVersion
+        {
+            get
+            {
+                return DatabaseBuilder.Instance.DatabaseVersion.ToString();
             }
         }
 
@@ -189,11 +230,6 @@ namespace MillionBeauty
             }
         }
         #endregion Assembly Attribute Accessors
-
-        private void closeButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Pages/MainPage.xaml", UriKind.Relative));
-        }
         #endregion About Tag
 
         

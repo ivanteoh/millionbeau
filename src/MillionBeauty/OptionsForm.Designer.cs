@@ -57,6 +57,7 @@
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.labelProductName = new System.Windows.Forms.Label();
             this.labelVersion = new System.Windows.Forms.Label();
+            this.labelDatabaseVersion = new System.Windows.Forms.Label();
             this.labelCopyright = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.closeButton = new System.Windows.Forms.Button();
@@ -240,6 +241,7 @@
             resources.ApplyResources(this.tableLayoutPanel, "tableLayoutPanel");
             this.tableLayoutPanel.Controls.Add(this.labelProductName, 1, 0);
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 1, 1);
+            this.tableLayoutPanel.Controls.Add(this.labelDatabaseVersion, 2, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 1, 2);
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 3);
             this.tableLayoutPanel.Controls.Add(this.closeButton, 1, 4);
@@ -248,6 +250,7 @@
             // 
             // labelProductName
             // 
+            this.tableLayoutPanel.SetColumnSpan(this.labelProductName, 2);
             resources.ApplyResources(this.labelProductName, "labelProductName");
             this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelProductName.Name = "labelProductName";
@@ -258,14 +261,22 @@
             this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelVersion.Name = "labelVersion";
             // 
+            // labelDatabaseVersion
+            // 
+            resources.ApplyResources(this.labelDatabaseVersion, "labelDatabaseVersion");
+            this.labelDatabaseVersion.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelDatabaseVersion.Name = "labelDatabaseVersion";
+            // 
             // labelCopyright
             // 
+            this.tableLayoutPanel.SetColumnSpan(this.labelCopyright, 2);
             resources.ApplyResources(this.labelCopyright, "labelCopyright");
             this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
             this.labelCopyright.Name = "labelCopyright";
             // 
             // textBoxDescription
             // 
+            this.tableLayoutPanel.SetColumnSpan(this.textBoxDescription, 2);
             resources.ApplyResources(this.textBoxDescription, "textBoxDescription");
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
@@ -274,6 +285,7 @@
             // closeButton
             // 
             resources.ApplyResources(this.closeButton, "closeButton");
+            this.tableLayoutPanel.SetColumnSpan(this.closeButton, 2);
             this.closeButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.closeButton.Name = "closeButton";
             // 
@@ -345,5 +357,6 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.PictureBox logoPictureBox;
+        private System.Windows.Forms.Label labelDatabaseVersion;
     }
 }

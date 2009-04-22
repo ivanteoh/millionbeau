@@ -61,11 +61,38 @@ namespace MillionBeauty.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Database Version {0}.
+        /// </summary>
+        internal static string DatabaseVersion {
+            get {
+                return ResourceManager.GetString("DatabaseVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to data source=&quot;{0}&quot;.
         /// </summary>
         internal static string DataSource {
             get {
                 return ResourceManager.GetString("DataSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Re-enter password not the same. Please try it again..
+        /// </summary>
+        internal static string ErrorReenterPassword {
+            get {
+                return ResourceManager.GetString("ErrorReenterPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong password. Please try it again..
+        /// </summary>
+        internal static string ErrorWrongPassword {
+            get {
+                return ResourceManager.GetString("ErrorWrongPassword", resourceCulture);
             }
         }
         
@@ -91,6 +118,15 @@ namespace MillionBeauty.Properties {
         internal static string OpenFileTitle {
             get {
                 return ResourceManager.GetString("OpenFileTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password changed..
+        /// </summary>
+        internal static string PasswordChanged {
+            get {
+                return ResourceManager.GetString("PasswordChanged", resourceCulture);
             }
         }
         

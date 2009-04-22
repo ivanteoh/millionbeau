@@ -29,7 +29,7 @@ namespace MillionBeauty
             EnterKeyForm enterKeyForm = new EnterKeyForm();
             if (enterKeyForm.ShowDialog(this) == DialogResult.OK)
             {
-                if (enterKeyForm.Key == Properties.Settings.Default.Key)
+                if (DatabaseBuilder.Instance.CompareDefaultStrongKey(enterKeyForm.Key))
                 {
                     EditView();
                 }
@@ -52,7 +52,7 @@ namespace MillionBeauty
             EnterKeyForm enterKeyForm = new EnterKeyForm();
             if (enterKeyForm.ShowDialog(this) == DialogResult.OK)
             {
-                if (enterKeyForm.Key == Properties.Settings.Default.Key)
+                if (DatabaseBuilder.Instance.CompareDefaultStrongKey(enterKeyForm.Key))
                 {
                     if (string.IsNullOrEmpty(OrderId))
                         return;

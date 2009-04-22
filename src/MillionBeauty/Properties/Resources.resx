@@ -2600,4 +2600,7 @@
         L2cBDEug/AI+gRLDxRcorPzZA4UbMaTGl2m9wppf/w+IGZCVcTgWsAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="DatabaseVersion" xml:space="preserve">
+    <value>Database Version {0}</value>
+  </data>
 </root>
