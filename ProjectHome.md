@@ -1,0 +1,1 @@
+This application is written for a friend of mine. He needs a database application to keep product and order records.
